@@ -1,7 +1,7 @@
 <?php
 
 /***********************************************************\
-|* Frequency CMS v1.0.0                                    *|
+|* frequencyCMS v1.0.0                                     *|
 |* Author: Djordje Jocic                                   *|
 |* Year: 2014                                              *|
 |* ------------------------------------------------------- *|
@@ -53,6 +53,7 @@ $LCL_ERROR_LINKS["invalid-birthday-date"]           = "invalid-birthday-date";
 $LCL_ERROR_LINKS["username-empty"]                  = "username-empty";
 $LCL_ERROR_LINKS["username-length"]                 = "username-length";
 $LCL_ERROR_LINKS["username-content"]                = "username-content";
+$LCL_ERROR_LINKS["current-password"]                = "current-password";
 $LCL_ERROR_LINKS["password-empty"]                  = "password-empty";
 $LCL_ERROR_LINKS["password-length"]                 = "password-length";
 $LCL_ERROR_LINKS["password-content"]                = "password-content";
@@ -101,6 +102,10 @@ $LCL_ERROR_LINKS["title-length"]                    = "title-length";
 $LCL_ERROR_LINKS["content-empty"]                   = "content-empty";
 $LCL_ERROR_LINKS["content-length"]                  = "content-length";
 $LCL_ERROR_LINKS["invalid-user"]                    = "invalid-user";
+$LCL_ERROR_LINKS["deactivation-failed"]             = "deactivation-failed";
+$LCL_ERROR_LINKS["status-length"]                   = "status-length";
+$LCL_ERROR_LINKS["biography-length"]                = "biography-length";
+$LCL_ERROR_LINKS["deactivated-user"]                = "deactivated-user";
 
 // "Error Title" Locales.
 
@@ -137,6 +142,7 @@ $LCL_ERROR_CONTENT["invalid-birthday-date"]         = "Your birthday date is not
 $LCL_ERROR_CONTENT["username-empty"]                = "You left your username field empty.";
 $LCL_ERROR_CONTENT["username-length"]               = "Your username is either too short or too long. It needs to be of length between 5 and 20 characters.";
 $LCL_ERROR_CONTENT["username-content"]              = "Your username contains illegal characters. Valid username can contain only alpha-numeric characters.";
+$LCL_ERROR_CONTENT["current-password"]              = "Your current password was not correct.";
 $LCL_ERROR_CONTENT["password-empty"]                = "You left your password field empty.";
 $LCL_ERROR_CONTENT["password-length"]               = "Your password is either too short or too long. It needs to be of length between 5 and 20 characters.";
 $LCL_ERROR_CONTENT["password-content"]              = "Your password contains illegal characters. Valid password can contain only alpha-numeric characters and a few special characters. Allowed special characters are: \"!, @, #, $, %, ^, &, *, (, ), _, +\".";
@@ -178,5 +184,9 @@ $LCL_ERROR_CONTENT["title-length"]                  = "The length of the title i
 $LCL_ERROR_CONTENT["content-empty"]                 = "You left your content field empty.";
 $LCL_ERROR_CONTENT["content-length"]                = "The length of the content is either too short or too long. It needs to be of length between 2 and 1000 characters.";
 $LCL_ERROR_CONTENT["invalid-user"]                  = "The user you are trying to reach does not exists.";
+$LCL_ERROR_CONTENT["deactivation-failed"]           = "Account deactivation has failed. Super Administrator and Administrators can't deactivate their accounts.";
+$LCL_ERROR_CONTENT["status-length"]                 = "Profile status is too long. It needs to be under or equal to 150 characters long.";
+$LCL_ERROR_CONTENT["biography-length"]              = "Your biography is too long. It needs to be under or equal to 2000 characters long.";
+$LCL_ERROR_CONTENT["deactivated-user"]              = "The user you are trying to reach has deactivated his account.";
 
 ?>

@@ -1,7 +1,7 @@
 <?php
 
 /***********************************************************\
-|* Frequency CMS v1.0.0                                    *|
+|* frequencyCMS v1.0.0                                     *|
 |* Author: Djordje Jocic                                   *|
 |* Year: 2014                                              *|
 |* ------------------------------------------------------- *|
@@ -55,13 +55,13 @@ $divProfileStatus     = new FDiv();
 $divMainInfo          = new FDiv();
 $divMainInfoLeftSide  = new FDiv();
 $divMainInfoRightSide = new FDiv();
+$divAvatarHolder      = new FDiv();
 $divAvatar            = new FDiv();
 $tblUserInfo          = new FTable();
 $divEmailAddress      = new FDiv();
 $divBiography         = new FDiv();
 $tblBiography         = new FTable();
 $divProfileOptions    = new FDiv();
-$parProfileOptions    = new FParagraph();
 
 // Create "Row" Elements.
 
@@ -164,7 +164,7 @@ $divMainInfo->addElement(new FDiv(null, "clr", null));
 
 $divMainInfoLeftSide->setID("main-info-content-left");
 
-$divMainInfoLeftSide->addElement($divAvatar);
+$divMainInfoLeftSide->addElement($divAvatarHolder);
 
 // "Div Main Info Right Side" Element Settings.
 
@@ -172,14 +172,20 @@ $divMainInfoRightSide->setID("main-info-content-right");
 
 $divMainInfoRightSide->addElement($tblUserInfo);
 
+// "Div Avatar Holder" Element Settings.
+
+$divAvatarHolder->setID("users-avatar-holder");
+
+$divAvatarHolder->addElement($divAvatar);
+
 // "Div Avatar" Element Settings.
 
 $divAvatar->setID("users-avatar");
 
 if ($varAvatar == null)
-    $divAvatar->addElement("<div style=\"height: 100%; width: 100%; background: url(" . CMS_ROOT . "system/assets/images/other/no_avatar.png);\"><div class=\"protected\">$varUsername</div></div>");
+    $divAvatar->addElement("<div style=\"height: 100%; width: 100%; background: url(" . CMS_ROOT . "system/assets/images/other/no_avatar.png) no-repeat center center;\"><div class=\"protected\">$varUsername</div></div>");
 else
-    $divAvatar->addElement("<div style=\"height: 100%; width: 100%; background: url(" . CMS_ROOT . "assets/avatars/$varAvatar.png);\"><div class=\"protected\">$varUsername</div></div>");
+    $divAvatar->addElement("<div style=\"height: 100%; width: 100%; background: url(" . CMS_ROOT . "assets/avatars/$varAvatar.png) no-repeat center center;\"><div class=\"protected\">$varUsername</div></div>");
 
 // "Table User Info Left" Element Settings.
 
@@ -209,8 +215,8 @@ $divBiography->addElement($tblBiography);
 
 $tblBiography->setID("users-biography-table");
 
-$tblBiography->addRow(new FTableRow(null, null, new FTableCell(null, null, "<strong>" . Locales::getCore("biography") . "</strong>")));
-$tblBiography->addRow(new FTableRow(null, null, new FTableCell(null, null, $varBiography)));
+$tblBiography->addRow(new FTableRow(null, null, new FTableCell("biography-title", null, Locales::getCore("biography"))));
+$tblBiography->addRow(new FTableRow(null, null, new FTableCell("biography-content", null, $varBiography)));
 
 // "Div Profile Options" Element Settings.
 

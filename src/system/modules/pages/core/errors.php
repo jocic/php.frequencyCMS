@@ -1,7 +1,7 @@
 <?php
 
 /***********************************************************\
-|* Frequency CMS v1.0.0                                    *|
+|* frequencyCMS v1.0.0                                     *|
 |* Author: Djordje Jocic                                   *|
 |* Year: 2014                                              *|
 |* ------------------------------------------------------- *|
@@ -882,6 +882,15 @@ else if ($_GET[$pnv] == Locales::getLink("messages")) // >> Messages << Errors.
         $parError->setLink($prevPageLink . "&" . Locales::getVariable("option") . "=" . Locales::getLink("compose"));
         $parError->setLinkTitle(Locales::getTitle("compose"));
     }
+    else if ($_GET[$env] == Locales::getErrorLink("deactivated-user")) // "Deactivated User" Error.
+    {
+        $clErrorTitle->setContent(Locales::getErrorTitle("messages"));
+        $clErrorContent->setContent(Locales::getErrorContent("deactivated-user"));
+        
+        $parError->setContent(Locales::getParagraph("retry"));
+        $parError->setLink($prevPageLink . "&" . Locales::getVariable("option") . "=" . Locales::getLink("compose"));
+        $parError->setLinkTitle(Locales::getTitle("compose"));
+    }
     else // "Unknown" Error.
     {
         $clErrorTitle->setContent(Locales::getErrorTitle("unknown-error"));
@@ -894,10 +903,46 @@ else if ($_GET[$pnv] == Locales::getLink("messages")) // >> Messages << Errors.
 }
 else if ($_GET[$pnv] == Locales::getLink("your-profile")) // >> Your Profile << Errors.
 {
-    if ($_GET[$env] == Locales::getErrorLink("name-empty")) // "Name Empty" Error.
+    if ($_GET[$env] == Locales::getErrorLink("status-length")) // "Username Empty" Error.
     {
         $clErrorTitle->setContent(Locales::getErrorTitle("your-profile"));
-        $clErrorContent->setContent(Locales::getErrorContent("name-empty"));
+        $clErrorContent->setContent(Locales::getErrorContent("status-length"));
+        
+        $parError->setContent(Locales::getParagraph("yp-retry"));
+        $parError->setLink($prevPageLink);
+        $parError->setLinkTitle(Locales::getTitle("your-profile"));
+    }
+    else if ($_GET[$env] == Locales::getErrorLink("username-empty")) // "Username Empty" Error.
+    {
+        $clErrorTitle->setContent(Locales::getErrorTitle("your-profile"));
+        $clErrorContent->setContent(Locales::getErrorContent("username-empty"));
+        
+        $parError->setContent(Locales::getParagraph("yp-retry"));
+        $parError->setLink($prevPageLink);
+        $parError->setLinkTitle(Locales::getTitle("your-profile"));
+    }
+    else if ($_GET[$env] == Locales::getErrorLink("username-length")) // "Username Length" Error.
+    {
+        $clErrorTitle->setContent(Locales::getErrorTitle("your-profile"));
+        $clErrorContent->setContent(Locales::getErrorContent("username-length"));
+        
+        $parError->setContent(Locales::getParagraph("yp-retry"));
+        $parError->setLink($prevPageLink);
+        $parError->setLinkTitle(Locales::getTitle("your-profile"));
+    }
+    else if ($_GET[$env] == Locales::getErrorLink("username-content")) // "Username Content" Error.
+    {
+        $clErrorTitle->setContent(Locales::getErrorTitle("your-profile"));
+        $clErrorContent->setContent(Locales::getErrorContent("username-content"));
+        
+        $parError->setContent(Locales::getParagraph("yp-retry"));
+        $parError->setLink($prevPageLink);
+        $parError->setLinkTitle(Locales::getTitle("your-profile"));
+    }
+    else if ($_GET[$env] == Locales::getErrorLink("username-taken")) // "Username Taken" Error.
+    {
+        $clErrorTitle->setContent(Locales::getErrorTitle("your-profile"));
+        $clErrorContent->setContent(Locales::getErrorContent("username-taken"));
         
         $parError->setContent(Locales::getParagraph("yp-retry"));
         $parError->setLink($prevPageLink);
@@ -921,15 +966,6 @@ else if ($_GET[$pnv] == Locales::getLink("your-profile")) // >> Your Profile << 
         $parError->setLink($prevPageLink);
         $parError->setLinkTitle(Locales::getTitle("your-profile"));
     }
-    else if ($_GET[$env] == Locales::getErrorLink("middle-name-empty")) // "Middle Name Empty" Error.
-    {
-        $clErrorTitle->setContent(Locales::getErrorTitle("your-profile"));
-        $clErrorContent->setContent(Locales::getErrorContent("middle-name-empty"));
-        
-        $parError->setContent(Locales::getParagraph("yp-retry"));
-        $parError->setLink($prevPageLink);
-        $parError->setLinkTitle(Locales::getTitle("your-profile"));
-    }
     else if ($_GET[$env] == Locales::getErrorLink("middle-name-length")) // "Middle Name Length" Error.
     {
         $clErrorTitle->setContent(Locales::getErrorTitle("your-profile"));
@@ -943,15 +979,6 @@ else if ($_GET[$pnv] == Locales::getLink("your-profile")) // >> Your Profile << 
     {
         $clErrorTitle->setContent(Locales::getErrorTitle("your-profile"));
         $clErrorContent->setContent(Locales::getErrorContent("middle-name-content"));
-        
-        $parError->setContent(Locales::getParagraph("yp-retry"));
-        $parError->setLink($prevPageLink);
-        $parError->setLinkTitle(Locales::getTitle("your-profile"));
-    }
-    else if ($_GET[$env] == Locales::getErrorLink("surname-empty")) // "Surname Empty" Error.
-    {
-        $clErrorTitle->setContent(Locales::getErrorTitle("your-profile"));
-        $clErrorContent->setContent(Locales::getErrorContent("surname-empty"));
         
         $parError->setContent(Locales::getParagraph("yp-retry"));
         $parError->setLink($prevPageLink);
@@ -1020,6 +1047,60 @@ else if ($_GET[$pnv] == Locales::getLink("your-profile")) // >> Your Profile << 
         $parError->setLink($prevPageLink);
         $parError->setLinkTitle(Locales::getTitle("your-profile"));
     }
+    else if ($_GET[$env] == Locales::getErrorLink("email-empty")) // "Email Address Empty" Error.
+    {
+        $clErrorTitle->setContent(Locales::getErrorTitle("your-profile"));
+        $clErrorContent->setContent(Locales::getErrorContent("email-empty"));
+        
+        $parError->setContent(Locales::getParagraph("yp-retry"));
+        $parError->setLink($prevPageLink);
+        $parError->setLinkTitle(Locales::getTitle("your-profile"));
+    }
+    else if ($_GET[$env] == Locales::getErrorLink("email-length")) // "Email Address Length" Error.
+    {
+        $clErrorTitle->setContent(Locales::getErrorTitle("your-profile"));
+        $clErrorContent->setContent(Locales::getErrorContent("email-length"));
+        
+        $parError->setContent(Locales::getParagraph("yp-retry"));
+        $parError->setLink($prevPageLink);
+        $parError->setLinkTitle(Locales::getTitle("your-profile"));
+    }
+    else if ($_GET[$env] == Locales::getErrorLink("invalid-email-address")) // "Invalid Email Address" Error.
+    {
+        $clErrorTitle->setContent(Locales::getErrorTitle("your-profile"));
+        $clErrorContent->setContent(Locales::getErrorContent("invalid-email-address"));
+        
+        $parError->setContent(Locales::getParagraph("yp-retry"));
+        $parError->setLink($prevPageLink);
+        $parError->setLinkTitle(Locales::getTitle("your-profile"));
+    }
+    else if ($_GET[$env] == Locales::getErrorLink("email-taken")) // "Email Taken" Error.
+    {
+        $clErrorTitle->setContent(Locales::getErrorTitle("your-profile"));
+        $clErrorContent->setContent(Locales::getErrorContent("email-taken"));
+        
+        $parError->setContent(Locales::getParagraph("yp-retry"));
+        $parError->setLink($prevPageLink);
+        $parError->setLinkTitle(Locales::getTitle("your-profile"));
+    }
+    else if ($_GET[$env] == Locales::getErrorLink("biography-length")) // "Biography Length" Error.
+    {
+        $clErrorTitle->setContent(Locales::getErrorTitle("your-profile"));
+        $clErrorContent->setContent(Locales::getErrorContent("biography-length"));
+        
+        $parError->setContent(Locales::getParagraph("yp-retry"));
+        $parError->setLink($prevPageLink);
+        $parError->setLinkTitle(Locales::getTitle("your-profile"));
+    }
+    else if ($_GET[$env] == Locales::getErrorLink("current-password")) // "Current Password" Error.
+    {
+        $clErrorTitle->setContent(Locales::getErrorTitle("your-profile"));
+        $clErrorContent->setContent(Locales::getErrorContent("current-password"));
+        
+        $parError->setContent(Locales::getParagraph("yp-retry"));
+        $parError->setLink($prevPageLink);
+        $parError->setLinkTitle(Locales::getTitle("your-profile"));
+    }
     else if ($_GET[$env] == Locales::getErrorLink("password-empty")) // "Password Empty" Error.
     {
         $clErrorTitle->setContent(Locales::getErrorTitle("your-profile"));
@@ -1078,6 +1159,15 @@ else if ($_GET[$pnv] == Locales::getLink("your-profile")) // >> Your Profile << 
     {
         $clErrorTitle->setContent(Locales::getErrorTitle("your-profile"));
         $clErrorContent->setContent(Locales::getErrorContent("passwords-not-equal"));
+        
+        $parError->setContent(Locales::getParagraph("yp-retry"));
+        $parError->setLink($prevPageLink);
+        $parError->setLinkTitle(Locales::getTitle("your-profile"));
+    }
+    else if ($_GET[$env] == Locales::getErrorLink("deactivation-failed")) // "Deactivation Failed" Error.
+    {
+        $clErrorTitle->setContent(Locales::getErrorTitle("your-profile"));
+        $clErrorContent->setContent(Locales::getErrorContent("deactivation-failed"));
         
         $parError->setContent(Locales::getParagraph("yp-retry"));
         $parError->setLink($prevPageLink);

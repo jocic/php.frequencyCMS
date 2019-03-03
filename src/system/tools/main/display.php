@@ -1,7 +1,7 @@
 <?php
 
 /***********************************************************\
-|* Frequency CMS v1.0.0                                    *|
+|* frequencyCMS v1.0.0                                     *|
 |* Author: Djordje Jocic                                   *|
 |* Year: 2014                                              *|
 |* ------------------------------------------------------- *|
@@ -84,9 +84,9 @@ class Display
             if (empty($_SESSION["logged_in"]))
             {
                 $_SESSION["logged_in"] = true;
-                
+
                 Session::refresh();
-                
+
                 exit(header("location: " . CMS_ROOT));
             }
         }
@@ -184,8 +184,14 @@ class Display
               DIRECTORY_SEPARATOR .
               "processors" .
               DIRECTORY_SEPARATOR;
+        
+        // Include General Processor.
+        
+        require_once $pr . "general_processor.php";
 
         // Include Proper Processor.
+        
+        $varProcessorIncluded = true;
 
         if ($selectedPage == Locales::getLink("log-in"))
             require_once $pr . "log_in_processor.php";
@@ -209,14 +215,25 @@ class Display
             require_once $pr . "messages_processor.php";
         else if ($selectedPage == Locales::getLink("your-profile"))
             require_once $pr . "your_profile_processor.php";
+        else if ($selectedPage == Locales::getLink("view-profile"))
+            require_once $pr . "view_profile_processor.php";
         else
-            require_once $pr . "general_processor.php";
+            $varProcessorIncluded = false;
 
-        // Execute Proper Processor.
+        // Execute General Processor.
+        
+        $general = new GeneralProcessor();
+        
+        $general->execute();
+        
+        // Execute Proper Processor If Was Included.
+        
+        if ($varProcessorIncluded)
+        {
+            $processor = new Processor();
 
-        $processor = new Processor();
-
-        $processor->execute();
+            $processor->execute();
+        }
         
         // Fetch Names Of All Active Modules.
 

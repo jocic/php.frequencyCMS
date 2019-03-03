@@ -1,7 +1,7 @@
 <?php
 
 /***********************************************************\
-|* Frequency CMS v1.0.0                                    *|
+|* frequencyCMS v1.0.0                                     *|
 |* Author: Djordje Jocic                                   *|
 |* Year: 2014                                              *|
 |* ------------------------------------------------------- *|
@@ -93,6 +93,8 @@ class Processor extends PageProcessor
                             require_once $srl . "pages.php";
                         else if ($this->isCommentsWorkplace())
                             require_once $srl . "comments.php";
+                        else if ($this->isShoutsWorkplace())
+                            require_once $srl . "shouts.php";
                         else if ($this->isLinksWorkplace())
                             require_once $srl . "links.php";
                         else if ($this->isThemesWorkplace())
@@ -141,6 +143,11 @@ class Processor extends PageProcessor
     private function isCommentsWorkplace()
     {
         return $_GET[Locales::getVariable("workplace")] == Locales::getLink("comments");
+    }
+    
+    private function isShoutsWorkplace()
+    {
+        return $_GET[Locales::getVariable("workplace")] == Locales::getLink("shouts");
     }
     
     private function isLinksWorkplace()

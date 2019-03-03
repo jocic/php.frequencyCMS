@@ -1,7 +1,7 @@
 <?php
 
 /***********************************************************\
-|* Frequency CMS v1.0.0                                    *|
+|* frequencyCMS v1.0.0                                     *|
 |* Author: Djordje Jocic                                   *|
 |* Year: 2014                                              *|
 |* ------------------------------------------------------- *|
@@ -52,6 +52,7 @@ class Core
     const REGISTRAION_MODE    = "registration_mode";
     const DEPLOY_CAPTCHA      = "deploy_captcha";
     const SHOW_LATEST_PAGES   = "show_latest_pages";
+    const SOCIAL_INTEGRATION  = "social_integration";
     
     // "Get" Methods.
     

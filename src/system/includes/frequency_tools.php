@@ -1,7 +1,7 @@
 <?php
 
 /***********************************************************\
-|* Frequency CMS v1.0.0                                    *|
+|* frequencyCMS v1.0.0                                     *|
 |* Author: Djordje Jocic                                   *|
 |* Year: 2014                                              *|
 |* ------------------------------------------------------- *|
@@ -47,6 +47,7 @@ require_once TOOLS_ROOT . "main" . DIRECTORY_SEPARATOR . "captcha.php";
 // "Communication" Tool Includes.
 
 require_once TOOLS_ROOT . "communication" . DIRECTORY_SEPARATOR . "messages.php";
+require_once TOOLS_ROOT . "communication" . DIRECTORY_SEPARATOR . "shoutbox.php";
 
 // "Content" Tool Includes.
 

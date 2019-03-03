@@ -1,7 +1,7 @@
 <?php
 
 /***********************************************************\
-|* Frequency CMS v1.0.0                                    *|
+|* frequencyCMS v1.0.0                                     *|
 |* Author: Djordje Jocic                                   *|
 |* Year: 2014                                              *|
 |* ------------------------------------------------------- *|
@@ -40,6 +40,7 @@ $pnv = Locales::getVariable("page"); // Fetch "Page Name Variable".
 $directorArray = array
 (
     Locales::getLink("homepage")                => "homepage.php",
+    Locales::getLink("view-profile")            => "view_profile.php",
     Locales::getLink("terms-of-service")        => "terms_of_service.php",
     Locales::getLink("privacy-policy")          => "privacy_policy.php",
     Locales::getLink("registration")            => "registration.php",

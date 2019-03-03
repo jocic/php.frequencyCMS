@@ -1,7 +1,7 @@
 <?php
 
 /***********************************************************\
-|* Frequency CMS v1.0.0                                    *|
+|* frequencyCMS v1.0.0                                     *|
 |* Author: Djordje Jocic                                   *|
 |* Year: 2014                                              *|
 |* ------------------------------------------------------- *|
@@ -58,6 +58,7 @@ $varAdminOptions = array
     "assets",
     "pages",
     "comments",
+    "shouts",
     "links",
     "themes",
     "modules",
@@ -152,6 +153,8 @@ else
         require_once($varScriptRoot . "pages.php");
     else if ($_GET[Locales::getVariable("workplace")] == Locales::getLink("comments"))
         require_once($varScriptRoot . "comments.php");
+    else if ($_GET[Locales::getVariable("workplace")] == Locales::getLink("shouts"))
+        require_once($varScriptRoot . "shouts.php");
     else if ($_GET[Locales::getVariable("workplace")] == Locales::getLink("links"))
         require_once($varScriptRoot . "links.php");
     else if ($_GET[Locales::getVariable("workplace")] == Locales::getLink("themes"))

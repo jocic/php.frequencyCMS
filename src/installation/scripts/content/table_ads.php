@@ -66,7 +66,7 @@ EasyInsert::execute
 (
     new TableSelection("ads"),
     new ColumnSelection("name", "content", "css_class", "section"),
-    new ValueSelection(array("Demo Advert 4", "<img src=\"./assets/images/f50ecf28c3b2a272534579ed5a49b9c10031941b.png\" border=\"0\" />", "half-banner-234x60", 1))
+    new ValueSelection(array("Demo Advert 4", "<img src=\"./assets/images/f50ecf28c3b2a272534579ed5a49b9c10031941b.png\" border=\"0\" />", "half-banner-200x60", 1))
 );
 
 // Row "Demo Advert 5".
@@ -75,7 +75,7 @@ EasyInsert::execute
 (
     new TableSelection("ads"),
     new ColumnSelection("name", "content", "css_class", "section"),
-    new ValueSelection(array("Demo Advert 5", "<img src=\"./assets/images/c21c62e3253c8a53710893bb92475bfb543ec639.png\" border=\"0\" />", "half-banner-234x60", 1))
+    new ValueSelection(array("Demo Advert 5", "<img src=\"./assets/images/c21c62e3253c8a53710893bb92475bfb543ec639.png\" border=\"0\" />", "half-banner-200x60", 1))
 );
 
 
@@ -85,7 +85,7 @@ EasyInsert::execute
 (
     new TableSelection("ads"),
     new ColumnSelection("name", "content", "css_class", "section"),
-    new ValueSelection(array("Demo Advert 6", "<img src=\"./assets/images/2a52e95826e9f09d4dac931103814aaec5f92125.png\" border=\"0\" />", "half-banner-234x60", 1))
+    new ValueSelection(array("Demo Advert 6", "<img src=\"./assets/images/2a52e95826e9f09d4dac931103814aaec5f92125.png\" border=\"0\" />", "half-banner-200x60", 1))
 );
 
 // Row "Demo Advert 7".
@@ -94,7 +94,7 @@ EasyInsert::execute
 (
     new TableSelection("ads"),
     new ColumnSelection("name", "content", "css_class", "section"),
-    new ValueSelection(array("Demo Advert 7", "<img src=\"./assets/images/f50ecf28c3b2a272534579ed5a49b9c10031941b.png\" border=\"0\" />", "half-banner-234x60", 2))
+    new ValueSelection(array("Demo Advert 7", "<img src=\"./assets/images/f50ecf28c3b2a272534579ed5a49b9c10031941b.png\" border=\"0\" />", "half-banner-200x60", 2))
 );
 
 // Row "Demo Advert 8".
@@ -103,7 +103,7 @@ EasyInsert::execute
 (
     new TableSelection("ads"),
     new ColumnSelection("name", "content", "css_class", "section"),
-    new ValueSelection(array("Demo Advert 8", "<img src=\"./assets/images/c21c62e3253c8a53710893bb92475bfb543ec639.png\" border=\"0\" />", "half-banner-234x60", 2))
+    new ValueSelection(array("Demo Advert 8", "<img src=\"./assets/images/c21c62e3253c8a53710893bb92475bfb543ec639.png\" border=\"0\" />", "half-banner-200x60", 2))
 );
 
 
@@ -113,7 +113,7 @@ EasyInsert::execute
 (
     new TableSelection("ads"),
     new ColumnSelection("name", "content", "css_class", "section"),
-    new ValueSelection(array("Demo Advert 9", "<img src=\"./assets/images/2a52e95826e9f09d4dac931103814aaec5f92125.png\" border=\"0\" />", "half-banner-234x60", 2))
+    new ValueSelection(array("Demo Advert 9", "<img src=\"./assets/images/2a52e95826e9f09d4dac931103814aaec5f92125.png\" border=\"0\" />", "half-banner-200x60", 2))
 );
 
 ?>

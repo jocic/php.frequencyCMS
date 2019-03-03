@@ -1,7 +1,7 @@
 <?php
 
 /***********************************************************\
-|* Frequency CMS v1.0.0                                    *|
+|* frequencyCMS v1.0.0                                     *|
 |* Author: Djordje Jocic                                   *|
 |* Year: 2014                                              *|
 |* ------------------------------------------------------- *|
@@ -63,6 +63,7 @@ $LCL_LINKS["your-profile"]                   = "your-profile";
 $LCL_LINKS["messages"]                       = "messages";
 $LCL_LINKS["user-managment"]                 = "user-managment";
 $LCL_LINKS["comments"]                       = "comments";
+$LCL_LINKS["shouts"]                         = "shouts";
 $LCL_LINKS["pages"]                          = "pages";
 $LCL_LINKS["links"]                          = "links";
 $LCL_LINKS["themes"]                         = "themes";
@@ -101,6 +102,7 @@ $LCL_LINKS["move-down"]                      = "move-down";
 $LCL_LINKS["view-comments"]                  = "view-comments";
 $LCL_LINKS["comment"]                        = "comment";
 $LCL_LINKS["delete-comment"]                 = "delete-comment";
+$LCL_LINKS["delete-shout"]                   = "delete-shout";
 $LCL_LINKS["activate-module"]                = "activate-module";
 $LCL_LINKS["deactivate-module"]              = "deactivate-module";
 $LCL_LINKS["arrange-modules"]                = "arrange-modules";
@@ -108,6 +110,7 @@ $LCL_LINKS["edit-profile"]                   = "edit-profile";
 $LCL_LINKS["change-password"]                = "change-password";
 $LCL_LINKS["deactivate-account"]             = "deactivate-account";
 $LCL_LINKS["view-comment"]                   = "view-comment";
+$LCL_LINKS["view-shout"]                     = "view-shout";
 $LCL_LINKS["view-profile"]                   = "view-profile";
 $LCL_LINKS["promote-user"]                   = "promote-user";
 $LCL_LINKS["demote-user"]                    = "demote-user";
@@ -135,6 +138,7 @@ $LCL_LINKS["security"]                       = "security";
 $LCL_LINKS["add-style"]                      = "add-style";
 $LCL_LINKS["edit-style"]                     = "edit-style";
 $LCL_LINKS["delete-style"]                   = "delete-style";
+$LCL_LINKS["view-profile"]                   = "view-profile";
 
 // "Core" Locales.
 
@@ -211,6 +215,7 @@ $LCL_CORE["custom-link"]                     = "Custom Link";
 $LCL_CORE["menu"]                            = "Menu";
 $LCL_CORE["type"]                            = "Type";
 $LCL_CORE["link"]                            = "Link";
+$LCL_CORE["social-integration"]              = "Social Integration";
 $LCL_CORE["core-page"]                       = "Core Page";
 $LCL_CORE["parent"]                          = "Parent";
 $LCL_CORE["arrange-menu-items"]              = "Arrange Menu Items";
@@ -227,6 +232,7 @@ $LCL_CORE["selected"]                        = "Selected";
 $LCL_CORE["new"]                             = "New";
 $LCL_CORE["delete-page"]                     = "Delete Page";
 $LCL_CORE["delete-comment"]                  = "Delete Comment";
+$LCL_CORE["delete-shout"]                    = "Delete Shout";
 $LCL_CORE["edit-page"]                       = "Edit Page";
 $LCL_CORE["asset-name"]                      = "Asset Name";
 $LCL_CORE["filename"]                        = "Filename";
@@ -273,6 +279,7 @@ $LCL_CORE["change-password"]                 = "Change Password";
 $LCL_CORE["deactivate-account"]              = "Deactivate Account";
 $LCL_CORE["profile-status"]                  = "Profile Status";
 $LCL_CORE["change"]                          = "Change";
+$LCL_CORE["proceed"]                         = "Proceed";
 $LCL_CORE["section"]                         = "Section";
 $LCL_CORE["no"]                              = "No";
 $LCL_CORE["yes"]                             = "Yes";
@@ -289,6 +296,7 @@ $LCL_CORE["here"]                            = "here";
 $LCL_CORE["terms-of-service"]                = "Terms of Service";
 $LCL_CORE["privacy-policy"]                  = "Privacy Policy";
 $LCL_CORE["log-in"]                          = "Log-In";
+$LCL_CORE["shoutbox"]                        = "Shoutbox";
 $LCL_CORE["register"]                        = "Register";
 $LCL_CORE["reset"]                           = "Reset";
 $LCL_CORE["submit"]                          = "Submit";
@@ -298,6 +306,9 @@ $LCL_CORE["post"]                            = "Post";
 $LCL_CORE["profile"]                         = "Profile";
 $LCL_CORE["username"]                        = "Username";
 $LCL_CORE["password"]                        = "Password";
+$LCL_CORE["current-password"]                = "Current Password";
+$LCL_CORE["new-password"]                    = "New Password";
+$LCL_CORE["retype-password"]                 = "Retype Password";
 $LCL_CORE["confirmation-password"]           = "Confirmation Password";
 $LCL_CORE["email-address"]                   = "E-Mail Address";
 $LCL_CORE["first-ip"]                        = "First IP";
@@ -374,6 +385,7 @@ $LCL_CORE["frequency-gplus"]                 = "frequencyCMS Official Google+ Pa
 $LCL_CORE["frequency-youtube"]               = "frequencyCMS Official Youtube Channel";
 $LCL_CORE["view-profile"]                    = "View Profile";
 $LCL_CORE["view-comment"]                    = "View Comment";
+$LCL_CORE["view-shout"]                      = "View Shout";
 $LCL_CORE["promote-user"]                    = "Promote User";
 $LCL_CORE["demote-user"]                     = "Demote User";
 $LCL_CORE["ban-user"]                        = "Ban User";
@@ -440,6 +452,7 @@ $LCL_TITLES["set-language"]                  = "Set Language";
 $LCL_TITLES["your-profile"]                  = "Your Profile";
 $LCL_TITLES["messages"]                      = "Messages";
 $LCL_TITLES["comments"]                      = "Comments";
+$LCL_TITLES["shouts"]                        = "Shouts";
 $LCL_TITLES["pages"]                         = "Pages";
 $LCL_TITLES["links"]                         = "Links";
 $LCL_TITLES["themes"]                        = "Themes";
@@ -462,6 +475,7 @@ $LCL_TITLES["all-pages"]                     = "All Pages";
 $LCL_TITLES["core-pages"]                    = "Core Pages";
 $LCL_TITLES["dynamic-pages"]                 = "Dynamic Pages";
 $LCL_TITLES["all-comments"]                  = "All Comments";
+$LCL_TITLES["all-shouts"]                    = "All Shouts";
 $LCL_TITLES["edit-page"]                     = "Edit Page";
 $LCL_TITLES["all-menus"]                     = "All Menus";
 $LCL_TITLES["all-menu-items"]                = "All Menu Items";
@@ -482,6 +496,7 @@ $LCL_TITLES["registration"]                  = "Registration";
 $LCL_TITLES["site-administration"]           = "Site Administration";
 $LCL_TITLES["user-managment"]                = "User Managment";
 $LCL_TITLES["view-comment"]                  = "View Comment";
+$LCL_TITLES["view-shout"]                    = "View Shout";
 $LCL_TITLES["add-advert"]                    = "Add Advert";
 $LCL_TITLES["edit-advert"]                   = "Edit Advert";
 $LCL_TITLES["assets"]                        = "Assets";
@@ -511,6 +526,7 @@ $LCL_TITLES["add-css-style"]                 = "Add CSS Style";
 $LCL_TITLES["edit-css-style"]                = "Edit CSS Style";
 $LCL_TITLES["latest-pages"]                  = "Latest Pages";
 $LCL_TITLES["edit-core-page"]                = "Edit Core Page";
+$LCL_TITLES["view-profile"]                  = "View Profile";
 
 // "Subtitle" Locales.
 
@@ -518,6 +534,7 @@ $LCL_SUBTITLES["new-account"]                = "Create a new account...";
 
 // "Paragraph" Locales.
 
+$LCL_PARAGRAPHS["go-home"]                   = "To keep your account safe, here are a few tips on how to create a strong password:";
 $LCL_PARAGRAPHS["go-home"]                   = "To go to the home page";
 $LCL_PARAGRAPHS["retry"]                     = "Please go back and try again.";
 $LCL_PARAGRAPHS["by-clicking-log-in"]        = "By clicking Log-In, you agree to our";
@@ -530,6 +547,7 @@ $LCL_PARAGRAPHS["ar-retry"]                  = "Please go back and try to recove
 $LCL_PARAGRAPHS["aa-retry"]                  = "Please go back and try to activate your account again.";
 $LCL_PARAGRAPHS["yp-retry"]                  = "Please go back and try to edit your profile information again.";
 $LCL_PARAGRAPHS["no-ads"]                    = "You didn't add any advertising material.";
+$LCL_PARAGRAPHS["no-shoutbox-posts"]         = "No shoutbox posts.";
 $LCL_PARAGRAPHS["new-messages"]              = "You have new messages.";
 $LCL_PARAGRAPHS["no-new-messages"]           = "You don't have new messages.";
 $LCL_PARAGRAPHS["empty-inbox"]               = "Your inbox is empty.";
@@ -588,6 +606,7 @@ $LCL_PARAGRAPHS["no-free-modules"]           = "There are no free modules.";
 $LCL_PARAGRAPHS["opt-not-available-in-beta"] = "Option is not available in this beta version.";
 $LCL_PARAGRAPHS["no-adverts-added"]          = "No adverts were added.";
 $LCL_PARAGRAPHS["no-css-styles-added"]       = "No css styles were added.";
+$LCL_PARAGRAPHS["you-will-be-logged-out"]    = "You will be logged out after successfully completing this action.";
 
 // "Text" Locales.
 

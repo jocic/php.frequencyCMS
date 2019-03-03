@@ -1,7 +1,7 @@
 <?php
 
 /***********************************************************\
-|* Frequency CMS v1.0.0                                    *|
+|* frequencyCMS v1.0.0                                     *|
 |* Author: Djordje Jocic                                   *|
 |* Year: 2014                                              *|
 |* ------------------------------------------------------- *|
@@ -49,7 +49,7 @@ $parNotice       = new FParagraph();
 // "Header Unknown Page" Element Settings.
 
 $hdUnknownPage->setLevel(1);
-$hdUnknownPage->setContent(Locales::getNoticeTitle("unknown-page"));
+$hdUnknownPage->setContent(Locales::getNoticeTitle("your-profile"));
 
 // "Table Notice" Element Settings.
 

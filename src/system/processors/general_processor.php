@@ -1,7 +1,7 @@
 <?php
 
 /***********************************************************\
-|* Frequency CMS v1.0.0                                    *|
+|* frequencyCMS v1.0.0                                     *|
 |* Author: Djordje Jocic                                   *|
 |* Year: 2014                                              *|
 |* ------------------------------------------------------- *|
@@ -35,7 +35,7 @@ if (!defined("IND_ACCESS")) exit("Action not allowed.");
 
 // Class Starts.
 
-class Processor extends PageProcessor
+class GeneralProcessor extends PageProcessor
 {   
     // "Constructor/s".
     
@@ -61,37 +61,71 @@ class Processor extends PageProcessor
             }
             else
             {
-                // Dynamic Page.
-
-                $this->checkDynamicPageInput();
+                // Shoutbox.
                 
-                // Check Page.
-                
-                $pageID = $_GET[$this->getPageVariableName()];
-                
-                if (!is_numeric($pageID))
-                    $pageID = PageInfo::convertCustomID($pageID);
-                
-                if (PageInfo::isCreated($pageID) && PageInfo::isPublished($pageID) && PageInfo::isCommentingEnabled($pageID))
+                if (isset($_POST["req_shout"]))
                 {
-                    // Fetch Users ID.
+                    // Create "Core" Variables.
                     
-                    $userID = IDFetch::byUsername(Session::getUsername());
+                    $varUsersID = null;
+                    $varPrev    = null;
                     
-                    // Process Comment Content.
+                    // "Users ID" Variable Settings.
                     
-                    $usersComment = str_replace("\r\n", " ", $_POST["req_comment"]);
+                    $varUsersID = IDFetch::byUsername(Session::getUsername());
                     
-                    // Add Comment.
+                    // "Prev" Variable Settings.
                     
-                    Comments::addComment($pageID, $usersComment, $userID);
+                    if (empty($_GET[Locales::getVariable("page")]))
+                        $varPrev = CMS_ROOT;
+                    else
+                        $varPrev = CMS_ROOT . "?" . Locales::getVariable("page") . "=" . $_GET[Locales::getVariable("page")];
+                    
+                    // Add Shout.
+                    
+                    Shoutbox::addPost($varUsersID, $_POST["req_shout"]);
                     
                     // Reddirect.
                     
-                    exit(header("location: " . $_SERVER["HTTP_REFERER"]));
+                    exit(header("location: " . $varPrev));
                 }
-                else
-                    exit(header("location: " . CMS_ROOT));
+                
+                // Comment.
+                
+                if (isset($_POST["req_comment"]))
+                {
+                    // Dynamic Page.
+
+                    $this->checkDynamicPageInput();
+
+                    // Check Page.
+
+                    $pageID = $_GET[$this->getPageVariableName()];
+
+                    if (!is_numeric($pageID))
+                        $pageID = PageInfo::convertCustomID($pageID);
+
+                    if (PageInfo::isCreated($pageID) && PageInfo::isPublished($pageID) && PageInfo::isCommentingEnabled($pageID))
+                    {
+                        // Fetch Users ID.
+
+                        $userID = IDFetch::byUsername(Session::getUsername());
+
+                        // Process Comment Content.
+
+                        $usersComment = str_replace("\r\n", " ", $_POST["req_comment"]);
+
+                        // Add Comment.
+
+                        Comments::addComment($pageID, $usersComment, $userID);
+
+                        // Reddirect.
+
+                        exit(header("location: " . $_SERVER["HTTP_REFERER"]));
+                    }
+                    else
+                        exit(header("location: " . CMS_ROOT));
+                }
             }
         }
         else // Inactive Session Processes.

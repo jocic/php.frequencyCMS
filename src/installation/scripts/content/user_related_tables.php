@@ -48,7 +48,7 @@ EasyInsert::execute
 (
     new TableSelection("user_info"),
     new ColumnSelection("id", "gender", "email", "first_ip", "last_ip"),
-    new ValueSelection("1", "0", "office@localhost", $_SERVER["REMOTE_ADDR"], $_SERVER["REMOTE_ADDR"])
+    new ValueSelection("1", "0", "office@localhost.com", $_SERVER["REMOTE_ADDR"], $_SERVER["REMOTE_ADDR"])
 );
 
 // Row For Table "Personals".

@@ -1,7 +1,7 @@
 <?php
 
 /***********************************************************\
-|* Frequency CMS v1.0.0                                    *|
+|* frequencyCMS v1.0.0                                     *|
 |* Author: Djordje Jocic                                   *|
 |* Year: 2014                                              *|
 |* ------------------------------------------------------- *|
@@ -360,8 +360,8 @@ $rowName->addCell(new FTableCell(null, null, $inpName));
 
 // "Row Content" Element Settings.
 
-$rowContent->addCell(new FTableCell(null, null, new FLabel("content", Locales::getCore("content"))));
-$rowContent->addCell(new FTableCell(null, null, $txtContent));
+$rowContent->addCell(new FTableCell("css-content-title", null, new FLabel("content", Locales::getCore("content"))));
+$rowContent->addCell(new FTableCell("css-content-editor", null, $txtContent));
 
 // "Row Submit" Element Settings.
 
@@ -434,6 +434,8 @@ if (isset($_GET[Locales::getVariable("option")]))
     {
         $fmCustomCSS->setAction($varCoreLink . "&" . Locales::getVariable("option") . "=" . Locales::getLink("add-style"));
         
+        $divWorkplace->addElement("<script src=\"./system/assets/scripts/ace/ace.js\" type=\"text/javascript\"></script>");
+        $divWorkplace->addElement("<script src=\"./system/assets/scripts/ace/ace_implementation.js\" type=\"text/javascript\"></script>");
         $divWorkplace->addElement($hdAddCustomCSS);
         $divWorkplace->addElement($fmCustomCSS);
     }
@@ -441,6 +443,8 @@ if (isset($_GET[Locales::getVariable("option")]))
     {
         $fmCustomCSS->setAction($varCoreLink . "&" . Locales::getVariable("option") . "=" . Locales::getLink("edit-style") . "&" . Locales::getVariable("id") . "=" . $_GET[Locales::getVariable("id")]);
         
+        $divWorkplace->addElement("<script src=\"./system/assets/scripts/ace/ace.js\" type=\"text/javascript\"></script>");
+        $divWorkplace->addElement("<script src=\"./system/assets/scripts/ace/ace_implementation.js\" type=\"text/javascript\"></script>");
         $divWorkplace->addElement($hdEditCustomCSS);
         $divWorkplace->addElement($fmCustomCSS);
     }

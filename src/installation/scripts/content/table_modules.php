@@ -85,13 +85,22 @@ EasyInsert::execute
     new ValueSelection(array("side-2", "1", "login_module", "1"))
 );
 
+// Row "Shoutbox".
+
+EasyInsert::execute
+(
+    new TableSelection("modules"),
+    new ColumnSelection("block", "position", "name", "status"),
+    new ValueSelection(array("side-2", "2", "shoutbox", "1"))
+);
+
 // Row "Language".
 
 EasyInsert::execute
 (
     new TableSelection("modules"),
     new ColumnSelection("block", "position", "name", "status"),
-    new ValueSelection(array("side-2", "2", "language", "1"))
+    new ValueSelection(array("side-2", "3", "language", "1"))
 );
 
 // Row "Latest Pages".

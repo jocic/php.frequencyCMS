@@ -1,7 +1,7 @@
 <?php
 
 /***********************************************************\
-|* Frequency CMS v1.0.0                                    *|
+|* frequencyCMS v1.0.0                                     *|
 |* Author: Djordje Jocic                                   *|
 |* Year: 2014                                              *|
 |* ------------------------------------------------------- *|
@@ -46,6 +46,6 @@ echo $bp . "<base href=\"" . Core::get(Core::WEBSITE_BASE) . "\" />\n\n" .
      $bp . "<link rel=\"icon\" href=\"./system/assets/images/favicon.ico\" type=\"image/x-icon\" />\n\n" .
      $bp . "<title>" . Core::get(Core::WEBSITE_TITLE) . " " . Core::get(Core::WEBSITE_TITLE_SUFIX) . "</title>\n\n" .
      $bp . "<script src=\"./system/assets/scripts/jquery.js\" type=\"text/javascript\"></script>\n" .
-     $bp . "<script src=\"./system/assets/scripts/ckeditor/ckeditor.js\" type=\"text/javascript\"></script>\n";
+     $bp . "<script src=\"./system/assets/scripts/system_core.js\" type=\"text/javascript\"></script>\n";
 
 ?>

@@ -1,7 +1,7 @@
 <?php
 
 /***********************************************************\
-|* Frequency CMS v1.0.0                                    *|
+|* frequencyCMS v1.0.0                                     *|
 |* Author: Djordje Jocic                                   *|
 |* Year: 2014                                              *|
 |* ------------------------------------------------------- *|
@@ -37,7 +37,20 @@ if (!defined("IND_ACCESS")) exit("Action not allowed.");
 
 $hdDeactivateAccount  = new FHeader();
 $divMainInfo          = new FDiv();
+$fmDeactivateAccount  = new FForm();
+$tblDeactivateAccount = new FTable();
 $divProfileOptions    = new FDiv();
+
+// Create "Row" Elements.
+
+$rowCurrentPassword   = new FTableRow();
+$rowSubmit            = new FTableRow();
+
+// Create "Input" Elements.
+
+$inpCurrentPassword   = new FInput();
+$btnReset             = new FButton();
+$btnSubmit            = new FButton();
 
 // Create "Link" Elements.
 
@@ -54,13 +67,62 @@ $hdDeactivateAccount->setContent(Locales::getTitle("deactivate-account"));
 
 $divMainInfo->setID("profile-status");
 
-$divMainInfo->addElement(Locales::getParagraph("opt-not-available-in-beta"));
+$divMainInfo->addElement(Locales::getParagraph("you-will-be-logged-out"));
+
+// "Form Deactivate Account" Element Settings.
+
+$fmDeactivateAccount->setID("deactivate-account-form");
+$fmDeactivateAccount->setClass("default-form");
+
+$fmDeactivateAccount->setMethod(FForm::MTD_POST);
+$fmDeactivateAccount->setAction("./?" . Locales::getVariable("page") . "=" . Locales::getLink("your-profile") . "&" . Locales::getVariable("option") . "=" . Locales::getLink("deactivate-account"));
+
+$fmDeactivateAccount->addItem($tblDeactivateAccount);
+
+// "Table Change Password" Element Settings.
+
+$tblDeactivateAccount->setID("change-password-table");
+$tblDeactivateAccount->setClass("default-table");
+
+$tblDeactivateAccount->addRow($rowCurrentPassword);
+$tblDeactivateAccount->addRow($rowSubmit);
 
 // "Div Profile Options" Element Settings.
 
 $divProfileOptions->setID("users-profile-options");
 
 $divProfileOptions->addElement(array($lnkEditProfile, " | ", $lnkChangePassword, " | ", $lnkDeactivateAccount));
+
+// "Row Current Password" Element Settings.
+
+$rowCurrentPassword->addCell(new FTableCell(null, null, new FLabel("current-password", Locales::getCore("current-password"))));
+$rowCurrentPassword->addCell(new FTableCell(null, null, $inpCurrentPassword));
+
+// "Row Submit" Element Settings.
+
+$rowSubmit->addCell(new FTableCell(null, null, array($btnReset, $btnSubmit), 2, null, FTableRow::ALN_RIGHT));
+
+// "Input Current Password" Element Settings.
+
+$inpCurrentPassword->setID("current-password-input");
+$inpCurrentPassword->setClass("form-input");
+$inpCurrentPassword->setMaxLength(50);
+$inpCurrentPassword->setType(FInput::TP_PASSWORD);
+$inpCurrentPassword->setName("req_current");
+
+// "Button Reset" Element Settings.
+
+$btnReset->setID("deactivate-account-reset-button");
+$btnReset->setClass("form-button");
+$btnReset->setType(FButton::TP_RESET);
+$btnReset->setContent(Locales::getCore("reset"));
+
+// "Button Submit" Element Settings.
+
+$btnSubmit->setID("deactivate-account-submit-button");
+$btnSubmit->setClass("form-button");
+$btnSubmit->setType(FButton::TP_SUBMIT);
+$btnSubmit->setContent(Locales::getCore("proceed"));
 
 // "Link Edit Profile" Element Settings.
 
@@ -84,6 +146,7 @@ $lnkDeactivateAccount->setContent(Locales::getCore("deactivate-account"));
 
 Build::element($hdDeactivateAccount);
 Build::element($divMainInfo);
+Build::element($fmDeactivateAccount);
 Build::element($divProfileOptions);
 
 ?>

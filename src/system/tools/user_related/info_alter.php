@@ -1,7 +1,7 @@
 <?php
 
 /***********************************************************\
-|* Frequency CMS v1.0.0                                    *|
+|* frequencyCMS v1.0.0                                     *|
 |* Author: Djordje Jocic                                   *|
 |* Year: 2014                                              *|
 |* ------------------------------------------------------- *|
@@ -284,7 +284,7 @@ class InfoAlter
         $filteredValue = new FilteredVariable();
         
         $filteredValue->setType(FilteredVariable::TP_CUSTOM);
-        $filteredValue->setRegularExpression("/[^\da-z!@#$%^&*()_+.]/i");
+        $filteredValue->setRegularExpression("/[^\da-z\\s'\"!@#$%^&*()_+.]/i");
         $filteredValue->setValue($newValue);
         
         $filteredValue = $filteredValue->getValue();
@@ -303,7 +303,7 @@ class InfoAlter
         $filteredValue = new FilteredVariable();
         
         $filteredValue->setType(FilteredVariable::TP_CUSTOM);
-        $filteredValue->setRegularExpression("/[^\da-z!@#$%^&*()_+.]/i");
+        $filteredValue->setRegularExpression("/[^\da-z\\s\\n\\r'\"!@#$%^&*()_+.]/i");
         $filteredValue->setValue($newValue);
         
         $filteredValue = $filteredValue->getValue();

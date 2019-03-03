@@ -85,6 +85,10 @@
 
 #comments-icon:hover { background: url(./../../../system/assets/images/administration/comments.png) -50px center no-repeat; }
 
+#shouts-icon { background: url(./../../../system/assets/images/administration/shouts.png) 0 center no-repeat; }
+
+#shouts-icon:hover { background: url(./../../../system/assets/images/administration/shouts.png) -50px center no-repeat; }
+
 #links-icon { background: url(./../../../system/assets/images/administration/links.png) 0 center no-repeat; }
 
 #links-icon:hover { background: url(./../../../system/assets/images/administration/links.png) -50px center no-repeat; }

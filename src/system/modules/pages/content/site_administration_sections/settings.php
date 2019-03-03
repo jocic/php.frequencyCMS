@@ -1,7 +1,7 @@
 <?php
 
 /***********************************************************\
-|* Frequency CMS v1.0.0                                    *|
+|* frequencyCMS v1.0.0                                     *|
 |* Author: Djordje Jocic                                   *|
 |* Year: 2014                                              *|
 |* ------------------------------------------------------- *|
@@ -56,6 +56,7 @@ $rowWebsiteDescription = new FTableRow();
 $rowOfficialEmail      = new FTableRow();
 $rowRegistrationMode   = new FTableRow();
 $rowDeployCaptcha      = new FTableRow();
+$rowSocialIntegration  = new FTableRow();
 $rowShowLatestPages    = new FTableRow();
 $rowSubmit             = new FTableRow();
 
@@ -70,6 +71,7 @@ $inpWebsiteDescription = new FInput();
 $inpOfficialEmail      = new FInput();
 $selRegistrationMode   = new FSelect();
 $selDeployCaptcha      = new FSelect();
+$selSocialIntegration  = new FSelect();
 $selShowLatestPages    = new FSelect();
 $btnReset              = new FButton();
 $btnSubmit             = new FButton();
@@ -102,6 +104,7 @@ $tblCoreSettings->addRow($rowWebsiteDescription);
 $tblCoreSettings->addRow($rowOfficialEmail);
 $tblCoreSettings->addRow($rowRegistrationMode);
 $tblCoreSettings->addRow($rowDeployCaptcha);
+$tblCoreSettings->addRow($rowSocialIntegration);
 $tblCoreSettings->addRow($rowShowLatestPages);
 $tblCoreSettings->addRow($rowSubmit);
 
@@ -167,6 +170,13 @@ $rowDeployCaptcha->setID("deploy-captcha-row");
 
 $rowDeployCaptcha->addCell(new FTableCell(null, "table-cell-1", new FLabel("deploy-captcha", Locales::getCore("deploy-captcha"))));
 $rowDeployCaptcha->addCell(new FTableCell(null, "table-cell-2", $selDeployCaptcha));
+
+// "Row Social Integration" Element Settings.
+
+$rowSocialIntegration->setID("social-integration-row");
+
+$rowSocialIntegration->addCell(new FTableCell(null, "table-cell-1", new FLabel("social-integration", Locales::getCore("social-integration"))));
+$rowSocialIntegration->addCell(new FTableCell(null, "table-cell-2", $selSocialIntegration));
 
 // "Row Show Latest Pages" Element Settings.
 
@@ -284,6 +294,26 @@ else
 unset($tempMode);
 
 $selDeployCaptcha->setName("req_captcha");
+
+// "Select Social Integration" Element Settings.
+
+$selDeployCaptcha->setClass("form-select");
+
+$tempMode = Core::get(Core::SOCIAL_INTEGRATION);
+
+if ($tempMode == "yes")
+    $selSocialIntegration->addOption(new FSelectOption("yes", Locales::getCore("yes"), true));
+else
+    $selSocialIntegration->addOption(new FSelectOption("yes", Locales::getCore("yes"), false));
+
+if ($tempMode == "no")
+    $selSocialIntegration->addOption(new FSelectOption("no", Locales::getCore("no"), true));
+else
+    $selSocialIntegration->addOption(new FSelectOption("no", Locales::getCore("no"), false));
+
+unset($tempMode);
+
+$selSocialIntegration->setName("req_social");
 
 // "Select Show Latest Pages" Element Settings.
 

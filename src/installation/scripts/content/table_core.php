@@ -39,7 +39,7 @@ EasyInsert::execute
 (
     new TableSelection("core"),
     new ColumnSelection("name", "content"),
-    new ValueSelection(array("system_version", "Beta Build 2"))
+    new ValueSelection(array("system_version", "Beta Build 3"))
 );
 
 // Row "Base".
@@ -93,7 +93,7 @@ EasyInsert::execute
 (
     new TableSelection("core"),
     new ColumnSelection("name", "content"),
-    new ValueSelection(array("title_sufix", "» Free And Open Source CMS « frequency-cms.com"))
+    new ValueSelection(array("title_sufix", ">> Free And Open Source CMS << frequency-cms.com"))
 );
 
 // Row "Email".
@@ -130,6 +130,15 @@ EasyInsert::execute
     new TableSelection("core"),
     new ColumnSelection("name", "content"),
     new ValueSelection(array("registration_mode", "minimal"))
+);
+
+// Row "Registration Mode".
+
+EasyInsert::execute
+(
+    new TableSelection("core"),
+    new ColumnSelection("name", "content"),
+    new ValueSelection(array("social_integration", "no"))
 );
 
 // Row "Show Latest Pages".

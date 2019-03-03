@@ -1,7 +1,7 @@
 <?php
 
 /***********************************************************\
-|* Frequency CMS v1.0.0                                    *|
+|* frequencyCMS v1.0.0                                     *|
 |* Author: Djordje Jocic                                   *|
 |* Year: 2014                                              *|
 |* ------------------------------------------------------- *|
@@ -40,6 +40,10 @@ Build::setBlankPrefix($this->getBlankPrefix());
 // Create "Core" Variables.
 
 $varPageID                  = $_GET[Locales::getVariable("page")];
+$varPageTitle               = null;
+$varPageURL                 = "http://" . Core::get(Core::WEBSITE_BASE) . "/?" . Locales::getVariable("page") . "=" . $varPageID;
+$varShareInfo               = Core::get(Core::WEBSITE_TITLE) . " - " . $varPageTitle;
+$varViewProfilePrefix       = "./?" . Locales::getVariable("page") . "=" . Locales::getLink("view-profile") . "&" . Locales::getVariable("id") . "=";
 $varCommentPagePrefix       = "./?" . Locales::getVariable("page") . "=" . $varPageID . "&" . Locales::getVariable("option") . "=" . Locales::getLink("view-comments") . "&" . Locales::getVariable("comment-page") . "=";
 $varCommentPageNumber       = 0;
 
@@ -47,6 +51,7 @@ $varCommentPageNumber       = 0;
 
 $hdDynamicPage           = new FHeader();
 $divDynamicPageContent   = new FDiv();
+$divSocialButtons        = new FDiv();
 $divPageOptions          = new FDiv();
 $divPageOptionsLeftSide  = new FDiv();
 $divPageOptionsRightSide = new FDiv();
@@ -57,16 +62,16 @@ $divPageCommentOptions   = new FDiv();
 $divPageComments         = new FDiv();
 $divPageCommentNumbers   = new FDiv();
 $fmComment               = new FForm();
-$tblComment              = new FTable();
+$divPostComment          = new FDiv();
 $parToComment            = new FParagraph();
 $parLogInToComment       = new FParagraph();
 
-// Create "Row" Elements.
+// Create "Div" Elements.
 
-$rowCommentTitle         = new FTableRow();
-$rowComment              = new FTableRow();
-$rowCaptcha              = new FTableRow();
-$rowSubmit               = new FTableRow();
+$divCommentTitle         = new FDiv();
+$divCommentContent       = new FDiv();
+$divCaptcha              = new FDiv();
+$divSubmit               = new FDiv();
 
 // Create "Input" Elements.
 
@@ -79,6 +84,10 @@ $btnSubmit               = new FButton();
 if (!is_numeric($varPageID))
     $varPageID = PageInfo::convertCustomID($varPageID);
 
+// "Page Title" Variable Settings.
+
+$varPageTitle = PageInfo::getTitle($varPageID);
+
 // "Comment Page Number" Variable Settings.
 
 if (!empty($_GET[Locales::getVariable("comment-page")]))
@@ -87,12 +96,23 @@ if (!empty($_GET[Locales::getVariable("comment-page")]))
 // "Header Dynamic Page" Element Settings.
 
 $hdDynamicPage->setLevel(1);
-$hdDynamicPage->setContent(PageInfo::getTitle($varPageID));
+$hdDynamicPage->setContent($varPageTitle);
 
 // "Div Dynamic Page Content" Element Settings.
 
 $divDynamicPageContent->setID("page-content");
 $divDynamicPageContent->setContent(PageInfo::getContent($varPageID));
+
+// "Div Social Buttons" Element Settings.
+
+$divSocialButtons->setID("social-buttons");
+
+$divSocialButtons->addElement("<script src=\"./system/assets/scripts/social_integration.js\" type=\"text/javascript\"></script>");
+$divSocialButtons->addElement(new FDiv("twitter-button", "social-button", "<a href=\"https://twitter.com/intent/tweet?original_referer=$varPageURL&url=$varPageURL&count-url=$varPageURL&text=$varShareInfo\" target=\"_blank\" class=\"twitter-share-button\" data-url=\"$varPageURL\" data-counturl=\"$varPageURL\" data-text=\"$varShareInfo\" data-lang=\"en\" data-count=\"vertical\">Tweet</a>"));
+$divSocialButtons->addElement(new FDiv("google-button", "social-button", "<g:plusone size=\"tall\"><a href=\"https://plus.google.com/share?url=$varPageURL\" target=\"_blank\">G +1</a></g:plusone>"));
+$divSocialButtons->addElement(new FDiv("facebook-like-button", "social-button", "<div class=\"fb-like\" data-href=\"$varPageURL\" data-layout=\"box_count\" data-action=\"like\" data-show-faces=\"false\" data-share=\"false\"><a href=\"http://www.facebook.com/sharer.php?u=$varPageURL\" target=\"_blank\">Like</a></div>"));
+$divSocialButtons->addElement(new FDiv("facebook-share-button", "social-button", "<div class=\"fb-share-button\" data-href=\"$varPageURL\" data-type=\"box_count\"><a href=\"http://www.facebook.com/sharer.php?u=$varPageURL\" target=\"_blank\">Share</a></div>"));
+$divSocialButtons->addElement(new FDiv(null, "clr"));
 
 // "Div Page Options" Element Settings.
 
@@ -157,15 +177,15 @@ if (is_array($commentArray))
 
     foreach ($commentArray as $comment)
     {
-        $tblTempComment = new FTable();
+        $divTempComment = new FDiv();
 
-        $tblTempComment->setID("page-comment-$commentCount");
-        $tblTempComment->setClass("page-comment-table");
+        $divTempComment->setID("page-comment-$commentCount");
+        $divTempComment->setClass("page-comment-holder");
 
-        $tblTempComment->addRow(new FTableRow(null, "comment-poster", new FTableCell(null, null, "<strong>" . InfoFetch::fetchUsername($comment["sender_id"]) . "</strong>")));
-        $tblTempComment->addRow(new FTableRow(null, "comment-content", new FTableCell(null, null, $comment["content"])));
+        $divTempComment->addElement(new FDiv(null, "comment-poster", "<a href=\"$varViewProfilePrefix" . $comment["sender_id"] . "\">" . InfoFetch::fetchUsername($comment["sender_id"]) . "</a>"));
+        $divTempComment->addElement(new FDiv(null, "comment-content", $comment["content"]));
 
-        $divPageComments->addElement($tblTempComment);
+        $divPageComments->addElement($divTempComment);
 
         $commentCount ++;
     }
@@ -195,20 +215,20 @@ $fmComment->setClass("default-form");
 $fmComment->setMethod(FForm::MTD_POST);
 $fmComment->setAction("./?" . Locales::getVariable("page") . "=" . $varPageID . "&" . Locales::getVariable("option") . "=" . Locales::getLink("comment"));
 
-$fmComment->addItem($tblComment);
+$fmComment->addItem($divPostComment);
 
-// "Table Comment" Element Settings.
+// "Div Post Comment" Element Settings.
 
-$tblComment->setID("comment-form-table");
-$tblComment->setClass("form-table");
+$divPostComment->setID("post-comment-holder");
 
-$tblComment->addRow($rowCommentTitle);
-$tblComment->addRow($rowComment);
+$divPostComment->addElement($divCommentTitle);
+$divPostComment->addElement($divCommentContent);
 
 if (Core::get(Core::DEPLOY_CAPTCHA) == "yes")
-    $tblComment->addRow($rowCaptcha);
+    $divPostComment->addElement($divCaptcha);
 
-$tblComment->addRow($rowSubmit);
+$divPostComment->addElement($divSubmit);
+$divPostComment->addElement(new FDiv(null, "clr"));
 
 // "Paragraph To Comment" Element Settings.
 
@@ -226,21 +246,25 @@ $parLogInToComment->setAlignment(FParagraph::ALN_CENTER);
 $parLogInToComment->setContent(Locales::getParagraph("log-in-to-comment"));
 $parLogInToComment->setLink("./?" . Locales::getVariable("page") . "=" . Locales::getLink("log-in"));
 
-// "Row Comment" Element Settings.
+// "Div Comment Title" Element Settings.
 
-$rowCommentTitle->addCell(new FTableCell(null, null, Locales::getCore("comment")));
+$divCommentTitle->setID("comment-title");
+$divCommentTitle->addElement(new FDiv(null, null, Locales::getCore("comment")));
 
-// "Row Comment" Element Settings.
+// "Div Comment Content" Element Settings.
 
-$rowComment->addCell(new FTableCell(null, null, $txtComment, 2));
+$divCommentContent->setID("comment-content");
+$divCommentContent->addElement(new FDiv(null, null, $txtComment));
 
-// "Row Captcha" Element Settings.
+// "Div Captcha" Element Settings.
 
-$rowCaptcha->addCell(new FTableCell(null, null, array(new FLabel("comment-captcha", Captcha::getChallenge()), $inpCaptcha)));
+$divCaptcha->setID("comment-captcha");
+$divCaptcha->addElement(new FDiv(null, null, array(new FLabel("comment-captcha", Captcha::getChallenge()), $inpCaptcha)));
 
-// "Row Submit" Element Settings.
+// "Div Submit" Element Settings.
 
-$rowSubmit->addCell(new FTableCell(null, null, $btnSubmit, 2, null, FButton::ALN_RIGHT));
+$divSubmit->setID("comment-submit");
+$divSubmit->addElement(new FDiv(null, null, $btnSubmit));
 
 // "Textarea Comment" Element Settings.
 
@@ -268,6 +292,9 @@ $btnSubmit->setContent(Locales::getCore("post"));
 
 Build::element($hdDynamicPage);
 Build::element($divDynamicPageContent);
+
+if (Core::get(Core::SOCIAL_INTEGRATION) == "yes")
+    Build::element($divSocialButtons);
 
 if (PageInfo::isCommentingEnabled($varPageID))
 {

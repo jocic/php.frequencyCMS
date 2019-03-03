@@ -1,7 +1,7 @@
 <?php
 
 /***********************************************************\
-|* Frequency CMS v1.0.0                                    *|
+|* frequencyCMS v1.0.0                                     *|
 |* Author: Djordje Jocic                                   *|
 |* Year: 2014                                              *|
 |* ------------------------------------------------------- *|
@@ -61,6 +61,9 @@ if (!$this->isPostEmpty())
     
     if (!empty($_POST["req_captcha"]))
         Core::set(Core::DEPLOY_CAPTCHA, $_POST["req_captcha"]);
+    
+    if (!empty($_POST["req_captcha"]))
+        Core::set(Core::SOCIAL_INTEGRATION, $_POST["req_social"]);
     
     if (!empty($_POST["req_latest_pages"]))
         Core::set(Core::SHOW_LATEST_PAGES, $_POST["req_latest_pages"]);

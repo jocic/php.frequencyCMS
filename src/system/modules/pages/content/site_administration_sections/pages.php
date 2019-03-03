@@ -1,7 +1,7 @@
 <?php
 
 /***********************************************************\
-|* Frequency CMS v1.0.0                                    *|
+|* frequencyCMS v1.0.0                                     *|
 |* Author: Djordje Jocic                                   *|
 |* Year: 2014                                              *|
 |* ------------------------------------------------------- *|
@@ -104,7 +104,7 @@ if (!empty($_GET[Locales::getVariable("option")]))
         
         // "Table Option Edit Core Page" Element Settigngs.
         
-        $tbEditCorePage->setID("edit-core-page-table");
+        $tbEditCorePage->setID("pages-table");
         $tbEditCorePage->setClass("default-admin-table");
         $tbEditCorePage->setAlignment(FTable::ALN_CENTER);
         
@@ -151,6 +151,7 @@ if (!empty($_GET[Locales::getVariable("option")]))
         
         // Append Elements To "Workplace" Element.
 
+        $divWorkplace->addElement("<script src=\"./system/assets/scripts/ckeditor/ckeditor.js\" type=\"text/javascript\"></script>");
         $divWorkplace->addElement($hdEditCorePage);
         $divWorkplace->addElement($fmEditCorePage);
     }
@@ -409,6 +410,7 @@ if (!empty($_GET[Locales::getVariable("option")]))
 
         // Append Elements To "Workplace" Element.
 
+        $divWorkplace->addElement("<script src=\"./system/assets/scripts/ckeditor/ckeditor.js\" type=\"text/javascript\"></script>");
         $divWorkplace->addElement($hdOptionAdd);
         $divWorkplace->addElement($fmOptionAdd);
     }
@@ -686,6 +688,7 @@ if (!empty($_GET[Locales::getVariable("option")]))
 
         // Append Elements To "Workplace" Element.
 
+        $divWorkplace->addElement("<script src=\"./system/assets/scripts/ckeditor/ckeditor.js\" type=\"text/javascript\"></script>");
         $divWorkplace->addElement($hdOptionAdd);
         $divWorkplace->addElement($fmOptionAdd);
     }

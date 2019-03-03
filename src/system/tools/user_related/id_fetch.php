@@ -65,7 +65,7 @@ class IDFetch
         $data = $data[0][0];
         
         if ($data == null)
-            $data = -1;
+            $data = 0;
         
         // Return The Data.
         
@@ -92,7 +92,7 @@ class IDFetch
             return $data[0][0];
         }
         else
-            return -1;
+            return 0;
     }
 }
 

@@ -1,7 +1,7 @@
 <?php
 
 /***********************************************************\
-|* Frequency CMS v1.0.0                                    *|
+|* frequencyCMS v1.0.0                                     *|
 |* Author: Djordje Jocic                                   *|
 |* Year: 2014                                              *|
 |* ------------------------------------------------------- *|
@@ -36,20 +36,23 @@ if (!defined("IND_ACCESS")) exit("Action not allowed.");
 // Create "Core" Elements.
 
 $hdChangePassword     = new FHeader();
+$divMainInfo          = new FDiv();
 $fmChangePassword     = new FForm();
 $tblChangePassword    = new FTable();
 $divProfileOptions    = new FDiv();
 
 // Create "Row" Elements.
 
-$rowPassword          = new FTableRow();
-$rowPasswordRe        = new FTableRow();
+$rowCurrentPassword   = new FTableRow();
+$rowNewPassword       = new FTableRow();
+$rowRetypePassword    = new FTableRow();
 $rowSubmit            = new FTableRow();
 
 // Create "Input" Elements.
 
-$inpPassword          = new FInput();
-$inpPasswordRe        = new FInput();
+$inpCurrentPassword   = new FInput();
+$inpNewPassword       = new FInput();
+$inpRetypePassword    = new FInput();
 $btnReset             = new FButton();
 $btnSubmit            = new FButton();
 
@@ -63,6 +66,12 @@ $lnkDeactivateAccount = new FAnchor();
 
 $hdChangePassword->setLevel(1);
 $hdChangePassword->setContent(Locales::getTitle("change-password"));
+
+// "Div Main Info" Element Settings.
+
+$divMainInfo->setID("profile-status");
+
+$divMainInfo->addElement(Locales::getParagraph("you-will-be-logged-out"));
 
 // "Form Change Password" Element Settings.
 
@@ -79,8 +88,9 @@ $fmChangePassword->addItem($tblChangePassword);
 $tblChangePassword->setID("change-password-table");
 $tblChangePassword->setClass("default-table");
 
-$tblChangePassword->addRow($rowPassword);
-$tblChangePassword->addRow($rowPasswordRe);
+$tblChangePassword->addRow($rowCurrentPassword);
+$tblChangePassword->addRow($rowNewPassword);
+$tblChangePassword->addRow($rowRetypePassword);
 $tblChangePassword->addRow($rowSubmit);
 
 // "Div Profile Options" Element Settings.
@@ -89,35 +99,48 @@ $divProfileOptions->setID("users-profile-options");
 
 $divProfileOptions->addElement(array($lnkEditProfile, " | ", $lnkChangePassword, " | ", $lnkDeactivateAccount));
 
-// "Row Password" Element Settings.
+// "Row Current Password" Element Settings.
 
-$rowPassword->addCell(new FTableCell(null, null, new FLabel("password", Locales::getCore("password"))));
-$rowPassword->addCell(new FTableCell(null, null, $inpPassword));
+$rowCurrentPassword->addCell(new FTableCell(null, null, new FLabel("current-password", Locales::getCore("current-password"))));
+$rowCurrentPassword->addCell(new FTableCell(null, null, $inpCurrentPassword));
 
-// "Row Password Re" Element Settings.
+// "Row New Password" Element Settings.
 
-$rowPasswordRe->addCell(new FTableCell(null, null,new FLabel("password-re", Locales::getCore("confirmation-password"))));
-$rowPasswordRe->addCell(new FTableCell(null, null, $inpPasswordRe));
+$rowNewPassword->addCell(new FTableCell(null, null, new FLabel("new-password", Locales::getCore("new-password"))));
+$rowNewPassword->addCell(new FTableCell(null, null, $inpNewPassword));
+
+// "Row Retype Password" Element Settings.
+
+$rowRetypePassword->addCell(new FTableCell(null, null,new FLabel("retype-password", Locales::getCore("retype-password"))));
+$rowRetypePassword->addCell(new FTableCell(null, null, $inpRetypePassword));
 
 // "Row Submit" Element Settings.
 
 $rowSubmit->addCell(new FTableCell(null, null, array($btnReset, $btnSubmit), 2, null, FTableRow::ALN_RIGHT));
 
-// "Input Password" Element Settings.
+// "Input Current Password" Element Settings.
 
-$inpPassword->setID("password-input");
-$inpPassword->setClass("form-input");
-$inpPassword->setMaxLength(50);
-$inpPassword->setType(FInput::TP_PASSWORD);
-$inpPassword->setName("req_password");
+$inpCurrentPassword->setID("current-password-input");
+$inpCurrentPassword->setClass("form-input");
+$inpCurrentPassword->setMaxLength(50);
+$inpCurrentPassword->setType(FInput::TP_PASSWORD);
+$inpCurrentPassword->setName("req_current");
 
-// "Input Password Re" Element Settings.
+// "Input New Password" Element Settings.
 
-$inpPasswordRe->setID("password-re-input");
-$inpPasswordRe->setClass("form-input");
-$inpPasswordRe->setMaxLength(50);
-$inpPasswordRe->setType(FInput::TP_PASSWORD);
-$inpPasswordRe->setName("req_password_re");
+$inpNewPassword->setID("new-password-input");
+$inpNewPassword->setClass("form-input");
+$inpNewPassword->setMaxLength(50);
+$inpNewPassword->setType(FInput::TP_PASSWORD);
+$inpNewPassword->setName("req_new");
+
+// "Input Retype Password" Element Settings.
+
+$inpRetypePassword->setID("retype-password-input");
+$inpRetypePassword->setClass("form-input");
+$inpRetypePassword->setMaxLength(50);
+$inpRetypePassword->setType(FInput::TP_PASSWORD);
+$inpRetypePassword->setName("req_retype");
 
 // "Button Reset" Element Settings.
 
@@ -154,6 +177,7 @@ $lnkDeactivateAccount->setContent(Locales::getCore("deactivate-account"));
 // Build Elements.
 
 Build::element($hdChangePassword);
+Build::element($divMainInfo);
 Build::element($fmChangePassword);
 Build::element($divProfileOptions);
 

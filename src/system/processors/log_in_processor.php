@@ -1,7 +1,7 @@
 <?php
 
 /***********************************************************\
-|* Frequency CMS v1.0.0                                    *|
+|* frequencyCMS v1.0.0                                     *|
 |* Author: Djordje Jocic                                   *|
 |* Year: 2014                                              *|
 |* ------------------------------------------------------- *|
@@ -81,7 +81,7 @@ class Processor extends PageProcessor
                         if (AccountCheck::isPasswordValid($this->password, $usersID)) // Check The "Password".
                         {
                             if (Account::isDeactivated($usersID))
-                                User::alterStatus(User::STS_REGULAR);
+                                InfoAlter::alterStatus(Account::STS_REGULAR, $usersID);
 
                             InfoAlter::alterVerification(null, $usersID);
                             InfoAlter::alterLastIP($_SERVER["REMOTE_ADDR"], $usersID);

@@ -66,7 +66,7 @@ EasyInsert::execute
 (
     new TableSelection("assets"),
     new ColumnSelection("type", "name", "filename"),
-    new ValueSelection(array(0, "Half Banner 234x60 One", "f50ecf28c3b2a272534579ed5a49b9c10031941b.png"))
+    new ValueSelection(array(0, "Half Banner 200x60 One", "f50ecf28c3b2a272534579ed5a49b9c10031941b.png"))
 );
 
 // Row "Half Banner 234x60 Two".
@@ -75,7 +75,7 @@ EasyInsert::execute
 (
     new TableSelection("assets"),
     new ColumnSelection("type", "name", "filename"),
-    new ValueSelection(array(0, "Half Banner 234x60 Two", "c21c62e3253c8a53710893bb92475bfb543ec639.png"))
+    new ValueSelection(array(0, "Half Banner 200x60 Two", "c21c62e3253c8a53710893bb92475bfb543ec639.png"))
 );
 
 // Row "Half Banner 234x60 Three".
@@ -84,7 +84,7 @@ EasyInsert::execute
 (
     new TableSelection("assets"),
     new ColumnSelection("type", "name", "filename"),
-    new ValueSelection(array(0, "Half Banner 234x60 Three", "2a52e95826e9f09d4dac931103814aaec5f92125.png"))
+    new ValueSelection(array(0, "Half Banner 200x60 Three", "2a52e95826e9f09d4dac931103814aaec5f92125.png"))
 );
 
 ?>

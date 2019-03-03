@@ -1,7 +1,7 @@
 <?php
 
 /***********************************************************\
-|* Frequency CMS v1.0.0                                    *|
+|* frequencyCMS v1.0.0                                     *|
 |* Author: Djordje Jocic                                   *|
 |* Year: 2014                                              *|
 |* ------------------------------------------------------- *|
@@ -101,7 +101,7 @@ class Menus
 
                         $varTempItem->setID("sub-menu");
                         $varTempItem->setType(FList::TP_UL);
-                        $varTempItem->setName($varMenuItems[$i]["title"]);
+                        $varTempItem->setName("<span>" . $varMenuItems[$i]["title"] . "</span>");
 
                         $varTempItem->setItems(self::getMenuItems($varMenuItems[$i]["value"], false));
                         

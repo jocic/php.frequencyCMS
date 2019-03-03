@@ -1,10 +1,19 @@
-/* Main Sections */
+/* Workplace */
 
-#administration-content
+#workplace-left
 {
-    width: 100%;
-    margin: 0 0 15px 0;
+    width: 1000px;
+    float: left;
+    margin: 0 15px 0 15px;
 }
+
+#workplace-right
+{
+    width: 205px;
+    float: left;
+}
+
+/* Main Sections */
 
 #administration-options
 {
@@ -436,6 +445,35 @@
     margin: 0 0 15px 20px;
 }
 
+/* Shouts Table */
+
+#shouts-table .table-cell-id
+{
+    width: 20px;
+    text-align: center;
+}
+
+#shouts-table .table-cell-poster
+{
+    width: 120px;
+}
+
+#shouts-table .table-cell-timestamp
+{
+    width: 200px;
+}
+
+#shouts-table .table-cell-options
+{
+    width: 100px;
+}
+
+#row-content td
+{
+    max-width: 300px;
+    overflow: hidden;
+}
+
 /* Menus Table */
 
 #menus-table .table-cell-id
@@ -574,6 +612,14 @@
 #custom-css-input-table input
 {
     width: 600px;
+}
+
+#custom-css-input-table pre
+{
+    width: 600px;
+    height: 200px;
+    padding: 3px;
+    border: 2px solid #e5e5e5;
 }
 
 #custom-css-input-table textarea

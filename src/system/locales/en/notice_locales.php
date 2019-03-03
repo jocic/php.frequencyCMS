@@ -1,7 +1,7 @@
 <?php
 
 /***********************************************************\
-|* Frequency CMS v1.0.0                                    *|
+|* frequencyCMS v1.0.0                                     *|
 |* Author: Djordje Jocic                                   *|
 |* Year: 2014                                              *|
 |* ------------------------------------------------------- *|
@@ -43,6 +43,7 @@ $LCL_NOTICE_LINKS["already-activated"]          = "already-activated";
 $LCL_NOTICE_LINKS["logged-in"]                  = "logged-in";
 $LCL_NOTICE_LINKS["unknown-notice"]             = "unknown-notice";
 $LCL_NOTICE_LINKS["password-changed"]           = "password-changed";
+$LCL_NOTICE_LINKS["account-deactivated"]        = "account-deactivated";
 
 // "Notice Title" Locales.
 
@@ -62,6 +63,7 @@ $LCL_NOTICE_TITLES["your-profile"]              = "Your Profile Notice";
 $LCL_NOTICE_TITLES["oops"]                      = "Ooooops...";
 $LCL_NOTICE_TITLES["unknown-notice"]            = "Unknown Notice";
 $LCL_NOTICE_TITLES["password-changed"]          = "Password Changed";
+$LCL_NOTICE_TITLES["account-deactivated"]       = "Account Deactivated";
 $LCL_NOTICE_TITLES["messages"]                  = "Messaging Notice";
 
 // Notice Content.
@@ -88,5 +90,6 @@ $LCL_NOTICE_CONTENT["unknown-page"]             = "The page you requested does n
 $LCL_NOTICE_CONTENT["unknown-notice"]           = "An unknown notice has occured. Please contact the site administrator.";
 $LCL_NOTICE_CONTENT["password-changed"]         = "You have successfully changed your password.";
 $LCL_NOTICE_CONTENT["m-success"]                = "You have successfully sent a message.";
+$LCL_NOTICE_CONTENT["account-deactivated"]      = "You have successfully deactivated your account. You can reactivate it by logging in again.";
 
 ?>

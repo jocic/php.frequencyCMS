@@ -1,7 +1,7 @@
 <?php
 
 /***********************************************************\
-|* Frequency CMS v1.0.0                                    *|
+|* frequencyCMS v1.0.0                                     *|
 |* Author: Djordje Jocic                                   *|
 |* Year: 2014                                              *|
 |* ------------------------------------------------------- *|
@@ -125,9 +125,14 @@ class Processor extends PageProcessor
                 
                 $this->varSendersID = IDFetch::byUsername(Session::getUsername());
                 
-                Messages::sendMessage($_POST["req_title"], $_POST["req_content"], $this->varSendersID, $this->varRecieversID);
+                if (Account::isDeactivated($this->varRecieversID))
+                    exit(header("location:" . $this->getErrorLocationPrefix() . Locales::getErrorLink("deactivated-user")));
+                else
+                {
+                    Messages::sendMessage($_POST["req_title"], $_POST["req_content"], $this->varSendersID, $this->varRecieversID);
 
-                exit(header("location:" . $this->getNoticeLocationPrefix() . Locales::getNoticeLink("success")));
+                    exit(header("location:" . $this->getNoticeLocationPrefix() . Locales::getNoticeLink("success")));
+                }
             }
         }
         else

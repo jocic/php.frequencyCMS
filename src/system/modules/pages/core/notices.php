@@ -1,7 +1,7 @@
 <?php
 
 /***********************************************************\
-|* Frequency CMS v1.0.0                                    *|
+|* frequencyCMS v1.0.0                                     *|
 |* Author: Djordje Jocic                                   *|
 |* Year: 2014                                              *|
 |* ------------------------------------------------------- *|
@@ -345,6 +345,15 @@ else if ($_GET[$pnv] == Locales::getLink("your-profile")) // >> Your Profile << 
     {
         $clNoticeTitle->setContent(Locales::getNoticeTitle("password-changed"));
         $clNoticeContent->setContent(Locales::getNoticeContent("password-changed"));
+        
+        $parNotice->setContent(Locales::getParagraph("go-home"));
+        $parNotice->setLink("/");
+        $parNotice->setLinkTitle(Locales::getTitle("home-page"));
+    }
+    else if ($_GET[$nnv] == Locales::getNoticeLink("account-deactivated")) // "Account Deactivated" Notice.
+    {
+        $clNoticeTitle->setContent(Locales::getNoticeTitle("account-deactivated"));
+        $clNoticeContent->setContent(Locales::getNoticeContent("account-deactivated"));
         
         $parNotice->setContent(Locales::getParagraph("go-home"));
         $parNotice->setLink("/");
