@@ -1,0 +1,148 @@
+/* Administration Icons */
+
+.administration-icon
+{
+    width: 50px;
+    height: 50px;
+    padding: 10px;
+}
+
+#user-managment-icon { background: url(./../../../system/assets/images/administration/user_managment.png) center center no-repeat; }
+
+#user-managment-icon:hover { background: url(./../../../system/assets/images/administration/user_managment_hov.png) center center no-repeat; }
+
+#messages-icon { background: url(./../../../system/assets/images/administration/messages.png) center center no-repeat; }
+
+#messages-icon:hover { background: url(./../../../system/assets/images/administration/messages_hov.png) center center no-repeat; }
+
+#assets-icon { background: url(./../../../system/assets/images/administration/assets.png) center center no-repeat; }
+
+#assets-icon:hover { background: url(./../../../system/assets/images/administration/assets_hov.png) center center no-repeat; }
+
+#pages-icon { background: url(./../../../system/assets/images/administration/pages.png) center center no-repeat; }
+
+#pages-icon:hover { background: url(./../../../system/assets/images/administration/pages_hov.png) center center no-repeat; }
+
+#comments-icon { background: url(./../../../system/assets/images/administration/comments.png) center center no-repeat; }
+
+#comments-icon:hover { background: url(./../../../system/assets/images/administration/comments_hov.png) center center no-repeat; }
+
+#links-icon { background: url(./../../../system/assets/images/administration/links.png) center center no-repeat; }
+
+#links-icon:hover { background: url(./../../../system/assets/images/administration/links_hov.png) center center no-repeat; }
+
+#themes-icon { background: url(./../../../system/assets/images/administration/themes.png) center center no-repeat; }
+
+#themes-icon:hover { background: url(./../../../system/assets/images/administration/themes_hov.png) center center no-repeat; }
+
+#modules-icon { background: url(./../../../system/assets/images/administration/modules.png) center center no-repeat; }
+
+#modules-icon:hover { background: url(./../../../system/assets/images/administration/modules_hov.png) center center no-repeat; }
+
+#statistics-icon { background: url(./../../../system/assets/images/administration/statistics.png) center center no-repeat; }
+
+#statistics-icon:hover { background: url(./../../../system/assets/images/administration/statistics_hov.png) center center no-repeat; }
+
+#earnings-icon { background: url(./../../../system/assets/images/administration/earnings.png) center center no-repeat; }
+
+#earnings-icon:hover { background: url(./../../../system/assets/images/administration/earnings_hov.png) center center no-repeat; }
+
+#security-icon { background: url(./../../../system/assets/images/administration/security.png) center center no-repeat; }
+
+#security-icon:hover { background: url(./../../..//system/assets/images/administration/security_hov.png) center center no-repeat; }
+
+#settings-icon { background: url(./../../../system/assets/images/administration/settings.png) center center no-repeat; }
+
+#settings-icon:hover { background: url(./../../../system/assets/images/administration/settings_hov.png) center center no-repeat; }
+
+/* Administration Section - Assets */
+
+#option-holder
+{
+    width: 910px;
+    height: 50px;
+    padding: 10px 0 10px 0;
+}
+
+.asset-option
+{
+    background: #f6f6f6;
+    color: #666666;
+    width: 138px;
+    height: 50px;
+    line-height: 50px;
+    text-indent: 55px;
+    float: left;
+    margin: 0 0 0 10px;
+    border: 1px solid #b3b3b3;
+}
+
+.asset-option:hover
+{
+    background: #42b3e5;
+    color: #ffffff;
+}
+
+.asset-option a
+{
+    display: block;
+    color: #666666;
+}
+
+.asset-option a:hover
+{
+    color: #ffffff;
+}
+
+#picture-assets { background: url(./../../../system/assets/images/asset_types/picture.png) 10px 10px no-repeat; }
+
+#video-assets { background: url(./../../../system/assets/images/asset_types/video.png) 10px 10px no-repeat; }
+
+#audio-assets { background: url(./../../../system/assets/images/asset_types/audio.png) 10px 10px no-repeat; }
+
+#archive-assets { background: url(./../../../system/assets/images/asset_types/archive.png) 10px 10px no-repeat; }
+
+#document-assets { background: url(./../../../system/assets/images/asset_types/document.png) 10px 10px no-repeat; }
+
+#other-assets { background: url(./../../../system/assets/images/asset_types/other.png) 10px 10px no-repeat; }
+
+/* Social Icons */
+
+#social-icons span
+{
+    width: 35px;
+    height: 35px;
+    font-size: 0px;
+    text-indent: -20000px;
+    float: left;
+    margin: 0 5px 0 0;
+}
+
+#social-icons #facebook { background: url(./../../../system/assets/images/social/fb.png); }
+
+#social-icons #facebook:hover { background: url(./../../../system/assets/images/social/fb_hov.png); }
+
+#social-icons #twitter { background: url(./../../../system/assets/images/social/tw.png); }
+
+#social-icons #twitter:hover { background: url(./../../../system/assets/images/social/tw_hov.png); }
+
+#social-icons #gplus { background: url(./../../../system/assets/images/social/gp.png); }
+
+#social-icons #gplus:hover { background: url(./../../../system/assets/images/social/gp_hov.png); }
+
+#social-icons #youtube { background: url(./../../../system/assets/images/social/yt.png); }
+
+#social-icons #youtube:hover { background: url(./../../../system/assets/images/social/yt_hov.png); }
+
+/* Advert */
+
+#advert-one, #advert-two
+{
+    padding: 1px;
+}
+
+#advert-one:hover, #advert-two:hover
+{
+    padding: 0px;
+    border: 1px solid #000000;
+}
