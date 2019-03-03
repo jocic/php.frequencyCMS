@@ -39,7 +39,7 @@ EasyInsert::execute
 (
     new TableSelection("core"),
     new ColumnSelection("name", "content"),
-    new ValueSelection(array("system_version", "Beta Build 1"))
+    new ValueSelection(array("system_version", "Beta Build 2"))
 );
 
 // Row "Base".
@@ -130,6 +130,15 @@ EasyInsert::execute
     new TableSelection("core"),
     new ColumnSelection("name", "content"),
     new ValueSelection(array("registration_mode", "minimal"))
+);
+
+// Row "Show Latest Pages".
+
+EasyInsert::execute
+(
+    new TableSelection("core"),
+    new ColumnSelection("name", "content"),
+    new ValueSelection(array("show_latest_pages", "yes"))
 );
 
 // Row "Password Salt".

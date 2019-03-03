@@ -56,6 +56,7 @@ $rowWebsiteDescription = new FTableRow();
 $rowOfficialEmail      = new FTableRow();
 $rowRegistrationMode   = new FTableRow();
 $rowDeployCaptcha      = new FTableRow();
+$rowShowLatestPages    = new FTableRow();
 $rowSubmit             = new FTableRow();
 
 // Create "Input" Elements.
@@ -69,6 +70,7 @@ $inpWebsiteDescription = new FInput();
 $inpOfficialEmail      = new FInput();
 $selRegistrationMode   = new FSelect();
 $selDeployCaptcha      = new FSelect();
+$selShowLatestPages    = new FSelect();
 $btnReset              = new FButton();
 $btnSubmit             = new FButton();
 
@@ -100,6 +102,7 @@ $tblCoreSettings->addRow($rowWebsiteDescription);
 $tblCoreSettings->addRow($rowOfficialEmail);
 $tblCoreSettings->addRow($rowRegistrationMode);
 $tblCoreSettings->addRow($rowDeployCaptcha);
+$tblCoreSettings->addRow($rowShowLatestPages);
 $tblCoreSettings->addRow($rowSubmit);
 
 // "Row Website Title" Element Settings.
@@ -165,6 +168,13 @@ $rowDeployCaptcha->setID("deploy-captcha-row");
 $rowDeployCaptcha->addCell(new FTableCell(null, "table-cell-1", new FLabel("deploy-captcha", Locales::getCore("deploy-captcha"))));
 $rowDeployCaptcha->addCell(new FTableCell(null, "table-cell-2", $selDeployCaptcha));
 
+// "Row Show Latest Pages" Element Settings.
+
+$rowShowLatestPages->setID("show-latest-pages-row");
+
+$rowShowLatestPages->addCell(new FTableCell(null, "table-cell-1", new FLabel("show-latest-pages", Locales::getCore("show-latest-pages"))));
+$rowShowLatestPages->addCell(new FTableCell(null, "table-cell-2", $selShowLatestPages));
+
 // "Row Submit" Element Settings.
 
 $rowSubmit->setID("submit-row");
@@ -223,6 +233,13 @@ $inpWebsiteDescription->setType(FInput::TP_TEXT);
 $inpWebsiteDescription->setName("req_description");
 $inpWebsiteDescription->setContent(Core::get(Core::WEBSITE_DESCRIPTION));
 
+// "Input Official Email" Element Settings.
+
+$inpOfficialEmail->setMaxLength(255);
+$inpOfficialEmail->setType(FInput::TP_TEXT);
+$inpOfficialEmail->setName("req_email");
+$inpOfficialEmail->setContent(Core::get(Core::WEBSITE_MAIL));
+
 // "Select Registration Mode" Element Settings.
 
 $selRegistrationMode->setClass("form-select");
@@ -268,12 +285,25 @@ unset($tempMode);
 
 $selDeployCaptcha->setName("req_captcha");
 
-// "Input Official Email" Element Settings.
+// "Select Show Latest Pages" Element Settings.
 
-$inpOfficialEmail->setMaxLength(255);
-$inpOfficialEmail->setType(FInput::TP_TEXT);
-$inpOfficialEmail->setName("req_email");
-$inpOfficialEmail->setContent(Core::get(Core::WEBSITE_MAIL));
+$selShowLatestPages->setClass("form-select");
+
+$tempMode = Core::get(Core::SHOW_LATEST_PAGES);
+
+if ($tempMode == "yes")
+    $selShowLatestPages->addOption(new FSelectOption("yes", Locales::getCore("yes"), true));
+else
+    $selShowLatestPages->addOption(new FSelectOption("yes", Locales::getCore("yes"), false));
+
+if ($tempMode == "no")
+    $selShowLatestPages->addOption(new FSelectOption("no", Locales::getCore("no"), true));
+else
+    $selShowLatestPages->addOption(new FSelectOption("no", Locales::getCore("no"), false));
+
+unset($tempMode);
+
+$selShowLatestPages->setName("req_latest_pages");
 
 // "Button Reset" Element Settings.
 

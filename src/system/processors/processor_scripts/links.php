@@ -745,8 +745,8 @@ $varItemPosition = $varOldPosition[0][0];
             }
             
             // Reddirect.
-
-            exit(header("location: " . $this->getCoreLink() . "&" . Locales::getVariable("workplace") . "=" . Locales::getLink("links")));
+            
+            exit(header("location: " . $this->getCoreLink() . "&" . Locales::getVariable("workplace") . "=" . Locales::getLink("links") . "&" . Locales::getVariable("option") . "=" . Locales::getLink("arrange-menu-items") . "&" . Locales::getVariable("id") . "=" . $varNewMenuID[0][0]));
         }
         else
             exit(header("location: " . $this->getCoreLink() . "&" . Locales::getVariable("workplace") . "=" . Locales::getLink("links")));

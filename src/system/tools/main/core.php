@@ -51,6 +51,7 @@ class Core
     const TOKEN_SALT          = "token_salt";
     const REGISTRAION_MODE    = "registration_mode";
     const DEPLOY_CAPTCHA      = "deploy_captcha";
+    const SHOW_LATEST_PAGES   = "show_latest_pages";
     
     // "Get" Methods.
     
@@ -77,6 +78,8 @@ class Core
         $identifier = Filter::forTableNames($identifier);
         
         $vs = new ValueSelection();
+        
+        $vs->setOption(ValueSelection::OPT_ENCODE);
         
         $vs->addValue($newValue);
         

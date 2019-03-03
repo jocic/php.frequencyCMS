@@ -74,14 +74,9 @@ class Mail
     
     public function setDefaultHeaders()
     {
-        $this->hdrs = "MIME-Version 1.0\r\n" .
-                     "Content-Type: text/html; charset=utf8;\r\n" .
-                     "Content-Transfer-Encoding: 7bit\r\n" .
-                     "Date: " . date("r", $_SERVER["REQUEST_TIME"]) . "\r\n" .
-                     "Message-ID: <" . $_SERVER["REQUEST_TIME"] . " - " . md5($_SERVER["REQUEST_TIME"]) . " @ " . $_SERVER["SERVER_NAME"] . ">\r\n" .
-                     "From: " . $this->from . "\r\n" .
-                     "Reply-To: " . $this->from . "\r\n" .
-                     "Return-Path: " . $this->from . "\r\n";
+        $this->hdrs  = "MIME-Version: 1.0\r\n";
+        $this->hdrs .= "Content-type: text/html; charset=iso-8859-1\r\n";
+        $this->hdrs .= "From: " . Core::get(Core::WEBSITE_TITLE) . " <noreply@" . Core::get(Core::WEBSITE_BASE) . ">\r\n";
     }
     
     // "Get" Methods.

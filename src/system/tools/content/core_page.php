@@ -37,11 +37,27 @@ class CorePage
 {
     // "Set" Methods.
 
-    public static function set($pageName)
+    public static function set($content, $pageName)
     {
         // Filter Page Name.
         
         $pageName = self::filterName($pageName);
+        
+        // Create New Value Selection.
+        
+        $vs = new ValueSelection();
+        
+        $vs->addValue($content);
+        
+        // Update The Values.
+        
+        EasyUpdate::execute
+        (
+            "TS: core_pages",
+            "CS: content",
+            $vs,
+            "ARGS: name = $pageName"
+        );
     }
     
     // "Get" Methods.
@@ -67,11 +83,6 @@ class CorePage
     }
     
     // "Filter" Methods.
-    
-    private static function filterID($pageID)
-    {
-        
-    }
     
     private static function filterName($pageName)
     {

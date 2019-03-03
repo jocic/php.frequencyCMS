@@ -35,6 +35,125 @@ if (!defined("IND_ACCESS")) exit("Action not allowed.");
 
 if (!empty($_GET[Locales::getVariable("option")]))
 {
+    if ($_GET[Locales::getVariable("option")] == Locales::getLink("edit-core-page"))
+    {
+        // Create "Core" Variables.
+        
+        $varCoreLink = CMS_ROOT .
+                       "?" .
+                       Locales::getVariable("page") .
+                       "=" .
+                       Locales::getLink("site-administration") .
+                       "&" .
+                       Locales::getVariable("workplace") .
+                       "=" .
+                       Locales::getLink("pages");
+        
+        $varTitleSufix  = null;
+        $varContent     = null;
+        
+        // Create "Core" Elements.
+        
+        $hdEditCorePage = new FHeader();
+        $fmEditCorePage = new FForm();
+        $tbEditCorePage = new FTable();
+        
+        // Create "Row" Elements.
+        
+        $rowContent          = new FTableRow();
+        $rowContentInput     = new FTableRow();
+        $rowSubmit           = new FTableRow();
+        
+        // Create "Input" Elements.
+        
+        $txtContent          = new FTextArea();
+        $btnReset            = new FButton();
+        $btnSubmit           = new FButton();
+        
+        // "Title Sufix" Variable Settings.
+        
+        if ($_GET[Locales::getVariable("id")] == 1)
+            $varTitleSufix = Locales::getCore("homepage");
+        else if ($_GET[Locales::getVariable("id")] == 2)
+            $varTitleSufix = Locales::getCore("terms-of-service");
+        else if ($_GET[Locales::getVariable("id")] == 3)
+            $varTitleSufix = Locales::getCore("privacy-policy");
+        
+        // "Content" Variable Settings.
+        
+        if ($_GET[Locales::getVariable("id")] == 1)
+            $varContent = CorePage::get("homepage");
+        else if ($_GET[Locales::getVariable("id")] == 2)
+            $varContent = CorePage::get("terms-of-service");
+        else if ($_GET[Locales::getVariable("id")] == 3)
+            $varContent = CorePage::get("privacy-policy");
+        
+        // "Header Edit Core Pages" Element Settings.
+        
+        $hdEditCorePage->setLevel(2);
+        $hdEditCorePage->setContent(Locales::getTitle("edit-core-page") . " - " . $varTitleSufix);
+        
+        // "Form Option Edit Core Page" Element Settings.
+        
+        $fmEditCorePage->setID("edit-core-page-form");
+        $fmEditCorePage->setClass("default-form");
+        $fmEditCorePage->setMethod(FForm::MTD_POST);
+        $fmEditCorePage->setAction($varCoreLink . "&" . Locales::getVariable("option") . "=" . Locales::getLink("edit-core-page") . "&" . Locales::getVariable("id") . "=" . $_GET[Locales::getVariable("id")]);
+        
+        $fmEditCorePage->addItem($tbEditCorePage);
+        
+        // "Table Option Edit Core Page" Element Settigngs.
+        
+        $tbEditCorePage->setID("edit-core-page-table");
+        $tbEditCorePage->setClass("default-admin-table");
+        $tbEditCorePage->setAlignment(FTable::ALN_CENTER);
+        
+        $tbEditCorePage->addRow($rowContent);
+        $tbEditCorePage->addRow($rowContentInput);
+        $tbEditCorePage->addRow($rowSubmit);
+        
+        // "Row Content" Element Settings.
+        
+        $rowContent->setID("page-content");
+        $rowContent->setClass("title");
+        $rowContent->addCell(new FTableCell(null, null, new FLabel("content", Locales::getCore("content")), 2));
+        
+        // "Row Content Input" Element Settings.
+        
+        $rowContentInput->setID("page-content-input");
+        $rowContentInput->addCell(new FTableCell(null, null, $txtContent, 2));
+        
+        // "Row Submit" Element Settings.
+        
+        $rowSubmit->setID("page-submit");
+        $rowSubmit->addCell(new FTableCell(null, null, array($btnReset, $btnSubmit), 2, null, FTableCell::ALN_RIGHT));
+        
+        // "Textarea Content" Element Settings.
+        
+        $txtContent->setID("page-content-input");
+        $txtContent->setClass("ckeditor");
+        $txtContent->setContent($varContent);
+        $txtContent->setName("req_content");
+        
+         // "Button Reset" Element Settings.
+        
+        $btnReset->setID("edit-core-page-reset-button");
+        $btnReset->setClass("form-button");
+        $btnReset->setType(FButton::TP_RESET);
+        $btnReset->setContent(Locales::getCore("reset"));
+
+        // "Button Submit" Element Settings.
+        
+        $btnSubmit->setID("edit-core-page-submit-button");
+        $btnSubmit->setClass("form-button");
+        $btnSubmit->setType(FButton::TP_SUBMIT);
+        $btnSubmit->setContent(Locales::getCore("edit"));
+        
+        // Append Elements To "Workplace" Element.
+
+        $divWorkplace->addElement($hdEditCorePage);
+        $divWorkplace->addElement($fmEditCorePage);
+    }
     if ($_GET[Locales::getVariable("option")] == Locales::getLink("add"))
     {
         // Create "Core" Variables.
@@ -287,7 +406,6 @@ if (!empty($_GET[Locales::getVariable("option")]))
         $btnSubmit->setClass("form-button");
         $btnSubmit->setType(FButton::TP_SUBMIT);
         $btnSubmit->setContent(Locales::getCore("add"));
-
 
         // Append Elements To "Workplace" Element.
 
@@ -595,6 +713,11 @@ else
     
     // Create "Core" Elements.
     
+    $hdCorePages         = new FHeader();
+    $divOptionHolder     = new FDiv();
+    $divHomepageOption   = new FDiv();
+    $divTermsOption      = new FDiv();
+    $divPrivacyOption    = new FDiv();
     $hdPages             = new FHeader();
     $parInfo             = new FParagraph();
     $tblPages            = new FTable();
@@ -611,10 +734,47 @@ else
         "CS: *"
     );
     
+    // "Header Core Pages" Element Settings.
+    
+    $hdCorePages->setLevel(2);
+    $hdCorePages->setContent(Locales::getTitle("core-pages"));
+    
+    // "Div Option Holder" Element Settings.
+    
+    $divOptionHolder->setID("core-pages-holder");
+
+    $divOptionHolder->addElement($divHomepageOption);
+    $divOptionHolder->addElement($divTermsOption);
+    $divOptionHolder->addElement($divPrivacyOption);
+    
+    // "Div Homepage Option" Element Settings.
+    
+    $title = Locales::getCore("homepage");
+    $link  = $varCoreLink . "&" . Locales::getVariable("option") . "=" . Locales::getLink("edit-core-page") . "&" . Locales::getVariable("id") . "=1";
+
+    $divHomepageOption->setClass("page-option");
+    $divHomepageOption->addElement(new FAnchor("page-homepage", "core-page", $link, $title, $title));
+    
+    // "Div Terms Option" Element Settings.
+    
+    $title = Locales::getCore("terms-of-service");
+    $link  = $varCoreLink . "&" . Locales::getVariable("option") . "=" . Locales::getLink("edit-core-page") . "&" . Locales::getVariable("id") . "=2";
+
+    $divTermsOption->setClass("page-option");
+    $divTermsOption->addElement(new FAnchor("page-terms-of-service", "core-page", $link, $title, $title));
+    
+    // "Div Privacy Option" Element Settings.
+    
+    $title = Locales::getCore("privacy-policy");
+    $link  = $varCoreLink . "&" . Locales::getVariable("option") . "=" . Locales::getLink("edit-core-page") . "&" . Locales::getVariable("id") . "=3";
+
+    $divPrivacyOption->setClass("page-option");
+    $divPrivacyOption->addElement(new FAnchor("page-privacy-policy", "core-page", $link, $title, $title));
+    
     // "Header Pages" Element Settings.
     
     $hdPages->setLevel(2);
-    $hdPages->setContent(Locales::getTitle("all-pages"));
+    $hdPages->setContent(Locales::getTitle("dynamic-pages"));
     
     // "Paragraph Info" Element Settings.
     
@@ -674,6 +834,9 @@ else
     $divOptionLinks->addElement("<strong>" . Locales::getCore("options") . ":</strong> $varOptionLinkAdd");
     
     // Append Elements To "Workplace" Element.
+    
+    $divWorkplace->addElement($hdCorePages);
+    $divWorkplace->addElement($divOptionHolder);
     
     $divWorkplace->addElement($hdPages);
     

@@ -1,7 +1,7 @@
 <?php
 
 /***********************************************************\
-|* EasySQL Framework v1.0.3                                *|
+|* EasySQL Framework v1.0.2                                *|
 |* Author: Djordje Jocic                                   *|
 |* Year: 2014                                              *|
 |* ------------------------------------------------------- *|
@@ -37,11 +37,11 @@ class DBConfig
 {
     // "Core" Variables.
 
-    private $host       = "";
-    private $username   = "";
+    private $host       = "localhost";
+    private $username   = "root";
     private $password   = "";
-    private $dbSchema   = "";
-    private $tblPrefix  = "";
+    private $dbSchema   = "frequency_demo";
+    private $tblPrefix  = "fdbv_";
     private $viewPrefix = "";
 
     // "Set" Methods.

@@ -62,6 +62,9 @@ if (!$this->isPostEmpty())
     if (!empty($_POST["req_captcha"]))
         Core::set(Core::DEPLOY_CAPTCHA, $_POST["req_captcha"]);
     
+    if (!empty($_POST["req_latest_pages"]))
+        Core::set(Core::SHOW_LATEST_PAGES, $_POST["req_latest_pages"]);
+    
     // Reddirect.
                             
     exit(header("location: " . $_SERVER["HTTP_REFERER"]));

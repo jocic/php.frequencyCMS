@@ -35,7 +35,38 @@ if (!defined("IND_ACCESS")) exit("Action not allowed.");
 
 // Check If Option And ID Selected.
 
-if (!empty($_GET[Locales::getVariable("option")]) && $_GET[Locales::getVariable("option")] == Locales::getLink("add"))
+if (!empty($_GET[Locales::getVariable("option")]) && $_GET[Locales::getVariable("option")] == Locales::getLink("edit-core-page"))
+{
+    // Check ID.
+    
+    if (empty($_GET[Locales::getVariable("id")]))
+        exit(header("location: " . $this->getCoreLink() . "&" . Locales::getVariable("workplace") . "=" . Locales::getLink("pages")));
+    
+    // Check ID Values.
+    
+    if ($_GET[Locales::getVariable("id")] < 1 || $_GET[Locales::getVariable("id")] > 3)
+        exit(header("location: " . $this->getCoreLink() . "&" . Locales::getVariable("workplace") . "=" . Locales::getLink("pages")));
+    
+    // Check If Edit Was Attempted.
+    
+    if (!$this->isPostEmpty())
+    {
+        if (!empty($_POST["req_content"]))
+        {
+            if ($_GET[Locales::getVariable("id")] == 1)
+                CorePage::set($_POST["req_content"], "homepage");
+            else if ($_GET[Locales::getVariable("id")] == 2)
+                CorePage::set($_POST["req_content"], "terms-of-service");
+            else if ($_GET[Locales::getVariable("id")] == 3)
+                CorePage::set($_POST["req_content"], "privacy-policy");
+        }
+        
+        // Reddirect.
+
+        exit(header("location: " . $this->getCoreLink() . "&" . Locales::getVariable("workplace") . "=" . Locales::getLink("pages")));
+    }
+}
+else if (!empty($_GET[Locales::getVariable("option")]) && $_GET[Locales::getVariable("option")] == Locales::getLink("add"))
 {
     if (!$this->isPostEmpty())
     {

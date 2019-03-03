@@ -19,19 +19,6 @@
     float: left;
     margin: 10px 0 15px 5px;
     border: 1px solid #d5d5d5;
-    
-    /* Border Radius */
-    
-    -moz-border-radius: 4px;
-    -webkit-border-radius: 4px;
-    border-radius: 4px;
-    
-    /* Box Shadow */
-
-    -moz-box-shadow: 0px 3px 3px #cecece;
-    -webkit-box-shadow: 0px 3px 3px #cecece;
-    
-    box-shadow: 0px 3px 4px #8b8b8b;
 }
 
 /* Elements */
@@ -436,7 +423,7 @@
 
 #comments-table .table-cell-timestamp
 {
-    width: 100px;
+    width: 120px;
 }
 
 #comments-table .table-cell-options
@@ -636,63 +623,6 @@
 {
     text-indent: 5px;
 }
-
-/* Option Icons */
-
-.options-icon
-{
-    width: 20px;
-    height: 15px;
-    text-indent: -20000px;
-    font-size: 0px;
-    display: block;
-    margin: 0 5px 0 0;
-    float: left;
-}
-
-#move-up-icon { background: url(./../../../system/assets/images/options/move_up.png); }
-
-#move-up-icon:hover { background: url(./../../../system/assets/images/options/move_up_hov.png); }
-
-#move-down-icon { background: url(./../../../system/assets/images/options/move_down.png); }
-
-#move-down-icon:hover { background: url(./../../../system/assets/images/options/move_down_hov.png); }
-
-#arrange-icon { background: url(./../../../system/assets/images/options/arrange.png); }
-
-#arrange-icon:hover { background: url(./../../../system/assets/images/options/arrange_hov.png); }
-
-#search-icon { background: url(./../../../system/assets/images/options/search.png); }
-
-#search-icon:hover { background: url(./../../../system/assets/images/options/search_hov.png); }
-
-#profile-icon { background: url(./../../../system/assets/images/options/profile.png); }
-
-#profile-icon:hover { background: url(./../../../system/assets/images/options/profile_hov.png); }
-
-#promote-icon { background: url(./../../../system/assets/images/options/move_up.png); }
-
-#promote-icon:hover { background: url(./../../../system/assets/images/options/move_up_hov.png); }
-
-#demote-icon { background: url(./../../../system/assets/images/options/move_down.png); }
-
-#demote-icon:hover { background: url(./../../../system/assets/images/options/move_down_hov.png); }
-
-#ban-icon { background: url(./../../../system/assets/images/options/ban.png); }
-
-#ban-icon:hover { background: url(./../../../system/assets/images/options/ban_hov.png); }
-
-#unban-icon { background: url(./../../../system/assets/images/options/unban.png); }
-
-#unban-icon:hover { background: url(./../../../system/assets/images/options/unban_hov.png); }
-
-#edit-icon { background: url(./../../../system/assets/images/options/edit.png); }
-
-#edit-icon:hover { background: url(./../../../system/assets/images/options/edit_hov.png); }
-
-#delete-icon { background: url(./../../../system/assets/images/options/delete.png); }
-
-#delete-icon:hover { background: url(./../../../system/assets/images/options/delete_hov.png); }
 
 /* Theme Section */
 

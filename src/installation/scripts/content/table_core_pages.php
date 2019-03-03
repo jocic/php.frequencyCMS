@@ -33,6 +33,15 @@
 
 if (!defined("CONST_EASY_SQL")) exit("Action not allowed.");
 
+// Row "Homepage".
+
+EasyInsert::execute
+(
+    new TableSelection("core_pages"),
+    new ColumnSelection("name", "content"),
+    new ValueSelection(array("homepage", $varJunkLatinFull))
+);
+
 // Row "Terms Of Service".
 
 EasyInsert::execute
@@ -42,7 +51,7 @@ EasyInsert::execute
     new ValueSelection(array("terms-of-service", $varJunkLatinFull))
 );
 
-// Row "Terms Of Service".
+// Row "Privacy Policy".
 
 EasyInsert::execute
 (

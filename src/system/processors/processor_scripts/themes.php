@@ -60,30 +60,33 @@ if (!empty($_GET[Locales::getVariable("option")]) && $_GET[Locales::getVariable(
 
 if (!empty($_GET[Locales::getVariable("option")]))
 {
-    if ($_GET[Locales::getVariable("option")] == Locales::getLink("add-style") && !$this->isPostEmpty())
+    if ($_GET[Locales::getVariable("option")] == Locales::getLink("add-style"))
     {
-        // Create "Core" Variables.
+        if (!$this->isPostEmpty())
+        {
+            // Create "Core" Variables.
 
-        $varName    = "/";
-        $varContent = null;
+            $varName    = "/";
+            $varContent = null;
 
-        // "Name" Variable Settings.
-        
-        if (!empty($_POST["req_name"]))
-            $varName = $_POST["req_name"];
-        
-        // "Content" Variable Settings.
-        
-        if (!empty($_POST["req_content"]))
-            $varContent = $_POST["req_content"];
-        
-        // Add Style.
-        
-        Styles::addStyle($varName, $varContent);
-        
-        // Reddirect.
-        
-        exit(header("location: " . $this->getCoreLink() . "&" . Locales::getVariable("workplace") . "=" . Locales::getLink("themes")));
+            // "Name" Variable Settings.
+
+            if (!empty($_POST["req_name"]))
+                $varName = $_POST["req_name"];
+
+            // "Content" Variable Settings.
+
+            if (!empty($_POST["req_content"]))
+                $varContent = $_POST["req_content"];
+
+            // Add Style.
+
+            Styles::addStyle($varName, $varContent);
+
+            // Reddirect.
+
+            exit(header("location: " . $this->getCoreLink() . "&" . Locales::getVariable("workplace") . "=" . Locales::getLink("themes")));
+        }
     }
     else if ($_GET[Locales::getVariable("option")] == Locales::getLink("edit-style") && !empty($_GET[Locales::getVariable("id")]))
     {

@@ -4,13 +4,6 @@
 {
     margin: 0;
     padding: 0;
-    word-break: break-all; 
-    word-wrap: break-word;
-
-    /* Hyphens */
-    
-    -moz-hyphens: auto;
-    -webkit-hyphens: auto;
 }
 
 body
@@ -44,12 +37,6 @@ h1
     font-size: 14px;
     line-height: 25px;
     padding: 0 0 0 10px;
-    
-    /* Border Radius */
-    
-    -moz-border-radius: 4px;
-    -webkit-border-radius: 4px;
-    border-radius: 4px 4px 0 0;
 }
 
 h2
@@ -59,19 +46,6 @@ h2
     font-size: 14px;
     line-height: 25px;
     padding: 0 0 0 10px;
-    
-    /* Border Radius */
-    
-    -moz-border-radius: 4px;
-    -webkit-border-radius: 4px;
-    border-radius: 4px;
-    
-    /* Box Shadow */
-
-    -moz-box-shadow: 0px  2px 2px #cecece;
-    -webkit-box-shadow: 0px  2px 2px #cecece;
-    
-    box-shadow: 0 2px 2px #8b8b8b;
 }
 
 h3
@@ -134,6 +108,27 @@ textarea
     text-indent: -20000px;
 }
 
+/* Modules */
+
+.module
+{
+    background: #ffffff;
+    margin: 15px 0 0 0;
+    border: 1px solid #d5d5d5;
+}
+
+.module a
+{
+    color: #666666;
+    text-decoration: none;
+}
+
+.module a:hover
+{
+    color: #3f99f4;
+    text-decoration: none;
+}
+
 /* Main Sections */
 
 #wrapper
@@ -152,8 +147,8 @@ textarea
     background: #ffffff;
     width: 1000px;
     padding: 0 25px 0 25px;
-    border-left: 2px solid #e5e5e5;
-    border-right: 2px solid #e5e5e5;
+    border-left: 1px solid #42b3e5;
+    border-right: 1px solid #42b3e5;
 }
 
 #header
@@ -205,22 +200,13 @@ textarea
     float: left;
 }
 
-.side-content .module
-{
-    border: 1px solid #d5d5d5;
-}
-
 .main-content, .main-front-page-content
 {
+    text-align: justify;
     width: 580px;
     color: #666666;
     margin: 0 10px 15px 10px;
     float: left;
-}
-
-.main-front-page-content .module
-{
-    border: 1px solid #d5d5d5;
 }
 
 .main-front-page-content .read-more
@@ -228,18 +214,25 @@ textarea
     height: 20px;
     text-align: right;
     padding: 0 10px 0 0;
+    border-top: 1px solid #666666;
+    margin: 0 5px 0 5px;
+    padding: 5px 0 0 0;
 }
 
 .page-description
 {
-    margin: 10px;
-    border: 1px solid #42b3e5;
-    
-    /* Border Radius */
-    
-    -moz-border-radius: 6px;
-    -webkit-border-radius: 6px;
-    border-radius: 6px;
+    border: 1px solid #f1f1f1;
+    margin: 10px 5px 5px 5px;
+}
+
+.page-description h2
+{
+    background: none;
+    color: #666666;
+    margin: 0 5px 0 5px;
+    padding: 0;
+    width: auto;
+    border-bottom: 1px solid #666666;
 }
 
 #page-content, .page-description p
@@ -461,9 +454,15 @@ textarea
     color: #ffffff;
 }
 
+.lane h3
+{
+    margin: 0;
+    padding: 0;
+}
+
 .lane ol { padding: 0 20px 0 20px; }
 
-.lane ol li { margin: 7px;}
+.lane ol li { margin: 10px 0 10px 0; }
 
 #compose-table, #message-table
 {
@@ -555,39 +554,6 @@ textarea
 .message-info
 {
     margin: 0 0 5px 10px;
-}
-
-/* Modules */
-
-.module
-{
-    margin: 15px 0 0 0;
-    
-    /* Border Radius */
-    
-    -moz-border-radius: 4px;
-    -webkit-border-radius: 4px;
-    
-    border-radius: 4px;
-    
-    /* Box Shadow */
-
-    -moz-box-shadow: 0px  3px 3px #cecece;
-    -webkit-box-shadow: 0px  3px 3px #cecece;
-    
-    box-shadow: 0 3px 4px #8b8b8b;
-}
-
-.module a
-{
-    color: #666666;
-    text-decoration: none;
-}
-
-.module a:hover
-{
-    color: #3f99f4;
-    text-decoration: none;
 }
 
 /* Information - Errors / Notices */
@@ -757,6 +723,10 @@ textarea
 #page-comments
 {
     padding: 0 0 5px 0;
+    word-break: break-all; 
+    word-wrap: break-word;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
 }
 
 .page-comment-table
@@ -797,7 +767,7 @@ textarea
 
 .default-form .form-button
 {
-    background: url(./../images/buttons/button.png);
+    background: url(./../images/button.png) 0 center no-repeat;
     color: #ffffff;
     width: 75px;
     height: 25px;
@@ -810,7 +780,7 @@ textarea
 
 .default-form .form-button:hover
 {
-    background: url(./../images/buttons/button_hov.png);
+    background: url(./../images/button.png) -75px center no-repeat;
 }
 
 .default-form .form-input
@@ -873,7 +843,7 @@ textarea
     width: 145px;
     line-height: 30px;
     float: left;
-    padding: 0 0 5px 10px;
+    padding: 0 0 0 10px;
 }
 
 #option-icon-site-administration { background: url(./../../../system/assets/images/user_options/site_administration.png) right no-repeat; }
