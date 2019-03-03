@@ -225,13 +225,18 @@ $inpLastName->setName("req_surname");
 
 // "Select Gender" Element Settings.
 
+$selGender->setClass("form-select");
+
 $selGender->addOption(new FSelectOption(0, Locales::getCore("gender") . ":", true));
 $selGender->addOption(new FSelectOption(1, Locales::getCore("male"), false));
 $selGender->addOption(new FSelectOption(2, Locales::getCore("female"), false));
 $selGender->addOption(new FSelectOption(3, Locales::getCore("other"), false));
+
 $selGender->setName("req_gender");
 
 // "Select Day" Element Settings.
+
+$selDay->setClass("form-select");
 
 $selDay->addOption(new FSelectOption(0, Locales::getCore("day") . ":", true));
 
@@ -242,6 +247,8 @@ $selDay->setName("req_day");
 
 // "Select Month" Element Settings.
 
+$selMonth->setClass("form-select");
+
 $selMonth->addOption(new FSelectOption(0, Locales::getCore("month") . ":", true));
 
 for ($i = 1; $i <= 12; $i ++)
@@ -250,6 +257,8 @@ for ($i = 1; $i <= 12; $i ++)
 $selMonth->setName("req_month");
 
 // "Select Year" Element Settings.
+
+$selYear->setClass("form-select");
 
 $selYear->addOption(new FSelectOption(0, Locales::getCore("year") . ":", true));
 

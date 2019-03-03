@@ -90,7 +90,7 @@ $rwNoticeTwo->addCell($clNoticeContent);
 $parNotice->setAlignment(FParagraph::ALN_CENTER);
 $parNotice->setContent(Locales::getParagraph("go-home"));
 $parNotice->setLink("/");
-$parNotice->setLinkTitle(Locales::getTitle("home-page"));
+$parNotice->setLinkTitle(Locales::getTitle("homepage"));
     
 // Build Elements.
 

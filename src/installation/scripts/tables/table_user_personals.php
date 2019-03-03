@@ -87,7 +87,7 @@ $tblUserPersonals->addColumn
     new EasyColumn
     (
         ColumnName::useName("avatar"),
-        ColumnType::useVarChar(30),
+        ColumnType::useVarChar(255),
         ColumnNull::notAllowed()
     )
 );

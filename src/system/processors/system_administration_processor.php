@@ -103,6 +103,8 @@ class Processor extends PageProcessor
                             require_once $srl . "modules.php";
                         else if ($this->isEarningsWorkplace())
                             require_once $srl . "earnings.php";
+                        else if ($this->isSecurityWorkplace())
+                            require_once $srl . "security.php";
                         else if ($this->isSettingsWorkplace())
                             require_once $srl . "settings.php";
                     }
@@ -168,6 +170,11 @@ class Processor extends PageProcessor
     private function isEarningsWorkplace()
     {
         return $_GET[Locales::getVariable("workplace")] == Locales::getLink("earnings");
+    }
+    
+    private function isSecurityWorkplace()
+    {
+        return $_GET[Locales::getVariable("workplace")] == Locales::getLink("security");
     }
     
     private function isSettingsWorkplace()

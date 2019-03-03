@@ -67,6 +67,67 @@ class Processor extends PageProcessor
         {
             if ($_GET[Locales::getVariable("option")] == Locales::getLink("edit-profile"))
             {
+                // Check If Post Data Length Is OK.
+                
+                if ($_SERVER["REQUEST_METHOD"] == "POST" && empty($_POST) && empty($_FILES) && $_SERVER["CONTENT_LENGTH"] > 0)
+                    exit(header("location:" . $this->getErrorLocationPrefix() . Locales::getErrorLink("post-size")));
+                
+                // Check If File Exists.
+                
+                if (!empty($_FILES["req_avatar"]))
+                {
+                    // Create "Core" Variables.
+
+                    $varFile           = $_FILES["req_avatar"];
+                    $varError          = $_FILES["req_avatar"]["error"];
+                    $varFilename       = basename($_FILES["req_avatar"]["name"]);
+                    $varExtension      = strtolower(substr($varFilename, strrpos($varFilename, ".") + 1));
+                    $varAvatarFilename = sha1($varFilename . "_" . rand(0, 9999999) . "_" . rand(0, 9999999) . "_" . rand(0, 9999999)) . "." . $varExtension;
+
+                    if ($varError == 0) // Check If File Doesn't Contain Any Errors.
+                    {
+                        if ($_FILES["req_avatar"]["size"] < 2000000) // Check The File Type And If Files Size Is Less Than 2 MB.
+                        {
+                            if (($varExtension == "jpg") ||
+                                ($varExtension == "jpeg") ||
+                                ($varExtension == "gif") ||
+                                ($varExtension == "png"))
+                            {
+
+                                // Determine The Path To Which We Want To Save This File.
+
+                                $varLocation = DOC_ROOT .
+                                               DIRECTORY_SEPARATOR .
+                                               "assets" .
+                                               DIRECTORY_SEPARATOR .
+                                               "avatars" .
+                                               DIRECTORY_SEPARATOR .
+                                               $varAvatarFilename;
+
+                                if (!file_exists($varLocation)) // Check If The File With The Same Name Is Already Exists On The Server.
+                                {
+                                    if (move_uploaded_file($_FILES["req_avatar"]["tmp_name"], $varLocation))  // Attempt To Move The Uploaded File To It's New Place.
+                                    {
+                                        $varUsersID = IDFetch::byUsername(Session::getUsername());
+                                        
+                                        InfoAlter::alterAvatar($varAvatarFilename, $varUsersID);
+                                    }
+                                }
+
+                                // Reddirect.
+                    
+                                exit(header("location: " . $this->getCoreLink()));
+                            }
+                            else
+                                exit(header("location:" . $this->getErrorLocationPrefix() . Locales::getErrorLink("file-extension")));
+                        }
+                        else
+                            exit(header("location:" . $this->getErrorLocationPrefix() . Locales::getErrorLink("file-size")));
+                    }
+                    else
+                        exit(header("location:" . $this->getErrorLocationPrefix() . Locales::getErrorLink("file-upload")));
+                }
+                
                 if (!$this->isPostEmpty())
                 {
                      // Create "Core" Variables.
@@ -102,8 +163,8 @@ class Processor extends PageProcessor
                     
                     if (!empty($_POST["req_last_name"]))
                         InfoAlter::alterLastName($_POST["req_last_name"], $varUsersID);
-                    
-                    if (!empty($_POST["req_gender"]))
+
+                    if (!empty($_POST["req_gender"]))   
                         InfoAlter::alterGender(($_POST["req_gender"] - 1), $varUsersID);
                     
                     if (!empty($_POST["req_day"]) || !empty($_POST["req_month"]) || !empty($_POST["req_year"]))

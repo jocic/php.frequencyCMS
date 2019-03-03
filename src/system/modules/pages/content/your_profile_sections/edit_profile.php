@@ -79,6 +79,7 @@ $rowBirthday          = new FTableRow();
 // Create "Input" Elements.
 
 $inpProfileStatus     = new FInput();
+$inpAvatar            = new FInput();
 $inpFirstName         = new FInput();
 $inpMiddleName        = new FInput();
 $inpLastName          = new FInput();
@@ -130,6 +131,7 @@ $hdEditProfile->setContent(Locales::getTitle("edit-profile"));
 $fmEditProfile->setID("deactivate-account-form");
 $fmEditProfile->setClass("default-form");
 
+$fmEditProfile->setType("multipart/form-data");
 $fmEditProfile->setMethod(FForm::MTD_POST);
 $fmEditProfile->setAction("./?" . Locales::getVariable("page") . "=" . Locales::getLink("your-profile") . "&" . Locales::getVariable("option") . "=" . Locales::getLink("edit-profile"));
 
@@ -170,15 +172,16 @@ $divMainInfoRightSide->addElement($tblUserInfo);
 $divAvatarHolder->setID("users-avatar-holder");
 
 $divAvatarHolder->addElement($divAvatar);
+$divAvatarHolder->addElement($inpAvatar);
 
 // "Div Avatar" Element Settings.
 
 $divAvatar->setID("users-avatar");
 
 if ($varAvatar == null)
-    $divAvatar->addElement("<div style=\"height: 100%; width: 100%; background: url(" . CMS_ROOT . "system/assets/images/other/no_avatar.png) no-repeat center center;\"><div class=\"protected\">$varUsername</div></div>");
+    $divAvatar->addElement("<div style=\"width: 150px; height: 150px; background: url(" . CMS_ROOT . "system/assets/images/other/no_avatar.png) no-repeat center center; background-size: auto 150px;\"><div class=\"protected\">$varUsername</div></div>");
 else
-    $divAvatar->addElement("<div style=\"height: 100%; width: 100%; background: url(" . CMS_ROOT . "assets/avatars/$varAvatar.png) no-repeat center center;\"><div class=\"protected\">$varUsername</div></div>");
+    $divAvatar->addElement("<div style=\"width: 150px; height: 150px; background: url(" . CMS_ROOT . "assets/avatars/$varAvatar) no-repeat center center; background-size: auto 150px;\"><div class=\"protected\">$varUsername</div></div>");
 
 // "Table User Info Left" Element Settings.
 
@@ -288,6 +291,13 @@ $inpProfileStatus->setType(FInput::TP_TEXT);
 $inpProfileStatus->setContent($varProfileStatus);
 $inpProfileStatus->setName("req_status");
 
+// "Input Avatar" Element Settings.
+
+$inpAvatar->setID("avatar-input");
+$inpAvatar->setClass("form-input");
+$inpAvatar->setType("file");
+$inpAvatar->setName("req_avatar");
+
 // "Input First Name" Element Settings.
 
 $inpFirstName->setID("first-name-input");
@@ -317,6 +327,8 @@ $inpLastName->setName("req_last_name");
 
 // "Select Gender" Element Settings.
 
+$selGender->setClass("form-select");
+
 $selGender->addOption(new FSelectOption(0, Locales::getCore("gender") . ":", false));
 
 if ($varGender == 0)
@@ -338,6 +350,8 @@ $selGender->setName("req_gender");
 
 // "Select Day" Element Settings.
 
+$selDay->setClass("form-select");
+
 $selDay->addOption(new FSelectOption(0, Locales::getCore("day") . ":", true));
 
 for ($i = 1; $i <= 31; $i ++)
@@ -352,6 +366,8 @@ $selDay->setName("req_day");
 
 // "Select Month" Element Settings.
 
+$selMonth->setClass("form-select");
+
 $selMonth->addOption(new FSelectOption(0, Locales::getCore("month") . ":", true));
 
 for ($i = 1; $i <= 12; $i ++)
@@ -365,6 +381,8 @@ for ($i = 1; $i <= 12; $i ++)
 $selMonth->setName("req_month");
 
 // "Select Year" Element Settings.
+
+$selYear->setClass("form-select");
 
 $selYear->addOption(new FSelectOption(0, Locales::getCore("year") . ":", true));
 

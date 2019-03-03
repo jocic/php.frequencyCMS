@@ -42,6 +42,7 @@ class FInput extends FHTMLObject
     const TP_TEXT     = "text";
     const TP_PASSWORD = "password";
     const TP_CHECKBOX = "checkbox";
+    const TP_HIDDEN   = "hidden";
     const TP_SUBMIT   = "submit";
     
     // "Main" Variables.
@@ -49,6 +50,7 @@ class FInput extends FHTMLObject
     private $ml       = null;
     private $tp       = null;
     private $nm       = null;
+    private $vl       = null;
     
     // "Constructor/s."
     
@@ -77,6 +79,11 @@ class FInput extends FHTMLObject
     {
         $this->nm = $name;
     }
+    
+    public function setValue($value)
+    {
+        $this->vl = $value;
+    }
 
     // "Get" Methods.
     
@@ -93,6 +100,11 @@ class FInput extends FHTMLObject
     public function getName()
     {
         return $this->nm;
+    }
+    
+    public function getValue()
+    {
+        return $this->vl;
     }
 }
 

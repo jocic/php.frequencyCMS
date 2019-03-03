@@ -182,8 +182,8 @@ if ($varAssets != null)
         $tmpRowSeparator = new FTableRow();
 
         // "Temp Row One" Element Settings.
-
-        $tmpRowOne->addCell(new FTableCell(null, "asset-preview", "<img src=\"" . $varAssetLink . $asset["filename"] . "\" height=\"150\" width=\"250\" border=\"0\" />", null, 5, FTableCell::ALN_CENTER));
+        
+        $tmpRowOne->addCell(new FTableCell(null, "asset-preview", "<div class=\"picture-asset-preview\" style=\"background: url(" . $varAssetLink . $asset["filename"] . ") no-repeat center center; background-size: 250px auto;\">Picture Asset</div>", null, 5, FTableCell::ALN_CENTER));
         $tmpRowOne->addCell(new FTableCell(null, null, "<strong>" . Locales::getCore("asset-name") . ":</strong>"));
         $tmpRowOne->addCell(new FTableCell(null, null, $asset["name"]));
 
@@ -193,14 +193,14 @@ if ($varAssets != null)
         $tmpRowTwo->addCell(new FTableCell(null, null, $asset["filename"]));
 
         // "Temp Row Three" Element Settings.
-
+        
         $tmpRowThree->addCell(new FTableCell(null, null, "<strong>" . Locales::getCore("html-object") . ":</strong>"));
-        $tmpRowThree->addCell(new FTableCell(null, null, "<textarea><img src=\"" . $varAssetLink . $asset["filename"] . "\" border=\"0\" /></textarea>"));
+        $tmpRowThree->addCell(new FTableCell(null, null, "<input type='text' value='<img src=\"" . $varAssetLink . $asset["filename"] . "\" border=\"0\" />' />"));
 
         // "Temp Row Four" Element Settings.
 
         $tmpRowFour->addCell(new FTableCell(null, null, "<strong>" . Locales::getCore("asset-link") . ":</strong>"));
-        $tmpRowFour->addCell(new FTableCell(null, null, "<textarea><a href=\"" . $varAssetLink . $asset["filename"] . "\" target=\"_blank\">Link</a></textarea>"));
+        $tmpRowFour->addCell(new FTableCell(null, null, "<input type='text' value='<a href=\"" . $varAssetLink . $asset["filename"] . "\" target=\"_blank\">Link</a>' />"));
 
         // "Temp Row Four" Element Settings.
 

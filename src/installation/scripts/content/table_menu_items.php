@@ -48,7 +48,7 @@ EasyInsert::execute
 (
     new TableSelection("menu_items"),
     new ColumnSelection("title", "value", "type", "position", "menu_id"),
-    new ValueSelection(array("Demp Page 1", "1", "3", "2", "1"))
+    new ValueSelection(array("Demp Page 1", "1", "4", "2", "1"))
 );
 
 // Row "Demo Page 2" For "Main Navigation Bar".
@@ -57,7 +57,7 @@ EasyInsert::execute
 (
     new TableSelection("menu_items"),
     new ColumnSelection("title", "value", "type", "position", "menu_id"),
-    new ValueSelection(array("Demp Page 2", "2", "3", "3", "1"))
+    new ValueSelection(array("Demp Page 2", "2", "4", "3", "1"))
 );
 
 // Row "Demo Page 3" For "Main Navigation Bar".
@@ -66,7 +66,7 @@ EasyInsert::execute
 (
     new TableSelection("menu_items"),
     new ColumnSelection("title", "value", "type", "position", "menu_id"),
-    new ValueSelection(array("Demp Page 3", "3", "3", "4", "1"))
+    new ValueSelection(array("Demp Page 3", "3", "4", "4", "1"))
 );
 
 // Row "Dropdown Menu" For "Main Navigation Bar".
@@ -102,7 +102,7 @@ EasyInsert::execute
 (
     new TableSelection("menu_items"),
     new ColumnSelection("title", "value", "type", "position", "menu_id"),
-    new ValueSelection(array("Demp Page 1", "1", "3", "3", "2"))
+    new ValueSelection(array("Demp Page 1", "1", "4", "3", "2"))
 );
 
 // Row "Demo Page 2" For "Side Navigation Bar".
@@ -111,7 +111,7 @@ EasyInsert::execute
 (
     new TableSelection("menu_items"),
     new ColumnSelection("title", "value", "type", "position", "menu_id"),
-    new ValueSelection(array("Demp Page 2", "2", "3", "4", "2"))
+    new ValueSelection(array("Demp Page 2", "2", "4", "4", "2"))
 );
 
 // Row "Demo Page 3" For "Side Navigation Bar".
@@ -120,7 +120,7 @@ EasyInsert::execute
 (
     new TableSelection("menu_items"),
     new ColumnSelection("title", "value", "type", "position", "menu_id"),
-    new ValueSelection(array("Demp Page 3", "3", "3", "5", "2"))
+    new ValueSelection(array("Demp Page 3", "3", "4", "5", "2"))
 );
 
 // Row "Separator 1" For "Side Navigation Bar".

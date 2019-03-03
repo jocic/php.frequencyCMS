@@ -175,6 +175,47 @@
     font-weight: bold;
 }
 
+/* Latest Logs */
+
+#latest-logs
+{
+    width: 200px;
+    text-align: center;
+    margin: 10px auto 0 auto;
+    border: 1px solid #d5d5d5;
+}
+
+#latest-logs #title
+{
+    background: #507e94;
+    color: #ffffff;
+    padding: 5px;
+}
+
+.latest-log
+{
+    margin: 5px;
+    border-bottom: 1px solid #d5d5d5;
+    overflow: hidden;
+}
+
+.log-code
+{
+    float: left;
+}
+
+.log-timestamp
+{
+    color: #b3b3b3;
+    float: right;
+}
+
+.log-content
+{
+    padding: 2px 0 2px 0;
+    text-align: left;
+}
+
 /* Administration Elements */
 
 .info-row
@@ -215,9 +256,9 @@
     width: auto;
 }
 
-#assets-holder img
+.asset-preview
 {
-    border: 1px solid #000000;
+    border-right: 1px solid #d5d5d5;
 }
 
 #assets-holder textarea, #assets-holder input
@@ -529,29 +570,59 @@
     width: 150px;
 }
 
+/* Add Menu Item */
+
+#select-item-title
+{
+    font-weight: bold;
+    text-decoration: underline;
+    margin: 10px;
+}
+
+#select-item-holder
+{
+    margin: 10px 0 10px 30px;
+}
+
+#select-item-holder .selected
+{
+    font-weight: bold;
+}
+
 /* Add Menu Table */
 
-#add-menu-table, #edit-menu-table, #add-menu-item-table
+#add-menu-table, #edit-menu-table, #add-menu-item-table, #edit-menu-item-table
 {
     width: auto;
     padding: 20px 10px 5px 10px;
 }
 
-/* Add Advert Table */
+/* Site Advert Table */
 
-#add-advert-table,
-#edit-advert-table
+#site-advert-table
 {
     width: auto;
     padding: 20px 10px 5px 10px;
 }
 
-#add-advert-table input,
-#add-advert-table textarea,
-#edit-advert-table input,
-#edit-advert-table textarea
+#site-advert-table input,
+#site-advert-table textarea
 {
     width: 500px;
+}
+
+#advert-content pre
+{
+    width: 500px;
+    height: 200px;
+    padding: 3px;
+    border: 2px solid #e5e5e5;
+}
+
+#site-advert-table textarea
+{
+    width: 500px;
+    height: 200px;
 }
 
 /* Reposition Modules Table */
@@ -646,28 +717,50 @@
     width: 70px;
 }
 
-/* Core Settings Form */
+/* Security Settings & Core Settings Form */
 
+#security-settings-form .table-cell-1,
 #core-settings-form .table-cell-1
 {
     width: 120px;
 }
 
+#security-settings-form input,
 #core-settings-form input
 {
     width: 100%;
     margin: 0 0 0 -10px;
 }
 
+#security-settings-form select,
 #core-settings-form select
 {
     width: 200px;
     margin: 0 0 0 -10px;
 }
 
+#security-settings-form option,
 #core-settings-form option
 {
     text-indent: 5px;
+}
+
+/* Security Logs Table */
+
+#security-logs-table .table-cell-code { width: 50px; }
+
+#security-logs-table .table-cell-info { width: 150px; }
+
+#security-logs-table .table-cell-ip { width: 130px; }
+
+#security-logs-table .table-cell-timestamp { width: 150px; }
+
+/* Security Logs Numbering */
+
+#security-logs-numbering
+{
+    text-align: center;
+    margin: 0 0 15px 0;
 }
 
 /* Theme Section */
@@ -724,7 +817,6 @@
 
 .module-info-table, #module-option-table
 {
-    width: 870px;
     background: #f9f9f9;
     border: 1px solid #d5d5d5;
     padding: 10px;
@@ -748,6 +840,12 @@
     line-height: 0px;
     padding: 0;
     border-top: 1px solid #d5d5d5;
+}
+
+.module-info-header td,
+module-info-dev td
+{
+    width: 33%;
 }
 
 .module-info-icon

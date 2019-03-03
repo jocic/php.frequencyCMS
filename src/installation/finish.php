@@ -60,6 +60,13 @@ $varFilesAndFolders = array
     "./assets/text/junk_latin_part.txt",
     "./assets/index.php",
     "./assets/theme.css",
+    "./locales/index.php",
+    "./locales/en_locales.php",
+    "./locales/rs_locales.php",
+    "./locales/de_locales.php",
+    "./locales/it_locales.php",
+    "./locales/ru_locales.php",
+    "./locales/gr_locales.php",
     "./scripts/content/index.php",
     "./scripts/content/table_ads.php",
     "./scripts/content/table_assets.php",
@@ -81,6 +88,7 @@ $varFilesAndFolders = array
     "./scripts/tables/table_blogs.php",
     "./scripts/tables/table_core.php",
     "./scripts/tables/table_core_pages.php",
+    "./scripts/tables/table_logs.php",
     "./scripts/tables/table_menu_items.php",
     "./scripts/tables/table_menus.php",
     "./scripts/tables/table_messages.php",
@@ -103,6 +111,7 @@ $varFilesAndFolders = array
     "./assets/images/",
     "./assets/text/",
     "./assets/",
+    "./locales/",
     "./scripts/content/",
     "./scripts/processors/",
     "./scripts/tables/",
@@ -111,7 +120,7 @@ $varFilesAndFolders = array
     "./"
 );
 
-$varRoot = str_replace("installation", "", basename(dirname($_SERVER["PHP_SELF"]) . "/") . "/");
+$varRoot = str_replace("installation/finish.php", "", $_SERVER["PHP_SELF"]);
 
 // Delete Files And Folders.
 

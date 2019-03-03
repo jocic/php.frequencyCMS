@@ -1,9 +1,19 @@
+/* User Profile */
+
+/* Picture Assets */
+
+.picture-asset-preview
+{
+    width: 250px;
+    height: 150px;
+    text-indent: -20000px;
+}
+
 /* Social Buttons */
 
 #social-buttons
 {
     width: 100%;
-    overflow: hidden;
 }
 
 #facebook-like-button { width: 49px; }

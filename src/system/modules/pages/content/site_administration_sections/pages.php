@@ -151,7 +151,7 @@ if (!empty($_GET[Locales::getVariable("option")]))
         
         // Append Elements To "Workplace" Element.
 
-        $divWorkplace->addElement("<script src=\"./system/assets/scripts/ckeditor/ckeditor.js\" type=\"text/javascript\"></script>");
+        $divWorkplace->addElement("<script src=\"../../../../system/assets/scripts/ckeditor/ckeditor.js\" type=\"text/javascript\"></script>");
         $divWorkplace->addElement($hdEditCorePage);
         $divWorkplace->addElement($fmEditCorePage);
     }
@@ -410,7 +410,7 @@ if (!empty($_GET[Locales::getVariable("option")]))
 
         // Append Elements To "Workplace" Element.
 
-        $divWorkplace->addElement("<script src=\"./system/assets/scripts/ckeditor/ckeditor.js\" type=\"text/javascript\"></script>");
+        $divWorkplace->addElement("<script src=\"../../../../system/assets/scripts/ckeditor/ckeditor.js\" type=\"text/javascript\"></script>");
         $divWorkplace->addElement($hdOptionAdd);
         $divWorkplace->addElement($fmOptionAdd);
     }
@@ -688,7 +688,7 @@ if (!empty($_GET[Locales::getVariable("option")]))
 
         // Append Elements To "Workplace" Element.
 
-        $divWorkplace->addElement("<script src=\"./system/assets/scripts/ckeditor/ckeditor.js\" type=\"text/javascript\"></script>");
+        $divWorkplace->addElement("<script src=\"../../../../system/assets/scripts/ckeditor/ckeditor.js\" type=\"text/javascript\"></script>");
         $divWorkplace->addElement($hdOptionAdd);
         $divWorkplace->addElement($fmOptionAdd);
     }

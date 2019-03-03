@@ -39,7 +39,7 @@ EasyInsert::execute
 (
     new TableSelection("core"),
     new ColumnSelection("name", "content"),
-    new ValueSelection(array("system_version", "Beta Build 3"))
+    new ValueSelection(array("system_version", "Beta Build 4"))
 );
 
 // Row "Base".
@@ -93,7 +93,7 @@ EasyInsert::execute
 (
     new TableSelection("core"),
     new ColumnSelection("name", "content"),
-    new ValueSelection(array("title_sufix", ">> Free And Open Source CMS << frequency-cms.com"))
+    new ValueSelection(array("title_sufix", ":: Free And Open Source CMS :: frequency-cms.com"))
 );
 
 // Row "Email".
@@ -112,6 +112,15 @@ EasyInsert::execute
     new TableSelection("core"),
     new ColumnSelection("name", "content"),
     new ValueSelection(array("selected_theme", "blue_frequency"))
+);
+
+// Row "Security Logging".
+
+EasyInsert::execute
+(
+    new TableSelection("core"),
+    new ColumnSelection("name", "content"),
+    new ValueSelection(array("security_logging", "no"))
 );
 
 // Row "Deploy CAPTCHA".

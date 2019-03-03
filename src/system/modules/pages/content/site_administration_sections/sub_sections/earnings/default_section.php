@@ -89,7 +89,7 @@ if ($varAdverts != null)
         // "Row Advert" Temp Element Settings.
 
         $tempRowAdvert->addCell(new FTableCell(null, "table-cell-1", $varAdvert["id"]));
-        $tempRowAdvert->addCell(new FTableCell(null, "table-cell-2", $varAdvert["name"]));
+        $tempRowAdvert->addCell(new FTableCell(null, "table-cell-2", "<a title=\"" . Locales::getCore("edit-advert") . "\" href=\"" . $varCoreLink . "&" . Locales::getVariable("option") . "=" . Locales::getLink("edit-advert") . "&" . Locales::getVariable("id") . "=" . $varAdvert["id"] . "\">" . $varAdvert["name"] . "</a>"));
         $tempRowAdvert->addCell(new FTableCell(null, "table-cell-3", $varAdvert["section"]));
         $tempRowAdvert->addCell(new FTableCell(null, "table-cell-4", $varEditPrefix . $varAdvert["id"] . $varEditSufix . $varDeletePrefix . $varAdvert["id"] . $varDeleteSufix));
 

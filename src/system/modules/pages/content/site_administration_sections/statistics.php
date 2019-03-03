@@ -33,25 +33,46 @@
 
 if (!defined("IND_ACCESS")) exit("Action not allowed.");
 
+// Create "Core" Variables.
+
+$varMaxHeight = 200;
+
 // Create "Core" Elements.
 
-$hdStatistics = new FHeader();
-$parInfo      = new FParagraph();
+$hdVisits     = new FHeader();
+$divVisits    = new FDiv();
+$hdUsers      = new FHeader();
+$divUsers     = new FDiv();
 
-// "Header Statistics" Element Settings.
+// "Header Visits" Element Settings.
 
-$hdStatistics->setLevel(2);
-$hdStatistics->setContent(Locales::getTitle("all-statistics"));
+$hdVisits->setLevel(2);
+$hdVisits->setContent(Locales::getTitle("visitor-statistics"));
 
-// "Paragraph Info" Element Settings.
+// "Div Visits" Element Settings.
 
-$parInfo->setClass("info-paragraph");
-$parInfo->setAlignment(FParagraph::ALN_CENTER);
-$parInfo->setContent(Locales::getParagraph("opt-not-available-in-beta"));
+$divVisits->setID("visitor-statistics");
+$divVisits->setClass("stats-container");
+
+Statistics::printVisits($divVisits, $varMaxHeight);
+
+// "Header Visits" Element Settings.
+
+$hdUsers->setLevel(2);
+$hdUsers->setContent(Locales::getTitle("user-statistics"));
+
+// "Div Users" Element Settings.
+
+$divUsers->setID("user-statistics");
+$divUsers->setClass("stats-container");
+
+Statistics::printUsers($divUsers, $varMaxHeight);
 
 // Append Elements To "Workplace".
 
-$divWorkplace->addElement($hdStatistics);
-$divWorkplace->addElement($parInfo);
+$divWorkplace->addElement($hdVisits);
+$divWorkplace->addElement($divVisits);
+$divWorkplace->addElement($hdUsers);
+$divWorkplace->addElement($divUsers);
 
 ?>

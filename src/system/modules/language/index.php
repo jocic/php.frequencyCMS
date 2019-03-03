@@ -81,7 +81,7 @@ $title = Locales::getCore("en");
 $anchorEN->setID("lang-en");
 $anchorEN->setLink($linkPrefix . "en");
 $anchorEN->setLinkTitle($title);
-$anchorEN->setContent("<img id=\"en-icon\" class=\"lang-icon\" src=\"./system/assets/images/flags/en.png\" alt=\"$title\" border=\"0\" />");
+$anchorEN->setContent("<img id=\"en-icon\" class=\"lang-icon\" src=\"system/assets/images/flags/en.png\" alt=\"$title\" border=\"0\" />");
 
 // "Anchor RS" Element Settings.
 
@@ -89,7 +89,7 @@ $title = Locales::getCore("rs");
 
 $anchorRS->setLink($linkPrefix . "rs");
 $anchorRS->setLinkTitle($title);
-$anchorRS->setContent("<img id=\"rs-icon\" class=\"lang-icon\" src=\"./system/assets/images/flags/rs.png\" alt=\"$title\" border=\"0\" />");
+$anchorRS->setContent("<img id=\"rs-icon\" class=\"lang-icon\" src=\"system/assets/images/flags/rs.png\" alt=\"$title\" border=\"0\" />");
 
 // "Anchor DE" Element Settings.
 
@@ -97,7 +97,7 @@ $title = Locales::getCore("de");
 
 $anchorDE->setLink($linkPrefix . "de");
 $anchorDE->setLinkTitle($title);
-$anchorDE->setContent("<img id=\"de-icon\" class=\"lang-icon\" src=\"./system/assets/images/flags/de.png\" alt=\"$title\" border=\"0\" />");
+$anchorDE->setContent("<img id=\"de-icon\" class=\"lang-icon\" src=\"system/assets/images/flags/de.png\" alt=\"$title\" border=\"0\" />");
 
 // "Anchor IT" Element Settings.
 
@@ -105,7 +105,7 @@ $title = Locales::getCore("it");
 
 $anchorIT->setLink($linkPrefix . "it");
 $anchorIT->setLinkTitle($title);
-$anchorIT->setContent("<img id=\"it-icon\" class=\"lang-icon\" src=\"./system/assets/images/flags/it.png\" alt=\"$title\" border=\"0\" />");
+$anchorIT->setContent("<img id=\"it-icon\" class=\"lang-icon\" src=\"system/assets/images/flags/it.png\" alt=\"$title\" border=\"0\" />");
 
 // "Anchor RU" Element Settings.
 
@@ -113,7 +113,7 @@ $title = Locales::getCore("ru");
 
 $anchorRU->setLink($linkPrefix . "ru");
 $anchorRU->setLinkTitle($title);
-$anchorRU->setContent("<img id=\"ru-icon\" class=\"lang-icon\" src=\"./system/assets/images/flags/ru.png\" alt=\"$title\" border=\"0\" />");
+$anchorRU->setContent("<img id=\"ru-icon\" class=\"lang-icon\" src=\"system/assets/images/flags/ru.png\" alt=\"$title\" border=\"0\" />");
 
 // "Anchor GR" Element Settings.
 
@@ -121,7 +121,7 @@ $title = Locales::getCore("gr");
 
 $anchorGR->setLink($linkPrefix . "gr");
 $anchorGR->setLinkTitle($title);
-$anchorGR->setContent("<img id=\"gr-icon\" class=\"lang-icon\" src=\"./system/assets/images/flags/gr.png\" alt=\"$title\" border=\"0\" />");
+$anchorGR->setContent("<img id=\"gr-icon\" class=\"lang-icon\" src=\"system/assets/images/flags/gr.png\" alt=\"$title\" border=\"0\" />");
 
 // "Paragraph Info" Element Settings.
 

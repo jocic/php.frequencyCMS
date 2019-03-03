@@ -67,6 +67,12 @@ class Build
             echo " class=\"" . $class . "\"";
     }
     
+    private static function objectStyle($style)
+    {
+        if ($style != null)
+            echo " style=\"" . $style . "\"";
+    }
+    
     private static function objectName($name)
     {
         if ($name != null)
@@ -329,6 +335,9 @@ class Build
         if ($inputObject->getContent() != null)
             echo " value=\"" . $inputObject->getContent() . "\"";
         
+        if ($inputObject->getValue() != null)
+            echo " value=\"" . $inputObject->getValue() . "\"";
+        
         // Print Type.
         
         if ($inputObject->getType() != null)
@@ -565,10 +574,11 @@ class Build
         
         echo self::$BP . $indent . "<div";
         
-        // Print Objects ID And Class.
+        // Print Objects ID, Class And Style.
         
         self::objectID($divObject->getID());
         self::objectClass($divObject->getClass());
+        self::objectStyle($divObject->getStyle());
         
         echo ">\n";
         

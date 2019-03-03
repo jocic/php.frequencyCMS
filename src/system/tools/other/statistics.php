@@ -125,7 +125,189 @@ class Statistics
     
     // "Print" Methods.
     
+    public static function printVisits($parContainer, $parMaxHeight)
+    {
+        // Create "Core" Variables.
+        
+        $varTotalHits  = self::getTotalHits();
+        $varPageHits   = self::getPageHits();
+        $varSizeOne    = $parMaxHeight;
+        $varSizeTwo    = ($parMaxHeight * $varPageHits) / $varTotalHits;
+        
+        // Create "Core" Elements.
+        
+        $divBarCont    = new FDiv();
+        $divBarInfo    = new FDiv();
+        $divBarOne     = new FDiv();
+        $divBarTwo     = new FDiv();
+        $divBarInfoOne = new FDiv();
+        $divBarInfoTwo = new FDiv();
+        
+        // "Core" Variable Settings.
+        
+        $varSizeTwo = intval($varSizeTwo);
+        
+        // "Div Bar Cont" Element Settings.
+        
+        $divBarCont->setClass("bar-container");
+        
+        $divBarCont->addElement(new FDiv(null, "bar-holder", array($divBarOne, new FDiv(null, "bar-count", $varTotalHits))));
+        $divBarCont->addElement(new FDiv(null, "bar-holder", array($divBarTwo, new FDiv(null, "bar-count", $varPageHits))));
+        
+        // "Div Bar Info" Element Settings.
+        
+        $divBarInfo->setClass("bar-information");
+        
+        $divBarInfo->addElement($divBarInfoOne);
+        $divBarInfo->addElement($divBarInfoTwo);
+        
+        // "Div Bar One" Element Settings.
+        
+        $divBarOne->setClass("bar-1");
+        $divBarOne->setStyle("height: " . $varSizeOne . "px;");
+        $divBarOne->setContent("Bar 1");
+        
+        // "Div Bar Two" Element Settings.
+        
+        $divBarTwo->setClass("bar-2");
+        $divBarTwo->setStyle("height: " . $varSizeTwo . "px; margin-top: " . ($parMaxHeight - $varSizeTwo) . "px;");
+        $divBarTwo->setContent("Bar 2");
+        
+        // "Div Bar Info One" Element Settings.
+        
+        $divBarInfoOne->setClass("bar-info-line");
+        
+        $divBarInfoOne->addElement(new FDiv(null, "bar-color-1", "Bar Info 1"));
+        $divBarInfoOne->addElement(new FDiv(null, "bar-description", Locales::getCore("total-hits")));
+        $divBarInfoOne->addElement(new FDiv(null, "clr"));
+        
+        // "Div Bar Info Two" Element Settings.
+        
+        $divBarInfoTwo->setClass("bar-info-line");
+        
+        $divBarInfoTwo->addElement(new FDiv(null, "bar-color-2", "Bar Info 2"));
+        $divBarInfoTwo->addElement(new FDiv(null, "bar-description", Locales::getCore("page-hits")));
+        $divBarInfoTwo->addElement(new FDiv(null, "clr"));
+        
+        // Append Elements To "Workplace".
+
+        $parContainer->addElement($divBarCont);
+        $parContainer->addElement($divBarInfo);
+        $parContainer->addElement(new FDiv(null, "clr"));
+    }
     
+    public static function printUsers($parContainer, $parMaxHeight)
+    {
+        // Create "Core" Variables.
+        
+        $varUserCount    = self::getUserCount();
+        $varMaleUsers    = self::getMaleUserCount();
+        $varFemaleUsers  = self::getFemaleUserCount();
+        $varOtherUsers   = self::getOtherUserCount();
+        $varSizeOne      = $parMaxHeight;
+        $varSizeTwo      = ($parMaxHeight * $varMaleUsers) / $varUserCount;
+        $varSizeThree    = ($parMaxHeight * $varFemaleUsers) / $varUserCount;
+        $varSizeFour     = ($parMaxHeight * $varOtherUsers) / $varUserCount;
+        
+        // Create "Core" Elements.
+        
+        $divBarCont      = new FDiv();
+        $divBarInfo      = new FDiv();
+        $divBarOne       = new FDiv();
+        $divBarTwo       = new FDiv();
+        $divBarThree     = new FDiv();
+        $divBarFour      = new FDiv();
+        $divBarInfoOne   = new FDiv();
+        $divBarInfoTwo   = new FDiv();
+        $divBarInfoThree = new FDiv();
+        $divBarInfoFour  = new FDiv();
+        
+        // "Core" Variable Settings.
+        
+        $varSizeTwo   = intval($varSizeTwo);
+        $varSizeThree = intval($varSizeThree);
+        $varSizeFour  = intval($varSizeFour);
+        
+        // "Div Bar Cont" Element Settings.
+        
+        $divBarCont->setClass("bar-container");
+        
+        $divBarCont->addElement(new FDiv(null, "bar-holder", array($divBarOne, new FDiv(null, "bar-count", $varUserCount))));
+        $divBarCont->addElement(new FDiv(null, "bar-holder", array($divBarTwo, new FDiv(null, "bar-count", $varMaleUsers))));
+        $divBarCont->addElement(new FDiv(null, "bar-holder", array($divBarThree, new FDiv(null, "bar-count", $varFemaleUsers))));
+        $divBarCont->addElement(new FDiv(null, "bar-holder", array($divBarFour, new FDiv(null, "bar-count", $varOtherUsers))));
+        
+        // "Div Bar Info" Element Settings.
+        
+        $divBarInfo->setClass("bar-information");
+        
+        $divBarInfo->addElement($divBarInfoOne);
+        $divBarInfo->addElement($divBarInfoTwo);
+        $divBarInfo->addElement($divBarInfoThree);
+        $divBarInfo->addElement($divBarInfoFour);
+        
+        // "Div Bar One" Element Settings.
+        
+        $divBarOne->setClass("bar-1");
+        $divBarOne->setStyle("height: " . $varSizeOne . "px;");
+        $divBarOne->setContent("Bar 1");
+        
+        // "Div Bar Two" Element Settings.
+        
+        $divBarTwo->setClass("bar-2");
+        $divBarTwo->setStyle("height: " . $varSizeTwo . "px; margin-top: " . ($parMaxHeight - $varSizeTwo) . "px;");
+        $divBarTwo->setContent("Bar 2");
+        
+        // "Div Bar Three" Element Settings.
+        
+        $divBarThree->setClass("bar-3");
+        $divBarThree->setStyle("height: " . $varSizeThree . "px; margin-top: " . ($parMaxHeight - $varSizeThree) . "px;");
+        $divBarThree->setContent("Bar 3");
+        
+        // "Div Bar Four" Element Settings.
+        
+        $divBarFour->setClass("bar-4");
+        $divBarFour->setStyle("height: " . $varSizeFour . "px; margin-top: " . ($parMaxHeight - $varSizeFour) . "px;");
+        $divBarFour->setContent("Bar 4");
+        
+        // "Div Bar Info One" Element Settings.
+        
+        $divBarInfoOne->setClass("bar-info-line");
+        
+        $divBarInfoOne->addElement(new FDiv(null, "bar-color-1", "Bar Info 1"));
+        $divBarInfoOne->addElement(new FDiv(null, "bar-description", Locales::getCore("users-registered")));
+        $divBarInfoOne->addElement(new FDiv(null, "clr"));
+        
+        // "Div Bar Info Two" Element Settings.
+        
+        $divBarInfoTwo->setClass("bar-info-line");
+        
+        $divBarInfoTwo->addElement(new FDiv(null, "bar-color-2", "Bar Info 2"));
+        $divBarInfoTwo->addElement(new FDiv(null, "bar-description", Locales::getCore("males-registered")));
+        $divBarInfoTwo->addElement(new FDiv(null, "clr"));
+        
+        // "Div Bar Info Three" Element Settings.
+        
+        $divBarInfoThree->setClass("bar-info-line");
+        
+        $divBarInfoThree->addElement(new FDiv(null, "bar-color-3", "Bar Info 3"));
+        $divBarInfoThree->addElement(new FDiv(null, "bar-description", Locales::getCore("females-registered")));
+        $divBarInfoThree->addElement(new FDiv(null, "clr"));
+        
+        // "Div Bar Info Four" Element Settings.
+        
+        $divBarInfoFour->setClass("bar-info-line");
+        
+        $divBarInfoFour->addElement(new FDiv(null, "bar-color-4", "Bar Info 4"));
+        $divBarInfoFour->addElement(new FDiv(null, "bar-description", Locales::getCore("others-registered")));
+        $divBarInfoFour->addElement(new FDiv(null, "clr"));
+        
+        // Append Elements To "Workplace".
+
+        $parContainer->addElement($divBarCont);
+        $parContainer->addElement($divBarInfo);
+        $parContainer->addElement(new FDiv(null, "clr"));
+    }
     
     // "Increment" Methods.
     

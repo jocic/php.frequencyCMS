@@ -158,7 +158,7 @@ foreach ($varCharacters as $character) // Fetch Users By Letter And Display Info
             $rowUserInfo = new FTableRow();
 
             $rowUserInfo->addCell(new FTableCell(null, "table-cell-id", ($i + 1)));
-            $rowUserInfo->addCell(new FTableCell(null, "table-cell-username", $varUserData[$i]["username"]));
+            $rowUserInfo->addCell(new FTableCell(null, "table-cell-username", "<a href=\"" . $varCoreLink . "&" . Locales::getVariable("option") . "=" . Locales::getLink("view-profile") . "&" . Locales::getVariable("id") . "=" . $varUserData[$i]["id"] . "\" />" . $varUserData[$i]["username"] . "</a>"));
             $rowUserInfo->addCell(new FTableCell(null, "table-cell-status", $varUserData[$i]["status"]));
             $rowUserInfo->addCell(new FTableCell(null, "table-cell-ip", $varUserInfo[0]["first_ip"]));
             $rowUserInfo->addCell(new FTableCell(null, "table-cell-ip", $varUserInfo[0]["last_ip"]));

@@ -50,8 +50,6 @@ $varNoticeThree   = @file_get_contents("http://www.frequency-cms.com/api/notices
 // Create "Other" Variables.
 
 $varSystemVersion = @file_get_contents("http://www.frequency-cms.com/api/version.php?program=frequency");
-$varBannerOne     = "<a href=\"http://www.fatcow.com/join/index.bml?AffID=727583\" target=\"_blank\" title=\"FatCow Hosting! THE BEST!\"><img src=\"./system/assets/images/other/fatcow.png\" border=\"0\" alt=\"Get Best Hosting In Teh World!\" /></a>";
-$varBannerTwo     = "<a href=\"http://signup.leagueoflegends.com/?ref=52271a33c1464409534193\" target=\"_blank\" title=\"Play League Of Legends!\"><img src=\"./system/assets/images/other/lol.png\" border=\"0\" alt=\"Play The Best Game In Teh World!\" /></a>";
 
 // Create "Core" Elements.
 
@@ -59,24 +57,6 @@ $divLaneHolder    = new FDiv();
 $divLaneOne       = new FDiv();
 $divLaneTwo       = new FDiv();
 $divLaneThree     = new FDiv();
-
-// "Banner One" Variable Settings.
-
-$varTemp = @file_get_contents("http://www.frequency-cms.com/api/adverts.php?program=frequency&advert=1");
-
-if (!empty($varTemp))
-    $varBannerOne = $varTemp;
-
-unset($varTemp);
-
-// "Banner Two" Variable Settings.
-
-$varTemp = @file_get_contents("http://www.frequency-cms.com/api/adverts.php?program=frequency&advert=2");
-
-if (!empty($varTemp))
-    $varBannerTwo = $varTemp;
-
-unset($varTemp);
 
 // "Div Lane Holder" Element Settings.
 

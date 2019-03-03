@@ -38,6 +38,27 @@ define("DOC_ROOT", dirname(__FILE__). DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEP
 
 @session_start();
 
+// Set Locales
+
+if (empty($_SESSION["install_lang"])) // Default - English.
+    $_SESSION["install_lang"] = "en";
+else if ($_SESSION["install_lang"] == "rs") // Serbian.
+    $_SESSION["install_lang"] = "rs";
+else if ($_SESSION["install_lang"] == "de") // German.
+    $_SESSION["install_lang"] = "de";
+else if ($_SESSION["install_lang"] == "it") // Italian.
+    $_SESSION["install_lang"] = "it";
+else if ($_SESSION["install_lang"] == "ru") // Russian.
+    $_SESSION["install_lang"] = "ru";
+else if ($_SESSION["install_lang"] == "gr") // Greek.
+    $_SESSION["install_lang"] = "gr";
+else
+    $_SESSION["install_lang"] = "en"; // If there was an error - English.
+
+// Include Selected Locale.
+
+require_once "./locales/" . $_SESSION["install_lang"] . "_locales.php";
+
 // Check Installation Step And Reddirect.
 
 if (empty($_SESSION["step"]))
@@ -80,20 +101,20 @@ require_once "./scripts/processors/processor_step_3.php";
 
 // Create "Core" Variables.
 
-$varHeadTitle   = "frequencyCMS » Free And Open Source CMS « frequency-cms.com";
-$varPageTitle   = "frequencyCMS Installation";
-$varStep        = "Step #3";
-$varDescrTitle  = "Description";
-$varParaOne     = "Before you start using <strong>frequencyCMS</strong> a database needs to be configured. Please enter your correct MySQL server information in the form bellow, after that press the button \"next\" or \"try again\". If you don't know how to finish this step, please check the official <strong>frequencyCMS</strong> site or read the instruction manual.";
-$varErrorTitle  = "Error";
-$varParaTwo     = "Either the information you entered is not correct or you don't have the read/write rights for the MySQL server configuration file.";
-$varContTitle   = "Installation";
-$varParaThree   = "After clicking on the \"next\" button, <strong>frequencyCMS</strong> installer will create a database config file.";
-$varButtonValue = "Next";
-$varSupportOne  = "frequencyCMS Support #1";
-$varSupportTwo  = "frequencyCMS Support #2";
-$varSuppInfoOne = "<strong>Support</strong> frequencyCMS financially!";
-$varSuppInfoTwo = "<strong>Support</strong> frequencyCMS morally!";
+$varHeadTitle   = $LCL_INSTALL["title-html"];
+$varPageTitle   = $LCL_INSTALL["title-main"];
+$varStep        = $LCL_INSTALL["step"] . " #3";
+$varDescrTitle  = $LCL_INSTALL["subtitle-descr"];
+$varParaOne     = $LCL_INSTALL["para-4"];
+$varErrorTitle  = $LCL_INSTALL["subtitle-error"];
+$varParaTwo     = $LCL_INSTALL["para-5"];
+$varContTitle   = $LCL_INSTALL["subtitle-install"];
+$varParaThree   = $LCL_INSTALL["para-concl-3"];
+$varButtonValue = $LCL_INSTALL["next"];
+$varSupportOne  = $LCL_INSTALL["freq-support"] . " #1";
+$varSupportTwo  = $LCL_INSTALL["freq-support"] ." #2";
+$varSuppInfoOne = "<strong>" . $LCL_INSTALL["support"] . "</strong> " . $LCL_INSTALL["freq-financially"];
+$varSuppInfoTwo = "<strong>" . $LCL_INSTALL["support"] . "</strong> " . $LCL_INSTALL["freq-morally"];
 $varBannerOne   = "<a href=\"http://www.fatcow.com/join/index.bml?AffID=727583\" title=\"FatCow Hosting! THE BEST!\"><img src=\"./assets/images/fatcow.png\" border=\"0\" alt=\"Get Best Hosting In Teh World!\" /></a>";
 $varBannerTwo   = "<a href=\"http://signup.leagueoflegends.com/?ref=52271a33c1464409534193\" title=\"Play League Of Legends!\"><img src=\"./assets/images/lol.png\" border=\"0\" alt=\"Play The Best Game In Teh World!\" /></a>";
 
@@ -135,7 +156,7 @@ $btnSubmit      = new FButton();
 // "Button Value" Variable Settings.
 
 if (!$varPassed)
-    $varButtonValue = "Try Again";
+    $varButtonValue = $LCL_INSTALL["try-again"];
 
 // "Banner One" Variable Settings.
 
@@ -245,32 +266,32 @@ $tblContent->addRow($rowSubmit);
 
 // "Row Hostname" Element Settings.
 
-$rowHostname->addCell(new FTableCell(null, null, "Database Hostname"));
+$rowHostname->addCell(new FTableCell(null, null, $LCL_INSTALL["database-hostname"]));
 $rowHostname->addCell(new FTableCell(null, null, $inpHostname));
 
 // "Row Username" Element Settings.
 
-$rowUsername->addCell(new FTableCell(null, null, "Database Username"));
+$rowUsername->addCell(new FTableCell(null, null, $LCL_INSTALL["database-username"]));
 $rowUsername->addCell(new FTableCell(null, null, $inpUsername));
 
 // "Row Password" Element Settings.
 
-$rowPassword->addCell(new FTableCell(null, null, "Database Password"));
+$rowPassword->addCell(new FTableCell(null, null, $LCL_INSTALL["database-password"]));
 $rowPassword->addCell(new FTableCell(null, null, $inpPassword));
 
 // "Row Password" Element Settings.
 
-$rowName->addCell(new FTableCell(null, null, "Database Name"));
+$rowName->addCell(new FTableCell(null, null, $LCL_INSTALL["database-name"]));
 $rowName->addCell(new FTableCell(null, null, $inpName));
 
 // "Row Table Prefix" Element Settings.
 
-$rowTablePrefix->addCell(new FTableCell(null, null, "Database Table Preifx"));
+$rowTablePrefix->addCell(new FTableCell(null, null, $LCL_INSTALL["database-tprefix"]));
 $rowTablePrefix->addCell(new FTableCell(null, null, $inpTablePrefix));
 
 // "Row View Prefix" Element Settings.
 
-$rowViewPrefix->addCell(new FTableCell(null, null, "Database View Preifx"));
+$rowViewPrefix->addCell(new FTableCell(null, null, $LCL_INSTALL["database-vprefix"]));
 $rowViewPrefix->addCell(new FTableCell(null, null, $inpViewPrefix));
 
 // "Row Submit" Element Settings.

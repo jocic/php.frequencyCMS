@@ -248,13 +248,16 @@ class Display
         
         // Execute Module Processors.
         
-        foreach ($data as $row)
+        if ($data != null)
         {
-            $processor = new ModuleProcessor();
-            
-            $processor->setName($row["name"]);
-            
-            $processor->execute();
+            foreach ($data as $row)
+            {
+                $processor = new ModuleProcessor();
+
+                $processor->setName($row["name"]);
+
+                $processor->execute();
+            }
         }
     }
     

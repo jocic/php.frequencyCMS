@@ -160,6 +160,7 @@ if (empty($_SESSION["cms_created"]))
     require_once("./scripts/tables/table_blogs.php");
     require_once("./scripts/tables/table_core.php");
     require_once("./scripts/tables/table_core_pages.php");
+    require_once("./scripts/tables/table_logs.php");
     require_once("./scripts/tables/table_menus.php");
     require_once("./scripts/tables/table_menu_items.php");
     require_once("./scripts/tables/table_messages.php");

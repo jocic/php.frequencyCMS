@@ -54,6 +54,8 @@ class Processor extends PageProcessor
         {
             if (!Account::isCreated($_GET[$this->getIDVariableName()]))
                 exit(header("location: " . CMS_ROOT));
+            else if (Account::isDeactivated($_GET[$this->getIDVariableName()]))
+                exit(header("location: " . CMS_ROOT));
         }
     }
 }

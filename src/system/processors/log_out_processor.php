@@ -52,6 +52,8 @@ class Processor extends PageProcessor
             {
                 if (Session::isActive())
                 {
+                    Logs::insertLog(Logs::LC_LOGGED_OUT, Session::getUsername());
+                    
                     Session::stop();
 
                     exit(header("location: " . $this->getNoticeLocationPrefix() . Locales::getNoticeLink("success")));

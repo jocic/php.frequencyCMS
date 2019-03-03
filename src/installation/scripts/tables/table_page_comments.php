@@ -70,7 +70,7 @@ $tblPageComments->addColumn
     new EasyColumn
     (
         ColumnName::useName("content"),
-        ColumnType::useVarChar(200),
+        ColumnType::useVarChar(1000),
         ColumnNull::notAllowed()
     )
 );

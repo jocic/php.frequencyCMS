@@ -54,32 +54,32 @@ if (!empty($_POST))
     // "Hostname" Variable Settings.
 
     if (isset($_POST["req_hostname"]))
-        $varHostname = $_POST["req_hostname"];
+        $varHostname = trim($_POST["req_hostname"]);
     
     // "Username" Variable Settings.
     
     if (isset($_POST["req_username"]))
-        $varUsername = $_POST["req_username"];
+        $varUsername = trim($_POST["req_username"]);
     
     // "Password" Variable Settings.
     
     if (isset($_POST["req_password"]))
-        $varPassword = $_POST["req_password"];
+        $varPassword = trim($_POST["req_password"]);
     
     // "Name" Variable Settings.
     
     if (isset($_POST["req_name"]))
-        $varName = $_POST["req_name"];
+        $varName = trim($_POST["req_name"]);
     
     // "Table Prefix" Variable Settings.
     
     if (isset($_POST["req_table_prefix"]))
-        $varTablePrefix = $_POST["req_table_prefix"];
+        $varTablePrefix = trim($_POST["req_table_prefix"]);
     
     // "View Prefix" Variable Settings.
     
     if (isset($_POST["req_view_prefix"]))
-        $varTablePrefix = $_POST["req_view_prefix"];
+        $varTablePrefix = trim($_POST["req_view_prefix"]);
     
     // Include "EasySQL Framework" Core Files.
     

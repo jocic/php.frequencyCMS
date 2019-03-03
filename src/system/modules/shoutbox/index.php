@@ -82,6 +82,21 @@ else
         
         $varTimestamp = $varTimestamp[1];
         
+        // "Temp Content" Variable Settings.
+        
+        $varContent = str_replace("]:)", "<img src=\"./../../../system/assets/images/smileys/devil.png\" alt=\"*devil*\" />", $varContent);
+        $varContent = str_replace(":)", "<img src=\"./../../../system/assets/images/smileys/smiling.png\" alt=\"*smiling*\" />", $varContent);
+        $varContent = str_replace(";)", "<img src=\"./../../../system/assets/images/smileys/winking.png\" alt=\"*winking*\" />", $varContent);
+        $varContent = str_replace(":(", "<img src=\"./../../../system/assets/images/smileys/frowning.png\" alt=\"*frowning*\" />", $varContent);
+        $varContent = str_replace(":D", "<img src=\"./../../../system/assets/images/smileys/grinning.png\" alt=\"*grinning*\" />", $varContent);
+        $varContent = str_replace(":P", "<img src=\"./../../../system/assets/images/smileys/tongue_out.png\" alt=\"*tongue_out*\" />", $varContent);
+        $varContent = str_replace(":/", "<img src=\"./../../../system/assets/images/smileys/unsure.png\" alt=\"*unsure*\" />", $varContent);
+        $varContent = str_replace("xD", "<img src=\"./../../../system/assets/images/smileys/laughing.png\" alt=\"*laughing*\" />", $varContent);
+        $varContent = str_replace(":3", "<img src=\"./../../../system/assets/images/smileys/cute.png\" alt=\"*cute*\" />", $varContent);
+        $varContent = str_replace("o.O", "<img src=\"./../../../system/assets/images/smileys/surprised_1.png\" alt=\"*surprised*\" />", $varContent);
+        $varContent = str_replace("O.o", "<img src=\"./../../../system/assets/images/smileys/surprised_2.png\" alt=\"*surprised*\" />", $varContent);
+        $varContent = str_replace("^^", "<img src=\"./../../../system/assets/images/smileys/shy.png\" alt=\"*shy*\" />", $varContent);
+        
         // "Temp Post" Element Settings.
         
         $tempPost->setClass("shoutbox-post");

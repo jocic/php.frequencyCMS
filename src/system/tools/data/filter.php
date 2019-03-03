@@ -90,6 +90,19 @@ class Filter
         return $filteredValue;
     }
     
+    public static function forText($unfilteredValue)
+    {
+        $filteredValue = new FilteredVariable();
+
+        $filteredValue->setType(FilteredVariable::TP_CUSTOM);
+        $filteredValue->setRegularExpression("/[^\da-z_.-\s\/]/i");
+        $filteredValue->setValue($unfilteredValue);
+
+        $filteredValue = $filteredValue->getValue();
+        
+        return $filteredValue;
+    }
+    
     public static function forTableNames($unfilteredValue)
     {
         $filteredValue = new FilteredVariable();

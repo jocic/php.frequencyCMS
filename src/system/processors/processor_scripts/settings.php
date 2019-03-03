@@ -59,10 +59,7 @@ if (!$this->isPostEmpty())
     if (!empty($_POST["req_mode"]))
         Core::set(Core::REGISTRAION_MODE, $_POST["req_mode"]);
     
-    if (!empty($_POST["req_captcha"]))
-        Core::set(Core::DEPLOY_CAPTCHA, $_POST["req_captcha"]);
-    
-    if (!empty($_POST["req_captcha"]))
+    if (!empty($_POST["req_social"]))
         Core::set(Core::SOCIAL_INTEGRATION, $_POST["req_social"]);
     
     if (!empty($_POST["req_latest_pages"]))

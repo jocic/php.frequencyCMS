@@ -396,7 +396,7 @@ if ($_GET[$pnv] == Locales::getLink("registration")) // >> Registration << Error
         
         $parError->setContent(Locales::getParagraph("go-home"));
         $parError->setLink("/");
-        $parError->setLinkTitle(Locales::getTitle("home-page"));
+        $parError->setLinkTitle(Locales::getTitle("homepage"));
     }
 }
 else if ($_GET[$pnv] == Locales::getLink("log-in")) // >>  Log-In << Errors.
@@ -489,7 +489,7 @@ else if ($_GET[$pnv] == Locales::getLink("log-in")) // >>  Log-In << Errors.
         
         $parError->setContent(Locales::getParagraph("go-home"));
         $parError->setLink("/");
-        $parError->setLinkTitle(Locales::getTitle("home-page"));
+        $parError->setLinkTitle(Locales::getTitle("homepage"));
     } 
     else if ($_GET[$env] == Locales::getErrorLink("account-banned")) // "Account Banned" Error.
     {
@@ -498,7 +498,7 @@ else if ($_GET[$pnv] == Locales::getLink("log-in")) // >>  Log-In << Errors.
         
         $parError->setContent(Locales::getParagraph("go-home"));
         $parError->setLink("/");
-        $parError->setLinkTitle(Locales::getTitle("home-page"));
+        $parError->setLinkTitle(Locales::getTitle("homepage"));
     }
     else // "Unknown" Error.
     {
@@ -507,7 +507,7 @@ else if ($_GET[$pnv] == Locales::getLink("log-in")) // >>  Log-In << Errors.
         
         $parError->setContent(Locales::getParagraph("go-home"));
         $parError->setLink("/");
-        $parError->setLinkTitle(Locales::getTitle("home-page"));
+        $parError->setLinkTitle(Locales::getTitle("homepage"));
     }
 }
 else if ($_GET[$pnv] == Locales::getLink("resend-activation-email")) // >> Resend Activation Email << Errors.
@@ -555,7 +555,7 @@ else if ($_GET[$pnv] == Locales::getLink("resend-activation-email")) // >> Resen
         
         $parError->setContent(Locales::getParagraph("go-home"));
         $parError->setLink("/");
-        $parError->setLinkTitle(Locales::getTitle("home-page"));
+        $parError->setLinkTitle(Locales::getTitle("homepage"));
     }
 }
 else if ($_GET[$pnv] == Locales::getLink("account-recovery")) // >> Account Recovery << Errors.
@@ -621,7 +621,7 @@ else if ($_GET[$pnv] == Locales::getLink("account-recovery")) // >> Account Reco
         
         $parError->setContent(Locales::getParagraph("go-home"));
         $parError->setLink("/");
-        $parError->setLinkTitle(Locales::getTitle("home-page"));
+        $parError->setLinkTitle(Locales::getTitle("homepage"));
     }
 }
 else if ($_GET[$pnv] == Locales::getLink("activate-account")) // >> Activate Account << Errors.
@@ -633,7 +633,7 @@ else if ($_GET[$pnv] == Locales::getLink("activate-account")) // >> Activate Acc
         
         $parError->setContent(Locales::getParagraph("go-home"));
         $parError->setLink("/");
-        $parError->setLinkTitle(Locales::getTitle("home-page"));
+        $parError->setLinkTitle(Locales::getTitle("homepage"));
     }
     else if ($_GET[$env] == Locales::getErrorLink("params-not-correct")) // "Parameters Not Correct" Error.
     {
@@ -642,7 +642,7 @@ else if ($_GET[$pnv] == Locales::getLink("activate-account")) // >> Activate Acc
         
         $parError->setContent(Locales::getParagraph("go-home"));
         $parError->setLink("/");
-        $parError->setLinkTitle(Locales::getTitle("home-page"));
+        $parError->setLinkTitle(Locales::getTitle("homepage"));
     }
     else if ($_GET[$env] == Locales::getErrorLink("invalid-account")) // "Invalid Account" Error.
     {
@@ -651,7 +651,7 @@ else if ($_GET[$pnv] == Locales::getLink("activate-account")) // >> Activate Acc
         
         $parError->setContent(Locales::getParagraph("go-home"));
         $parError->setLink("/");
-        $parError->setLinkTitle(Locales::getTitle("home-page"));
+        $parError->setLinkTitle(Locales::getTitle("homepage"));
     }
     else if ($_GET[$env] == Locales::getErrorLink("activation-failed")) // "Parameters Not Correct" Error.
     {
@@ -660,7 +660,7 @@ else if ($_GET[$pnv] == Locales::getLink("activate-account")) // >> Activate Acc
         
         $parError->setContent(Locales::getParagraph("go-home"));
         $parError->setLink("/");
-        $parError->setLinkTitle(Locales::getTitle("home-page"));
+        $parError->setLinkTitle(Locales::getTitle("homepage"));
     }
     else // "Unknown" Error.
     {
@@ -669,7 +669,7 @@ else if ($_GET[$pnv] == Locales::getLink("activate-account")) // >> Activate Acc
         
         $parError->setContent(Locales::getParagraph("go-home"));
         $parError->setLink("/");
-        $parError->setLinkTitle(Locales::getTitle("home-page"));
+        $parError->setLinkTitle(Locales::getTitle("homepage"));
     }
 }
 else if ($_GET[$pnv] == Locales::getLink("password-reset")) // >> Password Reset << Errors.
@@ -681,7 +681,7 @@ else if ($_GET[$pnv] == Locales::getLink("password-reset")) // >> Password Reset
         
         $parError->setContent(Locales::getParagraph("go-home"));
         $parError->setLink("/");
-        $parError->setLinkTitle(Locales::getTitle("home-page"));
+        $parError->setLinkTitle(Locales::getTitle("homepage"));
     }
     else if ($_GET[$env] == Locales::getErrorLink("params-not-correct")) // "Parameters Not Correct" Error.
     {
@@ -690,7 +690,7 @@ else if ($_GET[$pnv] == Locales::getLink("password-reset")) // >> Password Reset
         
         $parError->setContent(Locales::getParagraph("go-home"));
         $parError->setLink("/");
-        $parError->setLinkTitle(Locales::getTitle("home-page"));
+        $parError->setLinkTitle(Locales::getTitle("homepage"));
     }
     else if ($_GET[$env] == Locales::getErrorLink("invalid-account")) // "Invalid Account" Error.
     {
@@ -699,7 +699,7 @@ else if ($_GET[$pnv] == Locales::getLink("password-reset")) // >> Password Reset
         
         $parError->setContent(Locales::getParagraph("go-home"));
         $parError->setLink("/");
-        $parError->setLinkTitle(Locales::getTitle("home-page"));
+        $parError->setLinkTitle(Locales::getTitle("homepage"));
     }
     else if ($_GET[$env] == Locales::getErrorLink("password-empty")) // "Password Empty" Error.
     {
@@ -757,7 +757,7 @@ else if ($_GET[$pnv] == Locales::getLink("password-reset")) // >> Password Reset
         
         $parError->setContent(Locales::getParagraph("go-home"));
         $parError->setLink("/");
-        $parError->setLinkTitle(Locales::getTitle("home-page"));
+        $parError->setLinkTitle(Locales::getTitle("homepage"));
     }
     else // "Unknown" Error.
     {
@@ -766,7 +766,7 @@ else if ($_GET[$pnv] == Locales::getLink("password-reset")) // >> Password Reset
         
         $parError->setContent(Locales::getParagraph("go-home"));
         $parError->setLink("/");
-        $parError->setLinkTitle(Locales::getTitle("home-page"));
+        $parError->setLinkTitle(Locales::getTitle("homepage"));
     }
 }
 else if ($_GET[$pnv] == Locales::getLink("set-language")) // >> Set Language << Errors.
@@ -778,7 +778,7 @@ else if ($_GET[$pnv] == Locales::getLink("set-language")) // >> Set Language << 
         
         $parError->setContent(Locales::getParagraph("go-home"));
         $parError->setLink("/");
-        $parError->setLinkTitle(Locales::getTitle("home-page"));
+        $parError->setLinkTitle(Locales::getTitle("homepage"));
     }
     else if ($_GET[$env] == Locales::getErrorLink("invalid-language-code")) // "Invalid Language Code" Error.
     {
@@ -787,7 +787,7 @@ else if ($_GET[$pnv] == Locales::getLink("set-language")) // >> Set Language << 
         
         $parError->setContent(Locales::getParagraph("go-home"));
         $parError->setLink("/");
-        $parError->setLinkTitle(Locales::getTitle("home-page"));
+        $parError->setLinkTitle(Locales::getTitle("homepage"));
     }
     else // "Unknown" Error.
     {
@@ -796,7 +796,7 @@ else if ($_GET[$pnv] == Locales::getLink("set-language")) // >> Set Language << 
         
         $parError->setContent(Locales::getParagraph("go-home"));
         $parError->setLink("/");
-        $parError->setLinkTitle(Locales::getTitle("home-page"));
+        $parError->setLinkTitle(Locales::getTitle("homepage"));
     }
 }
 else if ($_GET[$pnv] == Locales::getLink("messages")) // >> Messages << Errors.
@@ -898,7 +898,7 @@ else if ($_GET[$pnv] == Locales::getLink("messages")) // >> Messages << Errors.
         
         $parError->setContent(Locales::getParagraph("go-home"));
         $parError->setLink("/");
-        $parError->setLinkTitle(Locales::getTitle("home-page"));
+        $parError->setLinkTitle(Locales::getTitle("homepage"));
     }
 }
 else if ($_GET[$pnv] == Locales::getLink("your-profile")) // >> Your Profile << Errors.
@@ -907,6 +907,42 @@ else if ($_GET[$pnv] == Locales::getLink("your-profile")) // >> Your Profile << 
     {
         $clErrorTitle->setContent(Locales::getErrorTitle("your-profile"));
         $clErrorContent->setContent(Locales::getErrorContent("status-length"));
+        
+        $parError->setContent(Locales::getParagraph("yp-retry"));
+        $parError->setLink($prevPageLink);
+        $parError->setLinkTitle(Locales::getTitle("your-profile"));
+    }
+    else if ($_GET[$env] == Locales::getErrorLink("post-size")) // "Post Size" Error.
+    {
+        $clErrorTitle->setContent(Locales::getErrorTitle("your-profile"));
+        $clErrorContent->setContent(Locales::getErrorContent("post-size"));
+        
+        $parError->setContent(Locales::getParagraph("yp-retry"));
+        $parError->setLink($prevPageLink);
+        $parError->setLinkTitle(Locales::getTitle("your-profile"));
+    }
+    else if ($_GET[$env] == Locales::getErrorLink("file-extension")) // "File Extension" Error.
+    {
+        $clErrorTitle->setContent(Locales::getErrorTitle("your-profile"));
+        $clErrorContent->setContent(Locales::getErrorContent("file-extension"));
+        
+        $parError->setContent(Locales::getParagraph("yp-retry"));
+        $parError->setLink($prevPageLink);
+        $parError->setLinkTitle(Locales::getTitle("your-profile"));
+    }
+    else if ($_GET[$env] == Locales::getErrorLink("file-size")) // "File Size" Error.
+    {
+        $clErrorTitle->setContent(Locales::getErrorTitle("your-profile"));
+        $clErrorContent->setContent(Locales::getErrorContent("file-size"));
+        
+        $parError->setContent(Locales::getParagraph("yp-retry"));
+        $parError->setLink($prevPageLink);
+        $parError->setLinkTitle(Locales::getTitle("your-profile"));
+    }
+    else if ($_GET[$env] == Locales::getErrorLink("file-upload")) // "File Upload" Error.
+    {
+        $clErrorTitle->setContent(Locales::getErrorTitle("your-profile"));
+        $clErrorContent->setContent(Locales::getErrorContent("file-upload"));
         
         $parError->setContent(Locales::getParagraph("yp-retry"));
         $parError->setLink($prevPageLink);
@@ -1180,7 +1216,7 @@ else if ($_GET[$pnv] == Locales::getLink("your-profile")) // >> Your Profile << 
         
         $parError->setContent(Locales::getParagraph("go-home"));
         $parError->setLink("/");
-        $parError->setLinkTitle(Locales::getTitle("home-page"));
+        $parError->setLinkTitle(Locales::getTitle("homepage"));
     }
 }
 else // >> General << Errors.
@@ -1201,7 +1237,7 @@ else // >> General << Errors.
         
         $parError->setContent(Locales::getParagraph("go-home"));
         $parError->setLink("/");
-        $parError->setLinkTitle(Locales::getTitle("home-page"));
+        $parError->setLinkTitle(Locales::getTitle("homepage"));
     }
 }
 

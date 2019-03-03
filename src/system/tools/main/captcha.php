@@ -71,7 +71,7 @@ class Captcha
         $sum = self::getFirstNumber() + self::getSecondNumber();
 
         $result = ($sum == $answer);
-
+        
         self::resetChallenge();
         
         return $result;

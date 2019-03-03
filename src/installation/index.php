@@ -38,6 +38,34 @@ define("DOC_ROOT", dirname(__FILE__). DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEP
 
 @session_start();
 
+// Set Locales
+
+if (!empty($_GET["opt"]))
+{
+    $_SESSION["install_lang"] = $_GET["opt"];
+    
+    exit(header("location: index.php"));
+}
+
+if (empty($_SESSION["install_lang"])) // Default - English.
+    $_SESSION["install_lang"] = "en";
+else if ($_SESSION["install_lang"] == "rs") // Serbian.
+    $_SESSION["install_lang"] = "rs";
+else if ($_SESSION["install_lang"] == "de") // German.
+    $_SESSION["install_lang"] = "de";
+else if ($_SESSION["install_lang"] == "it") // Italian.
+    $_SESSION["install_lang"] = "it";
+else if ($_SESSION["install_lang"] == "ru") // Russian.
+    $_SESSION["install_lang"] = "ru";
+else if ($_SESSION["install_lang"] == "gr") // Greek.
+    $_SESSION["install_lang"] = "gr";
+else
+    $_SESSION["install_lang"] = "en"; // If there was an error - English.
+
+// Include Selected Locale.
+
+require_once "./locales/" . $_SESSION["install_lang"] . "_locales.php";
+
 // Check Installation Step And Reddirect.
 
 if (empty($_SESSION["step"]))
@@ -72,24 +100,24 @@ require_once DOC_ROOT .
 
 // Create "Core" Variables.
 
-$varHeadTitle   = "frequencyCMS » Free And Open Source CMS « frequency-cms.com";
-$varPageTitle   = "frequencyCMS Installation";
-$varStep        = "Step #1";
-$varDescrTitle  = "Languages";
-$varContTitle   = "Installation";
-$varLangSelect  = "<strong>Selected:</strong> English Language";
-$varEN          = "English Language";
-$varRS          = "Serbian Language";
-$varDE          = "German Language";
-$varIT          = "Italian Language";
-$varRU          = "Russian Language";
-$varGR          = "Greek Language";
-$varParaOne     = "If you have selected your prefered language click on the button bellow.";
-$varButtonValue = "Next";
-$varSupportOne  = "frequencyCMS Support #1";
-$varSupportTwo  = "frequencyCMS Support #2";
-$varSuppInfoOne = "<strong>Support</strong> frequencyCMS financially!";
-$varSuppInfoTwo = "<strong>Support</strong> frequencyCMS morally!";
+$varHeadTitle   = $LCL_INSTALL["title-html"];
+$varPageTitle   = $LCL_INSTALL["title-main"];
+$varStep        = $LCL_INSTALL["step"] . " #1";
+$varDescrTitle  = $LCL_INSTALL["subtitle-lang"];
+$varContTitle   = $LCL_INSTALL["subtitle-install"];
+$varLangSelect  = "<strong>" . $LCL_INSTALL["selected"] . ":</strong> " . $LCL_INSTALL["lang-" . $_SESSION["install_lang"]];
+$varEN          = $LCL_INSTALL["lang-en"];
+$varRS          = $LCL_INSTALL["lang-rs"];
+$varDE          = $LCL_INSTALL["lang-de"];
+$varIT          = $LCL_INSTALL["lang-it"];
+$varRU          = $LCL_INSTALL["lang-ru"];
+$varGR          = $LCL_INSTALL["lang-gr"];
+$varParaOne     = $LCL_INSTALL["para-concl-1"];
+$varButtonValue = $LCL_INSTALL["next"];
+$varSupportOne  = $LCL_INSTALL["freq-support"] . " #1";
+$varSupportTwo  = $LCL_INSTALL["freq-support"] ." #2";
+$varSuppInfoOne = "<strong>" . $LCL_INSTALL["support"] . "</strong> " . $LCL_INSTALL["freq-financially"];
+$varSuppInfoTwo = "<strong>" . $LCL_INSTALL["support"] . "</strong> " . $LCL_INSTALL["freq-morally"];
 $varBannerOne   = "<a href=\"http://www.fatcow.com/join/index.bml?AffID=727583\" title=\"FatCow Hosting! THE BEST!\"><img src=\"./assets/images/fatcow.png\" border=\"0\" alt=\"Get Best Hosting In Teh World!\" /></a>";
 $varBannerTwo   = "<a href=\"http://signup.leagueoflegends.com/?ref=52271a33c1464409534193\" title=\"Play League Of Legends!\"><img src=\"./assets/images/lol.png\" border=\"0\" alt=\"Play The Best Game In Teh World!\" /></a>";
 
@@ -194,17 +222,17 @@ $tblFlagHolder->addRow($rowFlagsTwo);
 
 $rowFlagsOne->setID("flags-one");
 
-$rowFlagsOne->addCell(new FTableCell(null, null, new FAnchor("en-flag", "flag", "#", $varEN, "EN")));
-$rowFlagsOne->addCell(new FTableCell(null, null, new FAnchor("rs-flag", "flag", "#", $varRS, "RS")));
-$rowFlagsOne->addCell(new FTableCell(null, null, new FAnchor("de-flag", "flag", "#", $varDE, "DE")));
+$rowFlagsOne->addCell(new FTableCell(null, null, new FAnchor("en-flag", "flag", "./?opt=en", $varEN, "EN")));
+$rowFlagsOne->addCell(new FTableCell(null, null, new FAnchor("rs-flag", "flag", "./?opt=rs", $varRS, "RS")));
+$rowFlagsOne->addCell(new FTableCell(null, null, new FAnchor("de-flag", "flag", "./?opt=de", $varDE, "DE")));
 
 // "Row Flags Two" Element Settings.
 
 $rowFlagsTwo->setID("flags-two");
 
-$rowFlagsTwo->addCell(new FTableCell(null, null, new FAnchor("it-flag", "flag", "#", $varIT, "IT")));
-$rowFlagsTwo->addCell(new FTableCell(null, null, new FAnchor("ru-flag", "flag", "#", $varRU, "RU")));
-$rowFlagsTwo->addCell(new FTableCell(null, null, new FAnchor("gr-flag", "flag", "#", $varGR, "GR")));
+$rowFlagsTwo->addCell(new FTableCell(null, null, new FAnchor("it-flag", "flag", "./?opt=it", $varIT, "IT")));
+$rowFlagsTwo->addCell(new FTableCell(null, null, new FAnchor("ru-flag", "flag", "./?opt=ru", $varRU, "RU")));
+$rowFlagsTwo->addCell(new FTableCell(null, null, new FAnchor("gr-flag", "flag", "./?opt=gr", $varGR, "GR")));
 
 // "Div Content" Element Settings.
 

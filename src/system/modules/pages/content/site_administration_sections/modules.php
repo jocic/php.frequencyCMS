@@ -381,7 +381,7 @@ if (empty($_GET[Locales::getVariable("option")])) // Default Option.
                 if (file_exists($tempModuleInfo->getLocation() . DIRECTORY_SEPARATOR . "icon.png"))
                     $tempModuleIcon = "<img src=\"./system/modules/" . $varModuleStack[$i][$j] . "/icon.png\" border=\"0\" />";
                 else
-                    $tempModuleIcon = "<img src=\"./system/assets/images/other/module.png\" border=\"0\" />";
+                    $tempModuleIcon = "<img src=\"../../../../system/assets/images/other/module.png\" border=\"0\" />";
                 
                 // "Module Status" Temp Variable Settings.
                 
@@ -531,7 +531,7 @@ else if ($_GET[Locales::getVariable("option")] == Locales::getLink("tie-module")
     if (file_exists($varModuleInfo->getLocation() . DIRECTORY_SEPARATOR . "icon.png"))
         $varModuleIcon = "<img src=\"/system/modules/" . $varModuleName . "/icon.png\" border=\"0\" />";
     else
-        $varModuleIcon = "<img src=\"/system/assets/images/other/module.png\" border=\"0\" />";
+        $varModuleIcon = "<img src=\"./../../../system/assets/images/other/module.png\" border=\"0\" />";
     
     // "Header Tie Module" Element Settings.
     
@@ -740,7 +740,7 @@ else if ($_GET[Locales::getVariable("option")] == Locales::getLink("edit-module"
     if (file_exists($varModuleInfo->getLocation() . DIRECTORY_SEPARATOR . "icon.png"))
         $varModuleIcon = "<img src=\"/system/modules/" . $varModuleName . "/icon.png\" border=\"0\" />";
     else
-        $varModuleIcon = "<img src=\"/system/assets/images/other/module.png\" border=\"0\" />";
+        $varModuleIcon = "<img src=\"./../../../system/assets/images/other/module.png\" border=\"0\" />";
     
     // "Header Edit Module" Element Settings.
     

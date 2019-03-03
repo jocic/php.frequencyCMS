@@ -55,7 +55,6 @@ $rowWebsiteKeywords    = new FTableRow();
 $rowWebsiteDescription = new FTableRow();
 $rowOfficialEmail      = new FTableRow();
 $rowRegistrationMode   = new FTableRow();
-$rowDeployCaptcha      = new FTableRow();
 $rowSocialIntegration  = new FTableRow();
 $rowShowLatestPages    = new FTableRow();
 $rowSubmit             = new FTableRow();
@@ -70,7 +69,6 @@ $inpWebsiteKeywords    = new FInput();
 $inpWebsiteDescription = new FInput();
 $inpOfficialEmail      = new FInput();
 $selRegistrationMode   = new FSelect();
-$selDeployCaptcha      = new FSelect();
 $selSocialIntegration  = new FSelect();
 $selShowLatestPages    = new FSelect();
 $btnReset              = new FButton();
@@ -103,7 +101,6 @@ $tblCoreSettings->addRow($rowWebsiteKeywords);
 $tblCoreSettings->addRow($rowWebsiteDescription);
 $tblCoreSettings->addRow($rowOfficialEmail);
 $tblCoreSettings->addRow($rowRegistrationMode);
-$tblCoreSettings->addRow($rowDeployCaptcha);
 $tblCoreSettings->addRow($rowSocialIntegration);
 $tblCoreSettings->addRow($rowShowLatestPages);
 $tblCoreSettings->addRow($rowSubmit);
@@ -163,13 +160,6 @@ $rowRegistrationMode->setID("registration-mode-row");
 
 $rowRegistrationMode->addCell(new FTableCell(null, "table-cell-1", new FLabel("registration-mode", Locales::getCore("registration-mode"))));
 $rowRegistrationMode->addCell(new FTableCell(null, "table-cell-2", $selRegistrationMode));
-
-// "Row Deploy Captcha" Element Settings.
-
-$rowDeployCaptcha->setID("deploy-captcha-row");
-
-$rowDeployCaptcha->addCell(new FTableCell(null, "table-cell-1", new FLabel("deploy-captcha", Locales::getCore("deploy-captcha"))));
-$rowDeployCaptcha->addCell(new FTableCell(null, "table-cell-2", $selDeployCaptcha));
 
 // "Row Social Integration" Element Settings.
 
@@ -275,29 +265,9 @@ unset($tempMode);
 
 $selRegistrationMode->setName("req_mode");
 
-// "Select Deploy Captcha" Element Settings.
-
-$selDeployCaptcha->setClass("form-select");
-
-$tempMode = Core::get(Core::DEPLOY_CAPTCHA);
-
-if ($tempMode == "yes")
-    $selDeployCaptcha->addOption(new FSelectOption("yes", Locales::getCore("yes"), true));
-else
-    $selDeployCaptcha->addOption(new FSelectOption("yes", Locales::getCore("yes"), false));
-
-if ($tempMode == "no")
-    $selDeployCaptcha->addOption(new FSelectOption("no", Locales::getCore("no"), true));
-else
-    $selDeployCaptcha->addOption(new FSelectOption("no", Locales::getCore("no"), false));
-
-unset($tempMode);
-
-$selDeployCaptcha->setName("req_captcha");
-
 // "Select Social Integration" Element Settings.
 
-$selDeployCaptcha->setClass("form-select");
+$selSocialIntegration->setClass("form-select");
 
 $tempMode = Core::get(Core::SOCIAL_INTEGRATION);
 

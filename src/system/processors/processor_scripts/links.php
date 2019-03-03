@@ -291,221 +291,18 @@ if (!empty($_GET[Locales::getVariable("option")]))
     }
     else if (!empty($_GET[Locales::getVariable("option")]) && $_GET[Locales::getVariable("option")] == Locales::getLink("add-menu-item")) // If Add Menu Item Was Selected.
     {
-        // Create "Core" Variables.
-
-        $varTitle        = null;
-        $varType         = null;
-        $varParent       = null;
-        $varChildMenu    = null;
-        $varChildItem    = null;
-        $varCustomItem   = null;
-        $varItemPosition = null;
-
-        // "Title" Variable Settings.
-
-        if (!empty($_POST["req_title"]))
-            $varTitle = $_POST["req_title"];
-        else
-            return;
-
-        // "Type" Variable Settings.
-
-        if (isset($_POST["req_type"]))
-        {
-            $varType = $_POST["req_type"];
-            
-            $varType = Filter::forNumeric($varType);
-
-            if ($varType < 0 || $varType > 4)
-                return;
-        }
-        else
-            return;
-
-        // "Parent" Variable Settings.
-
-        if (!empty($_POST["req_parent"]))
-        {
-            $varParent = $_POST["req_parent"];
-            
-            $varParent = Filter::forNumeric($varParent);
-        }
-        else
-            return;
-        
-        // "Child Menu" Variable Settings.
-
-        if (!empty($_POST["req_menus"]))
-        {
-            $varChildMenu = $_POST["req_menus"];
-            
-            $varChildMenu = Filter::forNumeric($varChildMenu);
-        }
-        else
-            return;
-        
-        // "Child Item" Variable Settings.
-        
-        if (!empty($_POST["req_items"]))
-            $varChildItem = $_POST["req_items"];
-        else
-            return;
-        
-        // "Custom Item" Variable Settings.
-        
-        if (!empty($_POST["req_custom"]))
-            $varCustomItem = $_POST["req_custom"];
-        
-        // "Item Position" Variable Settings.
-        
-        EasyGet::setFetchMode(EasyGet::FM_BY_NUMBER);
-        
-        $varItemPosition = EasyGet::execute
-        (
-            "TS: menu_items",
-            "CS: COUNT(`id`)",
-            "ARGS: menu_id = " . $varParent
-        );
-        
-        $varItemPosition = $varItemPosition[0][0] + 1;
-
-        // Process The Rest Of Data.
-
-        if ($varType == Menus::MI_TITLE) // If Menu Item - Title.
-        {
-            // Create "Temp" Variables.
-            
-            $tempSelection = new ValueSelection();
-            
-            // "Selection" Variable Settings.
-            
-            $tempSelection->setOption(ValueSelection::OPT_ENCODE);
-
-            $tempSelection->addValues($varTitle, "header", Menus::MI_TITLE, $varItemPosition, $varParent);
-            
-            // Perform Insertion.
-            
-            EasyInsert::execute
-            (
-                "TS: menu_items",
-                "CS: title, value, type, position, menu_id",
-                $tempSelection
-            );
-        }
-        else if ($varType == Menus::MI_SEPARATOR) // If Menu Item - Separator.
-        {
-            // Create "Temp" Variables.
-            
-            $tempSelection = new ValueSelection();
-            
-            // "Selection" Variable Settings.
-            
-            $tempSelection->setOption(ValueSelection::OPT_ENCODE);
-
-            $tempSelection->addValues($varTitle, "separator", Menus::MI_SEPARATOR, $varItemPosition, $varParent);
-            
-            // Perform Insertion.
-            
-            EasyInsert::execute
-            (
-                "TS: menu_items",
-                "CS: title, value, type, position, menu_id",
-                $tempSelection
-            );
-        }
-        else if ($varType == Menus::MI_MENU) // If Menu Item - Menu.
-        {
-            // Create "Temp" Variables.
-            
-            $tempSelection = new ValueSelection();
-            
-            // "Selection" Variable Settings.
-            
-            $tempSelection->setOption(ValueSelection::OPT_ENCODE);
-
-            $tempSelection->addValues($varTitle, $varChildMenu, Menus::MI_MENU, $varItemPosition, $varParent);
-            
-            // Perform Insertion.
-            
-            EasyInsert::execute
-            (
-                "TS: menu_items",
-                "CS: title, value, type, position, menu_id",
-                $tempSelection
-            );
-        }
-        else if ($varType == Menus::MI_CORE_ITEM) // If Menu Item - Core Item.
-        {
-            // Create "Temp" Variables.
-            
-            $tempSelection = new ValueSelection();
-            
-            // "Selection" Variable Settings.
-            
-            $tempSelection->setOption(ValueSelection::OPT_ENCODE);
-
-            $tempSelection->addValues($varTitle, $varChildItem, Menus::MI_CORE_ITEM, $varItemPosition, $varParent);
-            
-            // Perform Insertion.
-            
-            EasyInsert::execute
-            (
-                "TS: menu_items",
-                "CS: title, value, type, position, menu_id",
-                $tempSelection
-            );
-        }
-        else if ($varType == Menus::MI_CUSTOM_ITEM) // If Menu Item - Custom Item.
-        {
-            // Create "Temp" Variables.
-            
-            $tempSelection = new ValueSelection();
-            
-            // "Selection" Variable Settings.
-            
-            $tempSelection->setOption(ValueSelection::OPT_ENCODE);
-
-            $tempSelection->addValues($varTitle, $varCustomItem, Menus::MI_CUSTOM_ITEM, $varItemPosition, $varParent);
-            
-            // Perform Insertion.
-            
-            EasyInsert::execute
-            (
-                "TS: menu_items",
-                "CS: title, value, type, position, menu_id",
-                $tempSelection
-            );
-        }
-
-        // Reddirect.
-
-        exit(header("location: " . $this->getCoreLink() . "&" . Locales::getVariable("workplace") . "=" . Locales::getLink("links")));
-    }
-    else if (!empty($_GET[Locales::getVariable("option")]) && $_GET[Locales::getVariable("option")] == Locales::getLink("edit-menu-item")) // If Edit Menu Item Was Selected.
-    {
-        if (!empty($_GET[Locales::getVariable("id")]))
+        if (!$this->isPostEmpty())
         {
             // Create "Core" Variables.
 
-            $varItemID       = null;
-            $varTitle        = null;
             $varType         = null;
+            $varTitle        = null;
             $varParent       = null;
-            $varChildMenu    = null;
-            $varChildItem    = null;
+            $varMenu         = null;
+            $varCorePage     = null;
+            $varPage         = null;
             $varCustomItem   = null;
             $varItemPosition = null;
-            
-            // "Item ID" Variable Settings.
-            
-            $varItemID = $_GET[Locales::getVariable("id")];
-
-            // "Title" Variable Settings.
-
-            if (!empty($_POST["req_title"]))
-                $varTitle = $_POST["req_title"];
-            else
-                return;
 
             // "Type" Variable Settings.
 
@@ -515,11 +312,14 @@ if (!empty($_GET[Locales::getVariable("option")]))
 
                 $varType = Filter::forNumeric($varType);
 
-                if ($varType < 0 || $varType > 4)
-                    return;
+                if ($varType < 0 || $varType > 5)
+                    exit(header("location: " . $this->getCoreLink() . "&" . Locales::getVariable("workplace") . "=" . Locales::getLink("links")));
             }
-            else
-                return;
+
+            // "Title" Variable Settings.
+
+            if (!empty($_POST["req_title"]))
+                $varTitle = $_POST["req_title"];
 
             // "Parent" Variable Settings.
 
@@ -529,224 +329,463 @@ if (!empty($_GET[Locales::getVariable("option")]))
 
                 $varParent = Filter::forNumeric($varParent);
             }
-            else
-                return;
 
-            // "Child Menu" Variable Settings.
+            // "Menu" Variable Settings.
 
             if (!empty($_POST["req_menus"]))
             {
-                $varChildMenu = $_POST["req_menus"];
+                $varMenu = $_POST["req_menus"];
 
-                $varChildMenu = Filter::forNumeric($varChildMenu);
+                $varMenu = Filter::forNumeric($varMenu);
             }
-            else
-                return;
 
-            // "Child Item" Variable Settings.
+            // "Core Page" Variable Settings.
 
-            if (!empty($_POST["req_items"]))
-                $varChildItem = $_POST["req_items"];
-            else
-                return;
+            if (!empty($_POST["req_core_page"]))
+                $varCorePage = $_POST["req_core_page"];
+
+            // "Page" Variable Settings.
+
+            if (!empty($_POST["req_page"]))
+                $varPage = $_POST["req_page"];
 
             // "Custom Item" Variable Settings.
 
             if (!empty($_POST["req_custom"]))
                 $varCustomItem = $_POST["req_custom"];
 
-            // Fetch Old Menu ID.
+            // "Item Position" Variable Settings.
 
-	    EasyGet::setFetchMode(EasyGet::FM_BY_NUMBER);
+            EasyGet::setFetchMode(EasyGet::FM_BY_NUMBER);
 
-            $varOldMenuID = EasyGet::execute
+            $varItemPosition = EasyGet::execute
             (
                 "TS: menu_items",
-                "CS: menu_id",
-                "ARGS: id = " . $varItemID
-            );    
+                "CS: COUNT(`id`)",
+                "ARGS: menu_id = " . $varParent
+            );
 
-	// "Item Position" Variable Settings.
-        
-        EasyGet::setFetchMode(EasyGet::FM_BY_NUMBER);
-        
-        $varItemPosition = EasyGet::execute
-        (
-            "TS: menu_items",
-            "CS: COUNT(`id`)",
-            "ARGS: menu_id = " . $varParent
-        );
-        
-        $varItemPosition = $varItemPosition[0][0] + 1;
-
-if ($varOldMenuID[0][0] == $varParent)
-{
-	    EasyGet::setFetchMode(EasyGet::FM_BY_NUMBER);
-
-            $varOldPosition = EasyGet::execute
-            (
-                "TS: menu_items",
-                "CS: position",
-                "ARGS: id = " . $varItemID
-            );    
-
-$varItemPosition = $varOldPosition[0][0];
-}
+            $varItemPosition = $varItemPosition[0][0] + 1;
 
             // Process The Rest Of Data.
 
             if ($varType == Menus::MI_TITLE) // If Menu Item - Title.
             {
-                // Create "Temp" Variables.
+                if (!empty($varTitle) && !empty($varParent))
+                {
+                    // Create "Temp" Variables.
 
-                $tempSelection = new ValueSelection();
+                    $tempSelection = new ValueSelection();
 
-                // "Selection" Variable Settings.
+                    // "Selection" Variable Settings.
 
-                $tempSelection->setOption(ValueSelection::OPT_ENCODE);
+                    $tempSelection->setOption(ValueSelection::OPT_ENCODE);
 
-                $tempSelection->addValues($varTitle, "header", Menus::MI_TITLE, $varItemPosition, $varParent);
+                    $tempSelection->addValues($varTitle, "header", Menus::MI_TITLE, $varItemPosition, $varParent);
 
-                // Perform Update.
+                    // Perform Insertion.
 
-                EasyUpdate::execute
-                (
-                    "TS: menu_items",
-                    "CS: title, value, type, position, menu_id",
-                    $tempSelection,
-                    "ARGS: id = " . $varItemID
-                );
+                    EasyInsert::execute
+                    (
+                        "TS: menu_items",
+                        "CS: title, value, type, position, menu_id",
+                        $tempSelection
+                    );
+                }
             }
             else if ($varType == Menus::MI_SEPARATOR) // If Menu Item - Separator.
             {
-                // Create "Temp" Variables.
+                if (!empty($varTitle) && !empty($varParent))
+                {
+                    // Create "Temp" Variables.
 
-                $tempSelection = new ValueSelection();
+                    $tempSelection = new ValueSelection();
 
-                // "Selection" Variable Settings.
+                    // "Selection" Variable Settings.
 
-                $tempSelection->setOption(ValueSelection::OPT_ENCODE);
+                    $tempSelection->setOption(ValueSelection::OPT_ENCODE);
 
-                $tempSelection->addValues($varTitle, "separator", Menus::MI_SEPARATOR, $varItemPosition, $varParent);
+                    $tempSelection->addValues($varTitle, "separator", Menus::MI_SEPARATOR, $varItemPosition, $varParent);
 
-                // Perform Insertion.
+                    // Perform Insertion.
 
-                EasyUpdate::execute
-                (
-                    "TS: menu_items",
-                    "CS: title, value, type, position, menu_id",
-                    $tempSelection,
-                    "ARGS: id = " . $varItemID
-                );
+                    EasyInsert::execute
+                    (
+                        "TS: menu_items",
+                        "CS: title, value, type, position, menu_id",
+                        $tempSelection
+                    );
+                }
             }
-            else if ($varType == Menus::MI_MENU) // If Menu Item - Menu.
+            else if ($varType == Menus::MI_SUBMENU) // If Menu Item - Menu.
             {
-                // Create "Temp" Variables.
+                if (!empty($varTitle) && !empty($varParent) && !empty($varMenu))
+                {
+                    // Create "Temp" Variables.
 
-                $tempSelection = new ValueSelection();
+                    $tempSelection = new ValueSelection();
 
-                // "Selection" Variable Settings.
+                    // "Selection" Variable Settings.
 
-                $tempSelection->setOption(ValueSelection::OPT_ENCODE);
+                    $tempSelection->setOption(ValueSelection::OPT_ENCODE);
 
-                $tempSelection->addValues($varTitle, $varChildMenu, Menus::MI_MENU, $varItemPosition, $varParent);
+                    $tempSelection->addValues($varTitle, $varMenu, Menus::MI_SUBMENU, $varItemPosition, $varParent);
 
-                // Perform Insertion.
+                    // Perform Insertion.
 
-                EasyUpdate::execute
-                (
-                    "TS: menu_items",
-                    "CS: title, value, type, position, menu_id",
-                    $tempSelection,
-                    "ARGS: id = " . $varItemID
-                );
+                    EasyInsert::execute
+                    (
+                        "TS: menu_items",
+                        "CS: title, value, type, position, menu_id",
+                        $tempSelection
+                    );
+                }
             }
-            else if ($varType == Menus::MI_CORE_ITEM) // If Menu Item - Core Item.
+            else if ($varType == Menus::MI_CORE_PAGE) // If Menu Item - Core Item.
             {
-                // Create "Temp" Variables.
+                if (!empty($varTitle) && !empty($varParent) && !empty($varCorePage))
+                {
+                    // Create "Temp" Variables.
 
-                $tempSelection = new ValueSelection();
+                    $tempSelection = new ValueSelection();
 
-                // "Selection" Variable Settings.
+                    // "Selection" Variable Settings.
 
-                $tempSelection->setOption(ValueSelection::OPT_ENCODE);
+                    $tempSelection->setOption(ValueSelection::OPT_ENCODE);
 
-                $tempSelection->addValues($varTitle, $varChildItem, Menus::MI_CORE_ITEM, $varItemPosition, $varParent);
+                    $tempSelection->addValues($varTitle, $varCorePage, Menus::MI_CORE_PAGE, $varItemPosition, $varParent);
 
-                // Perform Insertion.
+                    // Perform Insertion.
 
-                EasyUpdate::execute
-                (
-                    "TS: menu_items",
-                    "CS: title, value, type, position, menu_id",
-                    $tempSelection,
-                    "ARGS: id = " . $varItemID
-                );
+                    EasyInsert::execute
+                    (
+                        "TS: menu_items",
+                        "CS: title, value, type, position, menu_id",
+                        $tempSelection
+                    );
+                }
             }
-            else if ($varType == Menus::MI_CUSTOM_ITEM) // If Menu Item - Custom Item.
+            else if ($varType == Menus::MI_PAGE) // If Menu Item - Core Item.
             {
-                // Create "Temp" Variables.
+                if (!empty($varTitle) && !empty($varParent) && !empty($varPage))
+                {
+                    // Create "Temp" Variables.
 
-                $tempSelection = new ValueSelection();
+                    $tempSelection = new ValueSelection();
 
-                // "Selection" Variable Settings.
+                    // "Selection" Variable Settings.
 
-                $tempSelection->setOption(ValueSelection::OPT_ENCODE);
+                    $tempSelection->setOption(ValueSelection::OPT_ENCODE);
 
-                $tempSelection->addValues($varTitle, $varCustomItem, Menus::MI_CUSTOM_ITEM, $varItemPosition, $varParent);
+                    $tempSelection->addValues($varTitle, $varPage, Menus::MI_PAGE, $varItemPosition, $varParent);
 
-                // Perform Insertion.
+                    // Perform Insertion.
 
-                EasyUpdate::execute
-                (
-                    "TS: menu_items",
-                    "CS: title, value, type, position, menu_id",
-                    $tempSelection,
-                    "ARGS: id = " . $varItemID
-                );
+                    EasyInsert::execute
+                    (
+                        "TS: menu_items",
+                        "CS: title, value, type, position, menu_id",
+                        $tempSelection
+                    );
+                }
             }
-	
-		// Fetch New Menu ID.
-
-	    EasyGet::setFetchMode(EasyGet::FM_BY_NUMBER);
-
-            $varNewMenuID = EasyGet::execute
-            (
-                "TS: menu_items",
-                "CS: menu_id",
-                "ARGS: id = " . $varItemID
-            );  
-
-            // Reset Menu Item Positions.
-
-            if ($varOldMenuID[0][0] != $varNewMenuID[0][0])
+            else if ($varType == Menus::MI_CUSTOM_LINK) // If Menu Item - Custom Item.
             {
-		    EasyGet::setFetchMode(EasyGet::FM_BY_NUMBER);
-		    
-		    EasyGet::setOrderBy("position", EasyGet::OB_ASC);
-		    
-		    $varMenuItems = EasyGet::execute
-		    (
-		        "TS: menu_items",
-		        "CS: id",
-		        "ARGS: menu_id = " . $varOldMenuID[0][0]
-		    );            
-		    
-		    for ($i = 0; $i < count($varMenuItems); $i ++)
-		    {
-		        EasyUpdate::execute
-		        (
-		            "TS: menu_items",
-		            "CS: position",
-		            "VLS: " . ($i + 1),
-		            "ARGS: id = " . $varMenuItems[$i][0]
-		        );
-		    }
+                if (!empty($varTitle) && !empty($varParent) && !empty($varCustomItem))
+                {
+                    // Create "Temp" Variables.
+
+                    $tempSelection = new ValueSelection();
+
+                    // "Selection" Variable Settings.
+
+                    $tempSelection->setOption(ValueSelection::OPT_ENCODE);
+
+                    $tempSelection->addValues($varTitle, $varCustomItem, Menus::MI_CUSTOM_LINK, $varItemPosition, $varParent);
+
+                    // Perform Insertion.
+
+                    EasyInsert::execute
+                    (
+                        "TS: menu_items",
+                        "CS: title, value, type, position, menu_id",
+                        $tempSelection
+                    );
+                }
             }
-            
+
             // Reddirect.
-            
-            exit(header("location: " . $this->getCoreLink() . "&" . Locales::getVariable("workplace") . "=" . Locales::getLink("links") . "&" . Locales::getVariable("option") . "=" . Locales::getLink("arrange-menu-items") . "&" . Locales::getVariable("id") . "=" . $varNewMenuID[0][0]));
+
+            exit(header("location: " . $this->getCoreLink() . "&" . Locales::getVariable("workplace") . "=" . Locales::getLink("links")));
+        }
+    }
+    else if (!empty($_GET[Locales::getVariable("option")]) && $_GET[Locales::getVariable("option")] == Locales::getLink("edit-menu-item")) // If Edit Menu Item Was Selected.
+    {
+        if (!empty($_GET[Locales::getVariable("id")]))
+        {
+            if (!$this->isPostEmpty())
+            {
+                // Create "Core" Variables.
+
+                $varItemID       = null;
+                $varType         = null;
+                $varTitle        = null;
+                $varParent       = null;
+                $varMenu         = null;
+                $varCorePage     = null;
+                $varPage         = null;
+                $varCustomItem   = null;
+                $varItemPosition = null;
+
+                // "Item ID" Variable Settings.
+
+                $varItemID = $_GET[Locales::getVariable("id")];
+
+                // "Type" Variable Settings.
+
+                if (isset($_POST["req_type"]))
+                {
+                    $varType = $_POST["req_type"];
+
+                    $varType = Filter::forNumeric($varType);
+
+                    if ($varType < 0 || $varType > 5)
+                        exit(header("location: " . $this->getCoreLink() . "&" . Locales::getVariable("workplace") . "=" . Locales::getLink("links")));
+                }
+
+                // "Title" Variable Settings.
+
+                if (!empty($_POST["req_title"]))
+                    $varTitle = $_POST["req_title"];
+
+                // "Parent" Variable Settings.
+
+                if (!empty($_POST["req_parent"]))
+                {
+                    $varParent = $_POST["req_parent"];
+
+                    $varParent = Filter::forNumeric($varParent);
+                }
+
+                // "Menu" Variable Settings.
+
+                if (!empty($_POST["req_menus"]))
+                {
+                    $varMenu = $_POST["req_menus"];
+
+                    $varMenu = Filter::forNumeric($varMenu);
+                }
+
+                // "Core Page" Variable Settings.
+
+                if (!empty($_POST["req_core_page"]))
+                    $varCorePage = $_POST["req_core_page"];
+
+                // "Page" Variable Settings.
+
+                if (!empty($_POST["req_page"]))
+                    $varPage = $_POST["req_page"];
+
+                // "Custom Item" Variable Settings.
+
+                if (!empty($_POST["req_custom"]))
+                    $varCustomItem = $_POST["req_custom"];
+
+                // Process The Rest Of Data.
+
+                if ($varType == Menus::MI_TITLE) // If Menu Item - Title.
+                {
+                    if (!empty($varTitle) && !empty($varParent))
+                    {
+                        // Create "Temp" Variables.
+
+                        $tempSelection = new ValueSelection();
+
+                        // "Selection" Variable Settings.
+
+                        $tempSelection->setOption(ValueSelection::OPT_ENCODE);
+
+                        $tempSelection->addValues($varTitle, "header", Menus::MI_TITLE, $varParent);
+
+                        // Perform Update.
+
+                        EasyUpdate::execute
+                        (
+                            "TS: menu_items",
+                            "CS: title, value, type, menu_id",
+                            $tempSelection,
+                            "ARGS: id = " . $varItemID
+                        );
+                    }
+                }
+                else if ($varType == Menus::MI_SEPARATOR) // If Menu Item - Separator.
+                {
+                    if (!empty($varTitle) && !empty($varParent))
+                    {
+                        // Create "Temp" Variables.
+
+                        $tempSelection = new ValueSelection();
+
+                        // "Selection" Variable Settings.
+
+                        $tempSelection->setOption(ValueSelection::OPT_ENCODE);
+
+                        $tempSelection->addValues($varTitle, "separator", Menus::MI_SEPARATOR, $varParent);
+
+                        // Perform Insertion.
+
+                        EasyUpdate::execute
+                        (
+                            "TS: menu_items",
+                            "CS: title, value, type, menu_id",
+                            $tempSelection,
+                            "ARGS: id = " . $varItemID
+                        );
+                    }
+                }
+                else if ($varType == Menus::MI_SUBMENU) // If Menu Item - Menu.
+                {
+                    if (!empty($varTitle) && !empty($varParent) && !empty($varMenu))
+                    {
+                        // Create "Temp" Variables.
+
+                        $tempSelection = new ValueSelection();
+
+                        // "Selection" Variable Settings.
+
+                        $tempSelection->setOption(ValueSelection::OPT_ENCODE);
+
+                        $tempSelection->addValues($varTitle, $varMenu, Menus::MI_SUBMENU, $varParent);
+
+                        // Perform Insertion.
+
+                        EasyUpdate::execute
+                        (
+                            "TS: menu_items",
+                            "CS: title, value, type, menu_id",
+                            $tempSelection,
+                            "ARGS: id = " . $varItemID
+                        );
+                    }
+                }
+                else if ($varType == Menus::MI_CORE_PAGE) // If Menu Item - Core Item.
+                {
+                    if (!empty($varTitle) && !empty($varParent) && !empty($varCorePage))
+                    {
+                        // Create "Temp" Variables.
+
+                        $tempSelection = new ValueSelection();
+
+                        // "Selection" Variable Settings.
+
+                        $tempSelection->setOption(ValueSelection::OPT_ENCODE);
+
+                        $tempSelection->addValues($varTitle, $varCorePage, Menus::MI_CORE_PAGE, $varParent);
+
+                        // Perform Insertion.
+
+                        EasyUpdate::execute
+                        (
+                            "TS: menu_items",
+                            "CS: title, value, type, menu_id",
+                            $tempSelection,
+                            "ARGS: id = " . $varItemID
+                        );
+                    }
+                }
+                else if ($varType == Menus::MI_PAGE) // If Menu Item - Core Item.
+                {
+                    if (!empty($varTitle) && !empty($varParent) && !empty($varPage))
+                    {
+                        // Create "Temp" Variables.
+
+                        $tempSelection = new ValueSelection();
+
+                        // "Selection" Variable Settings.
+
+                        $tempSelection->setOption(ValueSelection::OPT_ENCODE);
+
+                        $tempSelection->addValues($varTitle, $varPage, Menus::MI_PAGE, $varParent);
+
+                        // Perform Insertion.
+
+                        EasyUpdate::execute
+                        (
+                            "TS: menu_items",
+                            "CS: title, value, type, menu_id",
+                            $tempSelection,
+                            "ARGS: id = " . $varItemID
+                        );
+                    }
+                }
+                else if ($varType == Menus::MI_CUSTOM_LINK) // If Menu Item - Custom Item.
+                {
+                    if (!empty($varTitle) && !empty($varParent) && !empty($varCustomItem))
+                    {
+                        // Create "Temp" Variables.
+
+                        $tempSelection = new ValueSelection();
+
+                        // "Selection" Variable Settings.
+
+                        $tempSelection->setOption(ValueSelection::OPT_ENCODE);
+
+                        $tempSelection->addValues($varTitle, $varCustomItem, Menus::MI_CUSTOM_LINK, $varParent);
+
+                        // Perform Insertion.
+
+                        EasyUpdate::execute
+                        (
+                            "TS: menu_items",
+                            "CS: title, value, type, menu_id",
+                            $tempSelection,
+                            "ARGS: id = " . $varItemID
+                        );
+                    }
+                }
+
+                    // Fetch New Menu ID.
+
+                EasyGet::setFetchMode(EasyGet::FM_BY_NUMBER);
+
+                $varNewMenuID = EasyGet::execute
+                (
+                    "TS: menu_items",
+                    "CS: menu_id",
+                    "ARGS: id = " . $varItemID
+                );  
+
+                // Reset Menu Item Positions.
+
+                if ($varOldMenuID[0][0] != $varNewMenuID[0][0])
+                {
+                        EasyGet::setFetchMode(EasyGet::FM_BY_NUMBER);
+
+                        EasyGet::setOrderBy("position", EasyGet::OB_ASC);
+
+                        $varMenuItems = EasyGet::execute
+                        (
+                            "TS: menu_items",
+                            "CS: id",
+                            "ARGS: menu_id = " . $varOldMenuID[0][0]
+                        );            
+
+                        for ($i = 0; $i < count($varMenuItems); $i ++)
+                        {
+                            EasyUpdate::execute
+                            (
+                                "TS: menu_items",
+                                "CS: position",
+                                "VLS: " . ($i + 1),
+                                "ARGS: id = " . $varMenuItems[$i][0]
+                            );
+                        }
+                }
+
+                // Reddirect.
+
+                exit(header("location: " . $this->getCoreLink() . "&" . Locales::getVariable("workplace") . "=" . Locales::getLink("links") . "&" . Locales::getVariable("option") . "=" . Locales::getLink("arrange-menu-items") . "&" . Locales::getVariable("id") . "=" . $varNewMenuID[0][0]));
+            }
         }
         else
             exit(header("location: " . $this->getCoreLink() . "&" . Locales::getVariable("workplace") . "=" . Locales::getLink("links")));

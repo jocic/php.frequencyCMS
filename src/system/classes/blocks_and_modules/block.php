@@ -145,25 +145,37 @@ class Block
                 
                 foreach ($data as $row)
                 {
-                    // Create a module object.
+                    if (file_exists(DOC_ROOT . "/system/modules/" . $row["name"]))
+                        $varLocation = DOC_ROOT . "/system/modules/" . $row["name"];
+                    else if (file_exists(DOC_ROOT . "/modules/" . $row["name"]))
+                        $varLocation = DOC_ROOT . "/modules/" . $row["name"];
                     
-                    $module = new Module();
-                    
-                    // Initialize its values.
-                    
-                    $module->setStatus($row["status"]);
-                    $module->setNumber($moduleNumber);
-                    $module->setLocation(DOC_ROOT . "/system/modules/" . $row["name"]);
-                    $module->setBlankPrefix($this->blankPrefix);
-                    $module->setBlockName($this->blockName);
-                    
-                    // Perform inclusion.
-                    
-                    $module->includeModule();
-                    
-                    // Increase module number.
-                    
-                    $moduleNumber ++;
+                    if (!empty($varLocation))
+                    {
+                        // Create a module object.
+
+                        $module = new Module();
+
+                        // Initialize its values.
+
+                        $module->setStatus($row["status"]);
+                        $module->setNumber($moduleNumber);
+
+
+                        $module->setLocation($varLocation);
+
+
+                        $module->setBlankPrefix($this->blankPrefix);
+                        $module->setBlockName($this->blockName);
+
+                        // Perform inclusion.
+
+                        $module->includeModule();
+
+                        // Increase module number.
+
+                        $moduleNumber ++;
+                    }
                 }
             }
         }

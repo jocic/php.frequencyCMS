@@ -178,7 +178,6 @@ if ($varAssets != null)
         $tmpRowTwo       = new FTableRow();
         $tmpRowThree     = new FTableRow();
         $tmpRowFour      = new FTableRow();
-        $tmpRowFive      = new FTableRow();
         $tmpRowSeparator = new FTableRow();
 
         // "Temp Row One" Element Settings.
@@ -193,18 +192,13 @@ if ($varAssets != null)
 
         // "Temp Row Three" Element Settings.
 
-        $tmpRowThree->addCell(new FTableCell(null, null, "<strong>" . Locales::getCore("html-object") . ":</strong>"));
-        $tmpRowThree->addCell(new FTableCell(null, null, "<textarea><img src=\"" . $varAssetLink . $asset["filename"] . "\" border=\"0\" /></textarea>"));
+        $tmpRowThree->addCell(new FTableCell(null, null, "<strong>" . Locales::getCore("asset-link") . ":</strong>"));
+        $tmpRowThree->addCell(new FTableCell(null, null, "<input type='text' value='<a href=\"" . $varAssetLink . $asset["filename"] . "\" target=\"_blank\">Link</a>' />"));
 
         // "Temp Row Four" Element Settings.
 
-        $tmpRowFour->addCell(new FTableCell(null, null, "<strong>" . Locales::getCore("asset-link") . ":</strong>"));
-        $tmpRowFour->addCell(new FTableCell(null, null, "<textarea><a href=\"" . $varAssetLink . $asset["filename"] . "\" target=\"_blank\">Link</a></textarea>"));
-
-        // "Temp Row Four" Element Settings.
-
-        $tmpRowFive->addCell(new FTableCell(null, null, "<strong>" . Locales::getCore("options") . ":</strong>"));
-        $tmpRowFive->addCell(new FTableCell(null, null, $varEditAssetPrefix . $asset["id"] . $varEditAssetSufix . " " . $varDeleteAssetPrefix . $asset["id"] . $varDeleteAssetSufix));
+        $tmpRowFour->addCell(new FTableCell(null, null, "<strong>" . Locales::getCore("options") . ":</strong>"));
+        $tmpRowFour->addCell(new FTableCell(null, null, $varEditAssetPrefix . $asset["id"] . $varEditAssetSufix . " " . $varDeleteAssetPrefix . $asset["id"] . $varDeleteAssetSufix));
 
         // "Temp Row Six" Element Settings.
 
@@ -216,7 +210,6 @@ if ($varAssets != null)
         $tblAssets->addRow($tmpRowTwo);
         $tblAssets->addRow($tmpRowThree);
         $tblAssets->addRow($tmpRowFour);
-        $tblAssets->addRow($tmpRowFive);
         $tblAssets->addRow($tmpRowSeparator);
     }
 }

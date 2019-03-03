@@ -111,8 +111,9 @@ if ($varMessages != null)
 
         // Create Link.
 
-        $linkPrefix = "<a href=\"" . $varCoreLink . "&" . Locales::getVariable("option") . "=" . Locales::getLink("view-message") . "&" . Locales::getVariable("id") . "=" . $varMessage["id"] . "\">";
-
+        $varViewMessagePrefix = "<a id=\"search-icon\" class=\"options-icon\" title=\"" . Locales::getCore("view-message") . "\" href=\"" . $varCoreLink . "&" . Locales::getVariable("option") . "=" . Locales::getLink("view-message") . "&" . Locales::getVariable("id") . "=";
+        $varViewMessageSufix  = "\">" . Locales::getCore("view-message") . "</a>";
+        
         // Create A Temp Row.
 
         $tempRow = new FTableRow();
@@ -121,9 +122,10 @@ if ($varMessages != null)
         $tempRow->addCell(new FTableCell(null, null, $varMessage["sender_id"]));
         $tempRow->addCell(new FTableCell(null, null, $varMessage["receiver_id"]));
         $tempRow->addCell(new FTableCell(null, null, $varMessage["date_sent"]));
-        $tempRow->addCell(new FTableCell(null, null, $linkPrefix . $varMessage["title"] . "</a>"));
+        $tempRow->addCell(new FTableCell(null, null, $varMessage["title"]));
         $tempRow->addCell(new FTableCell(null, null, $varMessage["read_status"]));
         $tempRow->addCell(new FTableCell(null, null, $varMessage["status"]));
+        $tempRow->addCell(new FTableCell(null, null, $varViewMessagePrefix . $varMessage["id"] . $varViewMessageSufix));
 
         // Add A Temp Row.
 
@@ -143,6 +145,7 @@ $rowInfoRow->addCell(new FTableCell(null, "table-cell-4", Locales::getCore("date
 $rowInfoRow->addCell(new FTableCell(null, "table-cell-5", Locales::getCore("title")));
 $rowInfoRow->addCell(new FTableCell(null, "table-cell-6", Locales::getCore("read")));
 $rowInfoRow->addCell(new FTableCell(null, "table-cell-7", Locales::getCore("status")));
+$rowInfoRow->addCell(new FTableCell(null, "table-cell-8", Locales::getCore("options")));
 
 // SPECIFIC PAGE ACTION STARTS HERE.
 

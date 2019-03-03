@@ -50,6 +50,7 @@ class Core
     const VERIFICATION_SALT   = "verification_salt";
     const TOKEN_SALT          = "token_salt";
     const REGISTRAION_MODE    = "registration_mode";
+    const SECURITY_LOGGING    = "security_logging";
     const DEPLOY_CAPTCHA      = "deploy_captcha";
     const SHOW_LATEST_PAGES   = "show_latest_pages";
     const SOCIAL_INTEGRATION  = "social_integration";

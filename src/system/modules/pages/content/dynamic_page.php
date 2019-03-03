@@ -42,7 +42,7 @@ Build::setBlankPrefix($this->getBlankPrefix());
 $varPageID                  = $_GET[Locales::getVariable("page")];
 $varPageTitle               = null;
 $varPageURL                 = "http://" . Core::get(Core::WEBSITE_BASE) . "/?" . Locales::getVariable("page") . "=" . $varPageID;
-$varShareInfo               = Core::get(Core::WEBSITE_TITLE) . " - " . $varPageTitle;
+$varShareInfo               = null;
 $varViewProfilePrefix       = "./?" . Locales::getVariable("page") . "=" . Locales::getLink("view-profile") . "&" . Locales::getVariable("id") . "=";
 $varCommentPagePrefix       = "./?" . Locales::getVariable("page") . "=" . $varPageID . "&" . Locales::getVariable("option") . "=" . Locales::getLink("view-comments") . "&" . Locales::getVariable("comment-page") . "=";
 $varCommentPageNumber       = 0;
@@ -88,6 +88,10 @@ if (!is_numeric($varPageID))
 
 $varPageTitle = PageInfo::getTitle($varPageID);
 
+// "Share Info" Variable Settings.
+
+$varShareInfo = Core::get(Core::WEBSITE_TITLE) . " - " . $varPageTitle;
+
 // "Comment Page Number" Variable Settings.
 
 if (!empty($_GET[Locales::getVariable("comment-page")]))
@@ -107,7 +111,7 @@ $divDynamicPageContent->setContent(PageInfo::getContent($varPageID));
 
 $divSocialButtons->setID("social-buttons");
 
-$divSocialButtons->addElement("<script src=\"./system/assets/scripts/social_integration.js\" type=\"text/javascript\"></script>");
+$divSocialButtons->addElement("<script src=\"../../../../system/assets/scripts/social_integration.js\" type=\"text/javascript\"></script>");
 $divSocialButtons->addElement(new FDiv("twitter-button", "social-button", "<a href=\"https://twitter.com/intent/tweet?original_referer=$varPageURL&url=$varPageURL&count-url=$varPageURL&text=$varShareInfo\" target=\"_blank\" class=\"twitter-share-button\" data-url=\"$varPageURL\" data-counturl=\"$varPageURL\" data-text=\"$varShareInfo\" data-lang=\"en\" data-count=\"vertical\">Tweet</a>"));
 $divSocialButtons->addElement(new FDiv("google-button", "social-button", "<g:plusone size=\"tall\"><a href=\"https://plus.google.com/share?url=$varPageURL\" target=\"_blank\">G +1</a></g:plusone>"));
 $divSocialButtons->addElement(new FDiv("facebook-like-button", "social-button", "<div class=\"fb-like\" data-href=\"$varPageURL\" data-layout=\"box_count\" data-action=\"like\" data-show-faces=\"false\" data-share=\"false\"><a href=\"http://www.facebook.com/sharer.php?u=$varPageURL\" target=\"_blank\">Like</a></div>"));
@@ -177,14 +181,26 @@ if (is_array($commentArray))
 
     foreach ($commentArray as $comment)
     {
-        $divTempComment = new FDiv();
+        $varTempUsername = InfoFetch::fetchUsername($comment["sender_id"]);
+        $varTempAvatar   = InfoFetch::fetchAvatar($comment["sender_id"]);
+        $varAvatarHolder = new FDiv(null, "comment-profile-image", $varTempUsername);
+        
+        if (empty($varTempAvatar))
+            $varAvatarHolder->setStyle("background: url(" . CMS_ROOT . "system/assets/images/other/no_avatar.png) no-repeat center center; background-size: auto 100px;");
+        else
+            $varAvatarHolder->setStyle("background: url(" . CMS_ROOT . "assets/avatars/" . $varTempAvatar . ") no-repeat center center; background-size: auto 100px;");
+        
+        $divTempComment  = new FDiv();
 
         $divTempComment->setID("page-comment-$commentCount");
         $divTempComment->setClass("page-comment-holder");
 
-        $divTempComment->addElement(new FDiv(null, "comment-poster", "<a href=\"$varViewProfilePrefix" . $comment["sender_id"] . "\">" . InfoFetch::fetchUsername($comment["sender_id"]) . "</a>"));
+        $divTempComment->addElement($varAvatarHolder);
+        $divTempComment->addElement(new FDiv(null, "comment-poster", "<a href=\"$varViewProfilePrefix" . $comment["sender_id"] . "\">" . $varTempUsername . "</a>"));
         $divTempComment->addElement(new FDiv(null, "comment-content", $comment["content"]));
-
+        $divTempComment->addElement(new FDiv(null, "clr"));
+        
+        
         $divPageComments->addElement($divTempComment);
 
         $commentCount ++;
@@ -271,7 +287,7 @@ $divSubmit->addElement(new FDiv(null, null, $btnSubmit));
 $txtComment->setID("comment");
 $txtComment->setName("req_comment");
 $txtComment->setContent(null);
-$txtComment->setMaxLength(200);
+$txtComment->setMaxLength(1000);
 
 // "Input Captcha" Element Settings.
 

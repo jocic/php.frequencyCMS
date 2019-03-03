@@ -39,9 +39,10 @@ class Menus
     
     const MI_TITLE       = 0;
     const MI_SEPARATOR   = 1;
-    const MI_MENU        = 2;
-    const MI_CORE_ITEM   = 3;
-    const MI_CUSTOM_ITEM = 4;
+    const MI_SUBMENU     = 2;
+    const MI_CORE_PAGE   = 3;
+    const MI_PAGE        = 4;
+    const MI_CUSTOM_LINK = 5;
     
     // "Class" Constants.
     
@@ -93,7 +94,7 @@ class Menus
                     $varTempItem->setClass("separator");
                     $varTempItem->setContent("-----------------");
                 }
-                else if ($varMenuItems[$i]["type"] == self::MI_MENU) // "Menu" Item.
+                else if ($varMenuItems[$i]["type"] == self::MI_SUBMENU) // "Menu" Item.
                 {
                     if ($printSubmenus)
                     {
@@ -108,7 +109,8 @@ class Menus
                         $varTempItem = new FListItem("menu-item-$varMenuItemNumber", null, $varTempItem);
                     }
                 }
-                else if ($varMenuItems[$i]["type"] == self::MI_CORE_ITEM) // "Core" Item.
+                else if ($varMenuItems[$i]["type"] == self::MI_CORE_PAGE ||
+                         $varMenuItems[$i]["type"] == self::MI_PAGE) // "Core" Item.
                 {
                     $varTempItem = new FListItem();
                     
@@ -153,7 +155,7 @@ class Menus
                     
                     $varMenuItemNumber ++;
                 }
-                else if ($varMenuItems[$i]["type"] == self::MI_CUSTOM_ITEM) // "Core" Item.
+                else if ($varMenuItems[$i]["type"] == self::MI_CUSTOM_LINK) // "Core" Item.
                 {
                     $varTempItem = new FListItem();
                     

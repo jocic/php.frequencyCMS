@@ -38,6 +38,27 @@ define("DOC_ROOT", dirname(__FILE__). DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEP
 
 @session_start();
 
+// Set Locales
+
+if (empty($_SESSION["install_lang"])) // Default - English.
+    $_SESSION["install_lang"] = "en";
+else if ($_SESSION["install_lang"] == "rs") // Serbian.
+    $_SESSION["install_lang"] = "rs";
+else if ($_SESSION["install_lang"] == "de") // German.
+    $_SESSION["install_lang"] = "de";
+else if ($_SESSION["install_lang"] == "it") // Italian.
+    $_SESSION["install_lang"] = "it";
+else if ($_SESSION["install_lang"] == "ru") // Russian.
+    $_SESSION["install_lang"] = "ru";
+else if ($_SESSION["install_lang"] == "gr") // Greek.
+    $_SESSION["install_lang"] = "gr";
+else
+    $_SESSION["install_lang"] = "en"; // If there was an error - English.
+
+// Include Selected Locale.
+
+require_once "./locales/" . $_SESSION["install_lang"] . "_locales.php";
+
 // Check Installation Step And Reddirect.
 
 if (empty($_SESSION["step"]))
@@ -80,18 +101,18 @@ require_once "./scripts/processors/processor_step_4.php";
 
 // Create "Core" Variables.
 
-$varHeadTitle   = "frequencyCMS » Free And Open Source CMS « frequency-cms.com";
-$varPageTitle   = "frequencyCMS Installation";
-$varStep        = "Step #4";
-$varDescrTitle  = "Congratulations!";
-$varParaOne     = "You are just one step away from installing your own <strong>frequencyCMS</strong>! Your initial credentials are written bellow so be sure to write them down somewhere before you press the \"finish\" button. The super administrator password is randomly generated and weak so it is advised that you change it as soon as you can.";
-$varContTitle   = "Installation";
-$varParaThree   = "After clicking on the \"finish\" button, the <strong>frequencyCMS</strong> installation will be over.";
-$varButtonValue = "Finish";
-$varSupportOne  = "frequencyCMS Support #1";
-$varSupportTwo  = "frequencyCMS Support #2";
-$varSuppInfoOne = "<strong>Support</strong> frequencyCMS financially!";
-$varSuppInfoTwo = "<strong>Support</strong> frequencyCMS morally!";
+$varHeadTitle   = $LCL_INSTALL["title-html"];
+$varPageTitle   = $LCL_INSTALL["title-main"];
+$varStep        = $LCL_INSTALL["step"] . " #4";
+$varDescrTitle  = $LCL_INSTALL["subtitle-congrats"];
+$varParaOne     = $LCL_INSTALL["para-6"];
+$varContTitle   = $LCL_INSTALL["subtitle-install"];
+$varParaThree   = $LCL_INSTALL["para-concl-4"];
+$varButtonValue = $LCL_INSTALL["finish"];
+$varSupportOne  = $LCL_INSTALL["freq-support"] . " #1";
+$varSupportTwo  = $LCL_INSTALL["freq-support"] ." #2";
+$varSuppInfoOne = "<strong>" . $LCL_INSTALL["support"] . "</strong> " . $LCL_INSTALL["freq-financially"];
+$varSuppInfoTwo = "<strong>" . $LCL_INSTALL["support"] . "</strong> " . $LCL_INSTALL["freq-morally"];
 $varBannerOne   = "<a href=\"http://www.fatcow.com/join/index.bml?AffID=727583\" title=\"FatCow Hosting! THE BEST!\"><img src=\"./assets/images/fatcow.png\" border=\"0\" alt=\"Get Best Hosting In Teh World!\" /></a>";
 $varBannerTwo   = "<a href=\"http://signup.leagueoflegends.com/?ref=52271a33c1464409534193\" title=\"Play League Of Legends!\"><img src=\"./assets/images/lol.png\" border=\"0\" alt=\"Play The Best Game In Teh World!\" /></a>";
 
@@ -218,27 +239,27 @@ $tblContent->addRow($rowSubmit);
 
 // "Row Username" Element Settings.
 
-$rowUsername->addCell(new FTableCell(null, "bolded", "Username:"));
+$rowUsername->addCell(new FTableCell(null, "bolded", $LCL_INSTALL["username"] . ":"));
 $rowUsername->addCell(new FTableCell(null, null, $varUsername));
 
 // "Row Password" Element Settings.
 
-$rowPassword->addCell(new FTableCell(null, "bolded", "Password:"));
+$rowPassword->addCell(new FTableCell(null, "bolded", $LCL_INSTALL["password"] . ":"));
 $rowPassword->addCell(new FTableCell(null, null, $varPassword));
 
 // "Row Password Salt" Element Settings.
 
-$rowPassSalt->addCell(new FTableCell(null, "bolded", "Password Salt:"));
+$rowPassSalt->addCell(new FTableCell(null, "bolded", $LCL_INSTALL["pass-salt"] . ":"));
 $rowPassSalt->addCell(new FTableCell(null, null, $varPasswordSalt));
 
 // "Row Verification Salt" Element Settings.
 
-$rowVerifSalt->addCell(new FTableCell(null, "bolded", "Verification Salt:"));
+$rowVerifSalt->addCell(new FTableCell(null, "bolded", $LCL_INSTALL["verif-salt"] . ":"));
 $rowVerifSalt->addCell(new FTableCell(null, null, $varVerifSalt));
 
 // "Row Token Salt" Element Settings.
 
-$rowTokenSalt->addCell(new FTableCell(null, "bolded", "Token Salt:"));
+$rowTokenSalt->addCell(new FTableCell(null, "bolded", $LCL_INSTALL["token-salt"] . ":"));
 $rowTokenSalt->addCell(new FTableCell(null, null, $varTokenSalt));
 
 // "Row Submit" Element Settings.

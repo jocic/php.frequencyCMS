@@ -142,7 +142,7 @@ class InfoAlter
         $filteredValue = new FilteredVariable();
         
         $filteredValue->setType(FilteredVariable::TP_CUSTOM);
-        $filteredValue->setRegularExpression("/[^\da-z]/i");
+        $filteredValue->setRegularExpression("/[^\da-z.]/i");
         $filteredValue->setValue($newValue);
         
         $filteredValue = $filteredValue->getValue();
@@ -183,6 +183,9 @@ class InfoAlter
         $filteredValue->setValue($newValue);
 
         $filteredValue = $filteredValue->getValue();
+        
+        if ($filteredValue == null)
+            $filteredValue = 0;
         
         // Perform Alteration.
         
@@ -321,7 +324,8 @@ class InfoAlter
         
         $filteredValue = new FilteredVariable();
         
-        $filteredValue->setType(FilteredVariable::TP_NUMBERS);
+        $filteredValue->setType(FilteredVariable::TP_CUSTOM);
+        $filteredValue->setRegularExpression("/[^a-zA-Z0-9.]/i");
         $filteredValue->setValue($newValue);
         
         $filteredValue = $filteredValue->getValue();

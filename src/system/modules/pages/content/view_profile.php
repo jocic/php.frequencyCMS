@@ -178,9 +178,9 @@ $divAvatarHolder->addElement($divAvatar);
 $divAvatar->setID("users-avatar");
 
 if ($varAvatar == null)
-    $divAvatar->addElement("<div style=\"height: 100%; width: 100%; background: url(" . CMS_ROOT . "system/assets/images/other/no_avatar.png) no-repeat center center;\"><div class=\"protected\">$varUsername</div></div>");
+    $divAvatar->addElement("<div style=\"width: 150px; height: 150px; background: url(" . CMS_ROOT . "system/assets/images/other/no_avatar.png) no-repeat center center; background-size: auto 150px;\"><div class=\"protected\">$varUsername</div></div>");
 else
-    $divAvatar->addElement("<div style=\"height: 100%; width: 100%; background: url(" . CMS_ROOT . "assets/avatars/$varAvatar.png) no-repeat center center;\"><div class=\"protected\">$varUsername</div></div>");
+    $divAvatar->addElement("<div style=\"width: 150px; height: 150px; background: url(" . CMS_ROOT . "assets/avatars/$varAvatar) no-repeat center center; background-size: auto 150px;\"><div class=\"protected\">$varUsername</div></div>");
 
 // "Table User Info Left" Element Settings.
 

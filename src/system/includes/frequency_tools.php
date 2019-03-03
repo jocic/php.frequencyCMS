@@ -74,5 +74,6 @@ require_once TOOLS_ROOT . "user_related" . DIRECTORY_SEPARATOR . "session.php";
 require_once TOOLS_ROOT . "other" . DIRECTORY_SEPARATOR . "locales.php";
 require_once TOOLS_ROOT . "other" . DIRECTORY_SEPARATOR . "build.php";
 require_once TOOLS_ROOT . "other" . DIRECTORY_SEPARATOR . "statistics.php";
+require_once TOOLS_ROOT . "other" . DIRECTORY_SEPARATOR . "logs.php";
 
 ?>

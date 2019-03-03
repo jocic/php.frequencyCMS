@@ -194,9 +194,17 @@ class Processor extends PageProcessor
         if (Core::get(Core::DEPLOY_CAPTCHA) == "yes")
         {
             if (empty($_POST["req_captcha"]))
+            {
+                Logs::insertLog(2, Session::getUsername());
+                
                 exit(header("location: " . $this->getErrorLocationPrefix() . Locales::getErrorLink("captcha-error")));
+            }
             else if (!Captcha::respondToChallenge($_POST["req_captcha"]))
+            {
+                Logs::insertLog(3, Session::getUsername());
+                
                 exit(header("location: " . $this->getErrorLocationPrefix() . Locales::getErrorLink("captcha-error")));
+            }
         }
     }
     

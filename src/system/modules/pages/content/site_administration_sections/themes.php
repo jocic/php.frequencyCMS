@@ -301,7 +301,7 @@ if ($varStyles != null)
         // "Row Style" Temp Element Settings.
         
         $tempRowStyle->addCell(new FTableCell(null, "table-cell-1", $varStyle["id"]));
-        $tempRowStyle->addCell(new FTableCell(null, "table-cell-2", $varStyle["name"]));
+        $tempRowStyle->addCell(new FTableCell(null, "table-cell-2", "<a title=\"" . Locales::getCore("edit-style") . "\" href=\"" . $varCoreLink . "&" . Locales::getVariable("option") . "=" . Locales::getLink("edit-style") . "&" . Locales::getVariable("id") . "=" . $varStyle["id"] . "\">" . $varStyle["name"] . "</a>"));
         $tempRowStyle->addCell(new FTableCell(null, "table-cell-3", $varEditPrefix . $varStyle["id"] . $varEditSufix . $varDeletePrefix . $varStyle["id"] . $varDeleteSufix));
         
         // Append Elements To "Table Custom CSS" Element.
@@ -434,8 +434,8 @@ if (isset($_GET[Locales::getVariable("option")]))
     {
         $fmCustomCSS->setAction($varCoreLink . "&" . Locales::getVariable("option") . "=" . Locales::getLink("add-style"));
         
-        $divWorkplace->addElement("<script src=\"./system/assets/scripts/ace/ace.js\" type=\"text/javascript\"></script>");
-        $divWorkplace->addElement("<script src=\"./system/assets/scripts/ace/ace_implementation.js\" type=\"text/javascript\"></script>");
+        $divWorkplace->addElement("<script src=\"../../../../system/assets/scripts/ace/ace.js\" type=\"text/javascript\"></script>");
+        $divWorkplace->addElement("<script src=\"../../../../system/assets/scripts/ace/ace_implement_css.js\" type=\"text/javascript\"></script>");
         $divWorkplace->addElement($hdAddCustomCSS);
         $divWorkplace->addElement($fmCustomCSS);
     }
@@ -443,8 +443,8 @@ if (isset($_GET[Locales::getVariable("option")]))
     {
         $fmCustomCSS->setAction($varCoreLink . "&" . Locales::getVariable("option") . "=" . Locales::getLink("edit-style") . "&" . Locales::getVariable("id") . "=" . $_GET[Locales::getVariable("id")]);
         
-        $divWorkplace->addElement("<script src=\"./system/assets/scripts/ace/ace.js\" type=\"text/javascript\"></script>");
-        $divWorkplace->addElement("<script src=\"./system/assets/scripts/ace/ace_implementation.js\" type=\"text/javascript\"></script>");
+        $divWorkplace->addElement("<script src=\"../../../../system/assets/scripts/ace/ace.js\" type=\"text/javascript\"></script>");
+        $divWorkplace->addElement("<script src=\"../../../../system/assets/scripts/ace/ace_implement_css.js\" type=\"text/javascript\"></script>");
         $divWorkplace->addElement($hdEditCustomCSS);
         $divWorkplace->addElement($fmCustomCSS);
     }

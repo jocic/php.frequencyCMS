@@ -98,7 +98,7 @@ if ($_GET[$pnv] == Locales::getLink("registration")) // >> Registration << Notic
         
         $parNotice->setContent(Locales::getParagraph("go-home"));
         $parNotice->setLink("/");
-        $parNotice->setLinkTitle(Locales::getTitle("home-page"));
+        $parNotice->setLinkTitle(Locales::getTitle("homepage"));
     }
     else if ($_GET[$nnv] == Locales::getNoticeLink("success")) // "Success" Notice.
     {
@@ -107,7 +107,7 @@ if ($_GET[$pnv] == Locales::getLink("registration")) // >> Registration << Notic
         
         $parNotice->setContent(Locales::getParagraph("go-home"));
         $parNotice->setLink("/");
-        $parNotice->setLinkTitle(Locales::getTitle("home-page"));
+        $parNotice->setLinkTitle(Locales::getTitle("homepage"));
     }
     else // Unknown Notice.
     {
@@ -116,7 +116,7 @@ if ($_GET[$pnv] == Locales::getLink("registration")) // >> Registration << Notic
         
         $parNotice->setContent(Locales::getParagraph("go-home"));
         $parNotice->setLink("/");
-        $parNotice->setLinkTitle(Locales::getTitle("home-page"));
+        $parNotice->setLinkTitle(Locales::getTitle("homepage"));
     }
 }
 else if ($_GET[$pnv] == Locales::getLink("log-in")) // >> Log-In << Notices.
@@ -128,7 +128,7 @@ else if ($_GET[$pnv] == Locales::getLink("log-in")) // >> Log-In << Notices.
         
         $parNotice->setContent(Locales::getParagraph("go-home"));
         $parNotice->setLink("/");
-        $parNotice->setLinkTitle(Locales::getTitle("home-page"));
+        $parNotice->setLinkTitle(Locales::getTitle("homepage"));
     }
     else if ($_GET[$nnv] == Locales::getNoticeLink("success")) // "Success" Notice.
     {
@@ -137,7 +137,7 @@ else if ($_GET[$pnv] == Locales::getLink("log-in")) // >> Log-In << Notices.
         
         $parNotice->setContent(Locales::getParagraph("go-home"));
         $parNotice->setLink("/");
-        $parNotice->setLinkTitle(Locales::getTitle("home-page"));
+        $parNotice->setLinkTitle(Locales::getTitle("homepage"));
     }
     else // Unknown Notice.
     {
@@ -146,7 +146,7 @@ else if ($_GET[$pnv] == Locales::getLink("log-in")) // >> Log-In << Notices.
         
         $parNotice->setContent(Locales::getParagraph("go-home"));
         $parNotice->setLink("/");
-        $parNotice->setLinkTitle(Locales::getTitle("home-page"));
+        $parNotice->setLinkTitle(Locales::getTitle("homepage"));
     }
 }
 else if ($_GET[$pnv] == Locales::getLink("log-out")) // >> Log-Out << Notices.
@@ -158,7 +158,7 @@ else if ($_GET[$pnv] == Locales::getLink("log-out")) // >> Log-Out << Notices.
         
         $parNotice->setContent(Locales::getParagraph("go-home"));
         $parNotice->setLink("/");
-        $parNotice->setLinkTitle(Locales::getTitle("home-page"));
+        $parNotice->setLinkTitle(Locales::getTitle("homepage"));
     }
     else if ($_GET[$nnv] == Locales::getNoticeLink("already-logged-out")) // "Already Logged Out" Notice.
     {
@@ -167,7 +167,7 @@ else if ($_GET[$pnv] == Locales::getLink("log-out")) // >> Log-Out << Notices.
         
         $parNotice->setContent(Locales::getParagraph("go-home"));
         $parNotice->setLink("/");
-        $parNotice->setLinkTitle(Locales::getTitle("home-page"));
+        $parNotice->setLinkTitle(Locales::getTitle("homepage"));
     }
     else // Unknown Notice.
     {
@@ -176,7 +176,7 @@ else if ($_GET[$pnv] == Locales::getLink("log-out")) // >> Log-Out << Notices.
         
         $parNotice->setContent(Locales::getParagraph("go-home"));
         $parNotice->setLink("/");
-        $parNotice->setLinkTitle(Locales::getTitle("home-page"));
+        $parNotice->setLinkTitle(Locales::getTitle("homepage"));
     }
 }
 else if ($_GET[$pnv] == Locales::getLink("resend-activation-email")) // >> Resend Activation Email << Notices.
@@ -188,7 +188,7 @@ else if ($_GET[$pnv] == Locales::getLink("resend-activation-email")) // >> Resen
         
         $parNotice->setContent(Locales::getParagraph("go-home"));
         $parNotice->setLink("/");
-        $parNotice->setLinkTitle(Locales::getTitle("home-page"));
+        $parNotice->setLinkTitle(Locales::getTitle("homepage"));
     }
     else if ($_GET[$nnv] == Locales::getNoticeLink("already-activated")) // "Already Activated" Notice.
     {
@@ -197,7 +197,7 @@ else if ($_GET[$pnv] == Locales::getLink("resend-activation-email")) // >> Resen
         
         $parNotice->setContent(Locales::getParagraph("go-home"));
         $parNotice->setLink("/");
-        $parNotice->setLinkTitle(Locales::getTitle("home-page"));
+        $parNotice->setLinkTitle(Locales::getTitle("homepage"));
     }
     else // Unknown Notice.
     {
@@ -206,7 +206,7 @@ else if ($_GET[$pnv] == Locales::getLink("resend-activation-email")) // >> Resen
         
         $parNotice->setContent(Locales::getParagraph("go-home"));
         $parNotice->setLink("/");
-        $parNotice->setLinkTitle(Locales::getTitle("home-page"));
+        $parNotice->setLinkTitle(Locales::getTitle("homepage"));
     }
 }
 else if ($_GET[$pnv] == Locales::getLink("account-recovery")) // >> Account Recovery << Errors.
@@ -218,7 +218,7 @@ else if ($_GET[$pnv] == Locales::getLink("account-recovery")) // >> Account Reco
         
         $parNotice->setContent(Locales::getParagraph("go-home"));
         $parNotice->setLink("/");
-        $parNotice->setLinkTitle(Locales::getTitle("home-page"));
+        $parNotice->setLinkTitle(Locales::getTitle("homepage"));
     }
     else if ($_GET[$nnv] == Locales::getNoticeLink("success")) // "Success" Notice.
     {
@@ -227,7 +227,7 @@ else if ($_GET[$pnv] == Locales::getLink("account-recovery")) // >> Account Reco
         
         $parNotice->setContent(Locales::getParagraph("go-home"));
         $parNotice->setLink("/");
-        $parNotice->setLinkTitle(Locales::getTitle("home-page"));
+        $parNotice->setLinkTitle(Locales::getTitle("homepage"));
     }
     else // Unknown Notice.
     {
@@ -236,7 +236,7 @@ else if ($_GET[$pnv] == Locales::getLink("account-recovery")) // >> Account Reco
         
         $parNotice->setContent(Locales::getParagraph("go-home"));
         $parNotice->setLink("/");
-        $parNotice->setLinkTitle(Locales::getTitle("home-page"));
+        $parNotice->setLinkTitle(Locales::getTitle("homepage"));
     }
 }
 else if ($_GET[$pnv] == Locales::getLink("activate-account")) // >> Account Activation << Notices.
@@ -248,7 +248,7 @@ else if ($_GET[$pnv] == Locales::getLink("activate-account")) // >> Account Acti
         
         $parNotice->setContent(Locales::getParagraph("go-home"));
         $parNotice->setLink("/");
-        $parNotice->setLinkTitle(Locales::getTitle("home-page"));
+        $parNotice->setLinkTitle(Locales::getTitle("homepage"));
     }
     else if ($_GET[$nnv] == Locales::getNoticeLink("success")) // "Success" Notice.
     {
@@ -257,7 +257,7 @@ else if ($_GET[$pnv] == Locales::getLink("activate-account")) // >> Account Acti
         
         $parNotice->setContent(Locales::getParagraph("go-home"));
         $parNotice->setLink("/");
-        $parNotice->setLinkTitle(Locales::getTitle("home-page"));
+        $parNotice->setLinkTitle(Locales::getTitle("homepage"));
     }
     else if ($_GET[$nnv] == Locales::getNoticeLink("already-activated")) // "Already Activated" Notice.
     {
@@ -266,7 +266,7 @@ else if ($_GET[$pnv] == Locales::getLink("activate-account")) // >> Account Acti
         
         $parNotice->setContent(Locales::getParagraph("go-home"));
         $parNotice->setLink("/");
-        $parNotice->setLinkTitle(Locales::getTitle("home-page"));
+        $parNotice->setLinkTitle(Locales::getTitle("homepage"));
     }
     else // Unknown Notice.
     {
@@ -275,7 +275,7 @@ else if ($_GET[$pnv] == Locales::getLink("activate-account")) // >> Account Acti
         
         $parNotice->setContent(Locales::getParagraph("go-home"));
         $parNotice->setLink("/");
-        $parNotice->setLinkTitle(Locales::getTitle("home-page"));
+        $parNotice->setLinkTitle(Locales::getTitle("homepage"));
     }
 }
 else if ($_GET[$pnv] == Locales::getLink("password-reset")) // >> Password Reset << Notices.
@@ -287,7 +287,7 @@ else if ($_GET[$pnv] == Locales::getLink("password-reset")) // >> Password Reset
         
         $parNotice->setContent(Locales::getParagraph("go-home"));
         $parNotice->setLink("/");
-        $parNotice->setLinkTitle(Locales::getTitle("home-page"));
+        $parNotice->setLinkTitle(Locales::getTitle("homepage"));
     }
     else // Unknown Notice.
     {
@@ -296,7 +296,7 @@ else if ($_GET[$pnv] == Locales::getLink("password-reset")) // >> Password Reset
         
         $parNotice->setContent(Locales::getParagraph("go-home"));
         $parNotice->setLink("/");
-        $parNotice->setLinkTitle(Locales::getTitle("home-page"));
+        $parNotice->setLinkTitle(Locales::getTitle("homepage"));
     }
 }
 else if ($_GET[$pnv] == Locales::getLink("set-language")) // >> Set Language << Notices.
@@ -315,7 +315,7 @@ else if ($_GET[$pnv] == Locales::getLink("set-language")) // >> Set Language << 
         
         $parNotice->setContent(Locales::getParagraph("go-home"));
         $parNotice->setLink("/");
-        $parNotice->setLinkTitle(Locales::getTitle("home-page"));
+        $parNotice->setLinkTitle(Locales::getTitle("homepage"));
     }
 }
 else if ($_GET[$pnv] == Locales::getLink("messages")) // >> Messages << Notices.
@@ -327,7 +327,7 @@ else if ($_GET[$pnv] == Locales::getLink("messages")) // >> Messages << Notices.
         
         $parNotice->setContent(Locales::getParagraph("go-home"));
         $parNotice->setLink("/");
-        $parNotice->setLinkTitle(Locales::getTitle("home-page"));
+        $parNotice->setLinkTitle(Locales::getTitle("homepage"));
     }
     else // Unknown Notice.
     {
@@ -336,7 +336,7 @@ else if ($_GET[$pnv] == Locales::getLink("messages")) // >> Messages << Notices.
         
         $parNotice->setContent(Locales::getParagraph("go-home"));
         $parNotice->setLink("/");
-        $parNotice->setLinkTitle(Locales::getTitle("home-page"));
+        $parNotice->setLinkTitle(Locales::getTitle("homepage"));
     }
 }
 else if ($_GET[$pnv] == Locales::getLink("your-profile")) // >> Your Profile << Notices.
@@ -348,7 +348,7 @@ else if ($_GET[$pnv] == Locales::getLink("your-profile")) // >> Your Profile << 
         
         $parNotice->setContent(Locales::getParagraph("go-home"));
         $parNotice->setLink("/");
-        $parNotice->setLinkTitle(Locales::getTitle("home-page"));
+        $parNotice->setLinkTitle(Locales::getTitle("homepage"));
     }
     else if ($_GET[$nnv] == Locales::getNoticeLink("account-deactivated")) // "Account Deactivated" Notice.
     {
@@ -357,7 +357,7 @@ else if ($_GET[$pnv] == Locales::getLink("your-profile")) // >> Your Profile << 
         
         $parNotice->setContent(Locales::getParagraph("go-home"));
         $parNotice->setLink("/");
-        $parNotice->setLinkTitle(Locales::getTitle("home-page"));
+        $parNotice->setLinkTitle(Locales::getTitle("homepage"));
     }
     else // Unknown Notice.
     {
@@ -366,7 +366,7 @@ else if ($_GET[$pnv] == Locales::getLink("your-profile")) // >> Your Profile << 
         
         $parNotice->setContent(Locales::getParagraph("go-home"));
         $parNotice->setLink("/");
-        $parNotice->setLinkTitle(Locales::getTitle("home-page"));
+        $parNotice->setLinkTitle(Locales::getTitle("homepage"));
     }
 }
 else

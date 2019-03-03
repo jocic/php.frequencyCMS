@@ -111,7 +111,7 @@
 
 #security-icon { background: url(./../../../system/assets/images/administration/security.png) 0 center no-repeat; }
 
-#security-icon:hover { background: url(./../../..//system/assets/images/administration/security.png) -50px center no-repeat; }
+#security-icon:hover { background: url(/./../../../system/assets/images/administration/security.png) -50px center no-repeat; }
 
 #settings-icon { background: url(./../../../system/assets/images/administration/settings.png) 0 center no-repeat; }
 
@@ -211,6 +211,67 @@
 #document-assets { background: url(./../../../system/assets/images/asset_types/document.png) 10px 10px no-repeat; }
 
 #other-assets { background: url(./../../../system/assets/images/asset_types/other.png) 10px 10px no-repeat; }
+
+/* Statistics */
+
+.bar-container
+{
+    background: #ededed;
+    float: left;
+    margin: 10px;
+    padding: 10px 0 10px 10px;
+    border: 1px solid #b3b3b3;
+}
+
+.bar-information
+{
+    margin: 10px 10px 10px 0;
+    float: left;
+}
+
+.bar-holder
+{
+    text-align: center;
+    margin: 0 10px 0 0;
+    float: left;
+}
+
+.bar-1, .bar-2, .bar-3, .bar-4
+{
+    border: 1px solid #333333;
+    width: 50px;
+    margin: 0 0 5px 0;
+    text-indent: -20000px;
+}
+
+.bar-1, .bar-color-1 { background: #cc5754; }
+
+.bar-2, .bar-color-2 { background: #3da5d3; }
+
+.bar-3, .bar-color-3 { background: #9bbb59; }
+
+.bar-4, .bar-color-4 { background: #8064a2; }
+
+.bar-color-1, .bar-color-2, .bar-color-3, .bar-color-4
+{
+    width: 10px;
+    height: 10px;
+    float: left;
+    text-indent: -20000px;
+    border: 1px solid #333333;
+}
+
+.bar-description
+{
+    margin: 0 0 0 5px;
+    line-height: 10px;
+    float: left;
+}
+
+.bar-info-line
+{
+    margin: 0 0 10px 0;
+}
 
 /* Social Icons */
 

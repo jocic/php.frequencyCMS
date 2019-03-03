@@ -87,6 +87,8 @@ class Processor extends PageProcessor
                             InfoAlter::alterLastIP($_SERVER["REMOTE_ADDR"], $usersID);
 
                             Session::start($this->username, $this->password);
+                            
+                            Logs::insertLog(Logs::LC_LOGGED_IN, $this->username);
 
                             exit(header("location: " . $this->getNoticeLocationPrefix() . Locales::getNoticeLink("success")));
                         }
@@ -172,9 +174,17 @@ class Processor extends PageProcessor
         if (Core::get(Core::DEPLOY_CAPTCHA) == "yes")
         {
             if (empty($_POST["req_captcha"]))
+            {
+                Logs::insertLog(2, "/");
+                
                 exit(header("location: " . $this->getErrorLocationPrefix() . Locales::getErrorLink("captcha-error")));
+            }
             else if (!Captcha::respondToChallenge($_POST["req_captcha"]))
+            {
+                Logs::insertLog(3, "/");
+                
                 exit(header("location: " . $this->getErrorLocationPrefix() . Locales::getErrorLink("captcha-error")));
+            }
         }
     }
 }

@@ -237,6 +237,7 @@ body
 {
     width: 62%;
     text-align: justify;
+    line-height: 20px;
     float: left;
     margin: 0 0 15px 0;
 }
@@ -561,6 +562,7 @@ body
 {
     border: 1px solid #f1f1f1;
     margin: 10px 5px 5px 5px;
+
 }
 
 .page-description h2
@@ -575,7 +577,6 @@ body
 
 .page-description p
 {
-    line-height: 18px;
     text-align: justify;
     padding: 5px;
 }
@@ -707,20 +708,34 @@ body
 .page-comment-holder
 {
     background: #f9f9f9;
-    width: 95%;
+    width: 750px;
+    padding: 5px;
     margin: 0 auto 10px auto;
     border: 1px solid #d5d5d5;
 }
 
+.comment-profile-image
+{
+    float: left;
+    width: 100px;
+    height: 100px;
+    border: 1px solid #d5d5d5;
+    margin: 0 5px 0 0;
+    padding: 0;
+    text-indent: -20000px;
+}
+
 .comment-poster
 {
+    width: 643px;
     font-weight: bold;
-    padding: 5px;
 }
 
 .comment-content
 {
-    padding: 0 5px 5px 5px;
+    width: 643px;
+    margin: 3px 0 0 0;
+    float: left;
 }
 
 /* Form Stuff */
@@ -738,6 +753,8 @@ body
     padding: 3px;
     border: 2px solid #e5e5e5;
 }
+
+.form-select option { padding: 0 10px 0 0; }
 
 .default-form .form-button
 {
@@ -833,13 +850,20 @@ body
     width: 250px;
 }
 
-#users-avatar
+#users-avatar-holder #users-avatar
 {   
+    background: #f1f1f1;
     width: 150px;
     height: 150px;
     text-indent: -20000px;
     margin: 10px auto 0 auto;
     border: 1px solid #d5d5d5;
+}
+
+#users-avatar-holder input
+{
+    width: 180px;
+    margin: 15px 0 0 0;
 }
 
 #users-email-address #email-address-title,

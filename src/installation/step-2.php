@@ -38,6 +38,27 @@ define("DOC_ROOT", dirname(__FILE__). DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEP
 
 @session_start();
 
+// Set Locales
+
+if (empty($_SESSION["install_lang"])) // Default - English.
+    $_SESSION["install_lang"] = "en";
+else if ($_SESSION["install_lang"] == "rs") // Serbian.
+    $_SESSION["install_lang"] = "rs";
+else if ($_SESSION["install_lang"] == "de") // German.
+    $_SESSION["install_lang"] = "de";
+else if ($_SESSION["install_lang"] == "it") // Italian.
+    $_SESSION["install_lang"] = "it";
+else if ($_SESSION["install_lang"] == "ru") // Russian.
+    $_SESSION["install_lang"] = "ru";
+else if ($_SESSION["install_lang"] == "gr") // Greek.
+    $_SESSION["install_lang"] = "gr";
+else
+    $_SESSION["install_lang"] = "en"; // If there was an error - English.
+
+// Include Selected Locale.
+
+require_once "./locales/" . $_SESSION["install_lang"] . "_locales.php";
+
 // Check Installation Step And Reddirect.
 
 if (empty($_SESSION["step"]))
@@ -76,21 +97,21 @@ require_once DOC_ROOT .
 
 // Create "Core" Variables.
 
-$varHeadTitle   = "frequencyCMS » Free And Open Source CMS « frequency-cms.com";
-$varPageTitle   = "frequencyCMS Installation";
-$varStep        = "Step #2";
-$varDescrTitle  = "Introduction";
-$varParaOne     = "Thank you for downloading <strong>frequencyCMS</strong> - a <i>free and open source</i> content management system written in <strong>PHP</strong>! By doing that you have contributed to the promotion and spreading of a free and open-source software in general. I hope that this powerful tool for creating dynamic web sites, presentations and portals serves you well and for a long time!";
-$varParaTwo     = "If you encounter any problem with the system, please contact me and I will do my best to fix it in the next update. I can guarantee you that any bug or issue, you or any other user, encounter will be fixed sooner or later. Also if you have some neat ideas or suggestions please send them over, I always like to hear them!";
-$varParaThree   = "Since <strong>frequencyCMS</strong> is free I would greatly appreciate your support. You can support further development of <strong>frequencyCMS</strong> financially or \"morally\" - check the banners on the right side. Currently, because of a country I am living in, I can not accept direct donations so affiliate programs are the only way you can support me. For more information check the official web site.";
+$varHeadTitle   = $LCL_INSTALL["title-html"];
+$varPageTitle   = $LCL_INSTALL["title-main"];
+$varStep        = $LCL_INSTALL["step"] . " #2";
+$varDescrTitle  = $LCL_INSTALL["subtitle-intro"];
+$varParaOne     = $LCL_INSTALL["para-1"];
+$varParaTwo     = $LCL_INSTALL["para-2"];
+$varParaThree   = $LCL_INSTALL["para-3"];
 $varParaFour    = "<strong>- frequencyCMS Developer</strong>";
-$varContTitle   = "Installation";
-$varParaFive    = "If you have read the introduction, click on the button bellow.";
-$varButtonValue = "Next";
-$varSupportOne  = "frequencyCMS Support #1";
-$varSupportTwo  = "frequencyCMS Support #2";
-$varSuppInfoOne = "<strong>Support</strong> frequencyCMS financially!";
-$varSuppInfoTwo = "<strong>Support</strong> frequencyCMS morally!";
+$varContTitle   = $LCL_INSTALL["subtitle-install"];
+$varParaFive    = $LCL_INSTALL["para-concl-2"];
+$varButtonValue = $LCL_INSTALL["next"];
+$varSupportOne  = $LCL_INSTALL["freq-support"] . " #1";
+$varSupportTwo  = $LCL_INSTALL["freq-support"] ." #2";
+$varSuppInfoOne = "<strong>" . $LCL_INSTALL["support"] . "</strong> " . $LCL_INSTALL["freq-financially"];
+$varSuppInfoTwo = "<strong>" . $LCL_INSTALL["support"] . "</strong> " . $LCL_INSTALL["freq-morally"];
 $varBannerOne   = "<a href=\"http://www.fatcow.com/join/index.bml?AffID=727583\" title=\"FatCow Hosting! THE BEST!\"><img src=\"./assets/images/fatcow.png\" border=\"0\" alt=\"Get Best Hosting In Teh World!\" /></a>";
 $varBannerTwo   = "<a href=\"http://signup.leagueoflegends.com/?ref=52271a33c1464409534193\" title=\"Play League Of Legends!\"><img src=\"./assets/images/lol.png\" border=\"0\" alt=\"Play The Best Game In Teh World!\" /></a>";
 

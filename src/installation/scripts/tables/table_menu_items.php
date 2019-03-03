@@ -78,7 +78,7 @@ $tblMenuItems->addColumn
     new EasyColumn
     (
         ColumnName::useName("type"),
-        ColumnType::useEnum("0, 1, 2, 3, 4"),
+        ColumnType::useEnum("0, 1, 2, 3, 4, 5"),
         ColumnNull::notAllowed(),
         ColumnValue::useValue("0")
     )

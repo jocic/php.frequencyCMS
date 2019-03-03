@@ -109,7 +109,7 @@ $fmAddAdvert->addItem($tblAddAdvert);
 
 // "Table Add Advert" Element Settings.
 
-$tblAddAdvert->setID("add-advert-table");
+$tblAddAdvert->setID("site-advert-table");
 $tblAddAdvert->setClass("default-admin-table");
 
 $tblAddAdvert->addRow($rowName);
@@ -121,25 +121,35 @@ $tblAddAdvert->addRow($rowSubmit);
 
 // "Row Name" Element Settings.
 
+$rowName->setID("advert-name");
+
 $rowName->addCell(new FTableCell(null, null, new FLabel("name", Locales::getCore("name"))));
 $rowName->addCell(new FTableCell(null, null, $inpName));
 
 // "Row Content" Element Settings.
 
-$rowContent->addCell(new FTableCell(null, null, new FLabel("content", Locales::getCore("content"))));
-$rowContent->addCell(new FTableCell(null, null, $inpContent));
+$rowContent->setID("advert-content");
+
+$rowContent->addCell(new FTableCell("advert-content-title", null, new FLabel("content", Locales::getCore("content"))));
+$rowContent->addCell(new FTableCell("advert-content-editor", null, $inpContent));
 
 // "Row ID" Element Settings.
+
+$rowID->setID("advert-css-id");
 
 $rowID->addCell(new FTableCell(null, null, new FLabel("css-id", Locales::getCore("css-id"))));
 $rowID->addCell(new FTableCell(null, null, $inpID));
 
 // "Row Class" Element Settings.
 
+$rowClass->setID("advert-css-class");
+
 $rowClass->addCell(new FTableCell(null, null, new FLabel("css-class", Locales::getCore("css-class"))));
 $rowClass->addCell(new FTableCell(null, null, $inpClass));
 
 // "Row Section" Element Settings.
+
+$rowSection->setID("advert-section");
 
 $rowSection->addCell(new FTableCell(null, null, new FLabel("section", Locales::getCore("section"))));
 $rowSection->addCell(new FTableCell(null, null, $selSection));
@@ -228,6 +238,9 @@ $btnSubmit->setType(FButton::TP_SUBMIT);
 $btnSubmit->setContent(Locales::getCore("add"));
 
 // Append Elements To "Workplace".
+
+$divWorkplace->addElement("<script src=\"../../../../system/assets/scripts/ace/ace.js\" type=\"text/javascript\"></script>");
+$divWorkplace->addElement("<script src=\"../../../../system/assets/scripts/ace/ace_implement_advert.js\" type=\"text/javascript\"></script>");
 
 $divWorkplace->addElement($hdAddAdvert);
 $divWorkplace->addElement($fmAddAdvert);

@@ -194,12 +194,12 @@ if ($varAssets != null)
         // "Temp Row Three" Element Settings.
 
         $tmpRowThree->addCell(new FTableCell(null, null, "<strong>" . Locales::getCore("html-object") . ":</strong>"));
-        $tmpRowThree->addCell(new FTableCell(null, null, "<textarea><img src=\"" . $varAssetLink . $asset["filename"] . "\" border=\"0\" /></textarea>"));
+        $tmpRowThree->addCell(new FTableCell(null, null, "<input type='text' value='<object data=\"" . $varAssetLink . $asset["filename"] . "\" height=\"50\" width=\"150\" border=\"1\"></object>' />"));
 
         // "Temp Row Four" Element Settings.
 
         $tmpRowFour->addCell(new FTableCell(null, null, "<strong>" . Locales::getCore("asset-link") . ":</strong>"));
-        $tmpRowFour->addCell(new FTableCell(null, null, "<textarea><a href=\"" . $varAssetLink . $asset["filename"] . "\" target=\"_blank\">Link</a></textarea>"));
+        $tmpRowFour->addCell(new FTableCell(null, null, "<input type='text' value='<a href=\"" . $varAssetLink . $asset["filename"] . "\" target=\"_blank\">Link</a>' />"));
 
         // "Temp Row Four" Element Settings.
 

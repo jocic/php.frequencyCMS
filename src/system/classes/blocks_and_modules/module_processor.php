@@ -57,7 +57,12 @@ class ModuleProcessor
     
     public function getLocation()
     {
-        return DOC_ROOT . "/modules/" . $this->name;
+        if (file_exists(DOC_ROOT . "/system/modules/" . $this->name))
+            $varLocation = DOC_ROOT . "/system/modules/" . $this->name;
+        else if (file_exists(DOC_ROOT . "/modules/" . $this->name))
+            $varLocation = DOC_ROOT . "/modules/" . $this->name;
+        
+        return $varLocation;
     }
     
     // "Main" Methods.

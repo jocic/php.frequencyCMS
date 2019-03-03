@@ -103,15 +103,6 @@ EasyInsert::execute
     new ValueSelection(array("side-2", "3", "language", "1"))
 );
 
-// Row "Latest Pages".
-
-EasyInsert::execute
-(
-    new TableSelection("modules"),
-    new ColumnSelection("block", "position", "name", "status"),
-    new ValueSelection(array("custom-1", "1", "latest_pages", "1"))
-);
-
 // Row "Footer".
 
 EasyInsert::execute
